@@ -3,5 +3,5 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Mian-Weeding/',
+  base: process.env.GITHUB_ACTIONS ? '/Mian-Weeding/' : '/',
 })

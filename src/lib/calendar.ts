@@ -4,9 +4,9 @@ const CEREMONY_END_UTC = "20261024T183000Z";
 const CALENDAR_EVENT = {
   title: "Fatima & Taimoor Wedding — The Holy Ceremony",
   details:
-    "Sunset exchange of vows at Villa Gamberaia, Settignano. Auspicious Twilight Muhurtham • Water Parterre Gardens.",
+    "Nikkah ceremony at Bahawalpur Royal Marquee, Multan road, near PSO Petrol Pump.",
   location:
-    "Villa Gamberaia, Via del Rossellino 72, 50135 Settignano FI, Italy",
+    "Bahawalpur Royal Marquee, Multan road, near PSO Petrol Pump, Bahawalpur, Punjab, Pakistan",
 };
 
 export function googleCalendarUrl(): string {

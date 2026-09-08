@@ -1,58 +1,102 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import weddingSong from "./assets/refined-afternoon-wedding-song.mp3";
 import { Countdown } from "./components/Countdown";
-import { DateReveal } from "./components/DateReveal";
-import { DressCode } from "./components/DressCode";
 import { Footer } from "./components/Footer";
-import { Guestbook } from "./components/Guestbook";
 import { HeartReveal } from "./components/HeartReveal";
 import { Hero } from "./components/Hero";
 import { InvitationGate } from "./components/InvitationGate";
+import { LanguageButton } from "./components/LanguageButton";
 import { MusicButton } from "./components/MusicButton";
-import { OurStory } from "./components/OurStory";
-import { RsvpSection } from "./components/RsvpSection";
-import { Timeline } from "./components/Timeline";
 import { Venue } from "./components/Venue";
+import { LanguageProvider } from "./lib/i18n";
+
+const MUSIC_LIMIT_MS = 45_000;
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const stopTimerRef = useRef<number | null>(null);
 
-  if (!isOpen) {
-    return (
-      <div className="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen">
-        <InvitationGate onOpen={() => setIsOpen(true)} />
-      </div>
-    );
+  function clearStopTimer() {
+    if (stopTimerRef.current == null) {
+      return;
+    }
+    window.clearTimeout(stopTimerRef.current);
+    stopTimerRef.current = null;
   }
 
+  function stopMusic() {
+    const audio = audioRef.current;
+    clearStopTimer();
+    if (!audio) {
+      return;
+    }
+    audio.pause();
+    audio.currentTime = 0;
+    setIsPlaying(false);
+  }
+
+  function scheduleStop() {
+    clearStopTimer();
+    stopTimerRef.current = window.setTimeout(stopMusic, MUSIC_LIMIT_MS);
+  }
+
+  function playMusic() {
+    const audio = audioRef.current;
+    if (!audio) {
+      return;
+    }
+    void audio
+      .play()
+      .then(() => {
+        setIsPlaying(true);
+        scheduleStop();
+      })
+      .catch(() => setIsPlaying(false));
+  }
+
+  function toggleMusic() {
+    const audio = audioRef.current;
+    if (!audio) {
+      return;
+    }
+    if (audio.paused) {
+      playMusic();
+    } else {
+      stopMusic();
+    }
+  }
+
+  useEffect(() => () => clearStopTimer(), []);
+
   return (
-    <div className="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container min-h-screen">
-      <main className="w-full bg-surface relative min-h-screen">
-        <div className="flex flex-col w-full">
-          <div className="relative w-full overflow-hidden pointer-events-none">
-            <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-secondary-container/40 rounded-full blur-[140px] -z-10" />
-            <div className="absolute top-80 right-10 w-[420px] h-[420px] bg-primary-fixed/30 rounded-full blur-[110px] -z-10" />
-          </div>
-          <Hero />
-          <HeartReveal />
-          <DateReveal />
-          <Countdown />
-          <OurStory />
-          <Timeline />
-          <Venue />
-          <DressCode />
-          <section
-            id="rsvp-guestbook"
-            className="w-full max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop py-space-2xl scroll-mt-20"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
-              <RsvpSection />
-              <Guestbook />
+    <LanguageProvider>
+      <audio ref={audioRef} src={weddingSong} preload="auto" />
+      {isOpen ? (
+        <div className="bg-surface font-sans text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen">
+          <main className="w-full bg-surface relative min-h-screen">
+            <MusicButton isPlaying={isPlaying} onToggle={toggleMusic} />
+            <LanguageButton />
+            <div className="flex flex-col w-full">
+              <Hero onVideoPlaying={() => setVideoReady(true)} />
+              <HeartReveal />
+              <Countdown />
+              <Venue />
             </div>
-          </section>
+          </main>
+          <Footer />
         </div>
-        <MusicButton variant="fab" />
-      </main>
-      <Footer />
-    </div>
+      ) : null}
+      {!isOpen || !videoReady ? (
+        <InvitationGate
+          onOpen={() => {
+            playMusic();
+            setIsOpen(true);
+          }}
+        />
+      ) : null}
+    </LanguageProvider>
   );
 }

@@ -28,13 +28,10 @@ export function Guestbook() {
   return (
     <div className="lg:col-span-5 flex flex-col">
       <div className="mb-space-md">
-        <span className="font-label-caps text-label-caps text-primary uppercase">
-          The Guestbook
-        </span>
-        <h3 className="font-headline-sm text-headline-sm text-on-surface mt-space-3xs">
+        <h3 className="font-script text-primary text-3xl md:text-4xl">
           Blessings &amp; Well Wishes
         </h3>
-        <p className="font-body-sm text-body-sm text-on-surface-variant mt-space-3xs">
+        <p className="font-elegant italic text-sm text-on-surface-variant mt-space-3xs">
           Leave your warm words for the couple to treasure forever.
         </p>
       </div>

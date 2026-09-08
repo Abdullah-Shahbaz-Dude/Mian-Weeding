@@ -7,6 +7,7 @@ import {
   type KeyboardEvent,
   type PointerEvent,
 } from "react";
+import { fireHeartConfetti } from "../lib/confetti";
 
 export const HEART_PATH =
   "M50 88.5 C22 68 4 50.5 4 31.5 C4 16.8 15.8 8 28.6 8 C37.2 8 45.1 12.4 50 19.4 C54.9 12.4 62.8 8 71.4 8 C84.2 8 96 16.8 96 31.5 C96 50.5 78 68 50 88.5 Z";
@@ -73,14 +74,14 @@ function paintFoil(
   ctx.fillRect(0, 0, cssW, cssH);
 
   ctx.fillStyle = "rgba(255,255,255,0.78)";
-  ctx.font = "700 22px 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif";
+  ctx.font = "700 22px Montserrat, sans-serif";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.shadowColor = "rgba(0,0,0,0.2)";
   ctx.shadowBlur = 4;
   ctx.fillText("SCRATCH", cssW / 2, cssH * 0.44);
   ctx.shadowBlur = 0;
-  ctx.font = "600 13px 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif";
+  ctx.font = "600 13px Montserrat, sans-serif";
   ctx.fillStyle = "rgba(255,255,255,0.62)";
   ctx.fillText("the heart", cssW / 2, cssH * 0.53);
 
@@ -251,6 +252,7 @@ export function HeartScratchCard({
     revealedRef.current = true;
     setRevealed(true);
     setProgress(100);
+    fireHeartConfetti();
     const canvas = canvasRef.current;
     if (canvas) {
       canvas.style.opacity = "0";
@@ -342,7 +344,7 @@ export function HeartScratchCard({
         }}
       >
         <div className="flex h-full flex-col items-center justify-center gap-2 px-10 pb-6 pt-4 text-center">
-          <span
+          {/* <span
             className="flex h-10 w-10 items-center justify-center rounded-full border"
             style={{
               borderColor: `${accentColor}33`,
@@ -357,25 +359,27 @@ export function HeartScratchCard({
             >
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
-          </span>
+          </span> */}
           <span
-            className="text-[11px] font-medium uppercase tracking-[0.22em]"
-            style={{ color: `${accentColor}99` }}
-          >
-            The Couple
-          </span>
-          <span
-            className="font-headline-sm text-headline-sm leading-tight"
+            className="font-calligraphy text-3xl leading-tight"
             style={{ color: accentColor }}
           >
             {names}
           </span>
-          <span className="font-label-subtle text-label-subtle" style={{ color: accentColor }}>
-            {date}
-          </span>
-          <span className="font-body-sm text-body-sm" style={{ color: `${accentColor}cc` }}>
-            {time}
-          </span>
+          <div className="flex flex-col items-center justify-center gap-2 mb-6">
+            <span
+              className="font-serif text-3xl italic "
+              style={{ color: accentColor }}
+            >
+              {date}
+            </span>
+            <span
+              className="font-sans text-lg"
+              style={{ color: `${accentColor}cc` }}
+            >
+              {time}
+            </span>
+          </div>
         </div>
       </div>
 

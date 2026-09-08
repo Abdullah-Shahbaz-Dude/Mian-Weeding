@@ -1,34 +1,35 @@
-import { Icon } from "./Icon";
-
 type MusicButtonProps = {
-  variant: "header" | "fab";
+  isPlaying: boolean;
+  onToggle: () => void;
 };
 
-export function MusicButton({ variant }: MusicButtonProps) {
-  if (variant === "fab") {
-    return (
-      <div className="fixed bottom-space-md right-space-md z-40 md:hidden">
-        <button
-          className="flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_8px_32px_-8px_rgba(45,37,34,0.12)] text-primary"
-          type="button"
-          aria-label="Play Canon in D"
-        >
-          <Icon name="music_note" className="text-[22px]" />
-        </button>
-      </div>
-    );
-  }
-
+export function MusicButton({ isPlaying, onToggle }: MusicButtonProps) {
   return (
-    <button
-      className="hidden md:flex items-center gap-space-2xs px-space-sm py-space-3xs rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all font-label-subtle text-label-subtle"
-      type="button"
-      aria-label="Now playing Canon in D"
-    >
-      <Icon name="music_note" className="text-[16px] text-primary" />
-      <span>Canon in D</span>
-      <span className="text-outline">|</span>
-      <Icon name="volume_up" className="text-[16px]" />
-    </button>
+    <div className="fixed top-5 right-5 z-50">
+      <button
+        aria-label={isPlaying ? "Pause background music" : "Play background music"}
+        title={isPlaying ? "Music Playing" : "Music Paused"}
+        className={`w-10 h-10 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest text-primary shadow-md backdrop-blur-md flex items-center justify-center border border-primary/20 transition-transform active:scale-95 ${
+          isPlaying ? "text-primary-container" : ""
+        }`}
+        type="button"
+        onClick={onToggle}
+      >
+        <svg
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden
+        >
+          <path
+            d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+          />
+        </svg>
+      </button>
+    </div>
   );
 }

@@ -19,7 +19,7 @@ export function Header({ activePath, onNavigate }: HeaderProps) {
             src={couple.monogramSrc}
           />
           <span className="font-headline-sm text-headline-sm tracking-tight text-primary hidden sm:inline-block">
-            {couple.bride} &amp; {couple.groom}
+            {couple.bride} with {couple.groom}
           </span>
         </div>
 
@@ -48,7 +48,7 @@ export function Header({ activePath, onNavigate }: HeaderProps) {
         </nav>
 
         <div className="flex items-center gap-space-xs">
-          <MusicButton variant="header" />
+          <MusicButton isPlaying={false} onToggle={() => undefined} />
           <button
             type="button"
             className="px-space-md py-space-2xs rounded-full bg-primary text-on-primary font-label-subtle text-label-subtle shadow-[0_4px_16px_rgba(212,163,115,0.25)] hover:bg-primary-container hover:text-on-primary-container transition-all"

@@ -1,52 +1,29 @@
-import { couple } from "../data/wedding";
-import { appleCalendarUrl, googleCalendarUrl } from "../lib/calendar";
-import { Icon } from "./Icon";
+import { useLanguage } from "../lib/i18n";
+import { HeartDivider } from "./HeartDivider";
+import { Reveal } from "./Reveal";
 
 export function Footer() {
+  const { lang, t } = useLanguage();
+
   return (
-    <footer className="w-full bg-surface-container-low">
-      <div className="max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop py-space-2xl flex flex-col items-center text-center">
-        <div className="mb-space-sm">
-          <img
-            alt={couple.monogramAlt}
-            className="h-12 w-auto object-contain mx-auto"
-            src={couple.monogramSrc}
-          />
-        </div>
-        <h3 className="font-headline-md text-headline-md text-primary mb-space-2xs">
-          {couple.bride} &amp; {couple.groom}
+    <Reveal>
+    <footer className="relative pb-24 pt-12 px-margin-mobile lg:px-margin-desktop bg-surface-container-low border-t border-primary/10 text-center">
+      <div className="max-w-6xl mx-auto py-10 px-6 relative flex flex-col items-center">
+        <HeartDivider className="w-full max-w-2xl mb-4" />
+        <h3
+          className={`${lang === "ur" ? "font-urdu text-3xl md:text-4xl lg:text-5xl" : "font-calligraphy text-5xl md:text-6xl lg:text-7xl"} text-primary font-normal leading-tight`}
+        >
+          {t.footer}
         </h3>
-        <p className="font-body-lg text-body-lg text-secondary italic mb-space-lg max-w-lg">
-          With heartfelt love from both families, celebrating the start of our
-          eternal chapter together.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-space-sm mb-space-xl">
-          <a
-            className="inline-flex items-center gap-space-2xs px-space-md py-space-2xs rounded-full bg-surface-container text-on-surface font-label-subtle text-label-subtle hover:bg-surface-container-high hover:text-on-surface transition-colors"
-            href={googleCalendarUrl()}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon name="calendar_today" className="text-[18px] text-primary" />
-            Add to Google Calendar
-          </a>
-          <a
-            className="inline-flex items-center gap-space-2xs px-space-md py-space-2xs rounded-full bg-surface-container text-on-surface font-label-subtle text-label-subtle hover:bg-surface-container-high hover:text-on-surface transition-colors"
-            href={appleCalendarUrl()}
-            download="fatima-and-taimoor-ceremony.ics"
-          >
-            <Icon name="event" className="text-[18px] text-primary" />
-            Add to Apple Calendar
-          </a>
-        </div>
-        <div className="w-full max-w-xs h-[1px] bg-gradient-to-r from-transparent via-outline-variant to-transparent mb-space-md" />
-        <div className="flex flex-col sm:flex-row items-center justify-between w-full text-on-surface-variant font-label-caps text-label-caps uppercase">
-          <p>© 2025 {couple.bride} &amp; {couple.groom}. All Rights Reserved.</p>
-          <p className="mt-space-3xs sm:mt-0">
-            Modern Ethereal Romance • Private Celebration
-          </p>
-        </div>
+
+        <HeartDivider className="w-full max-w-md mt-6" />
+      </div>
+      <div className="mt-6 flex flex-col items-center justify-center space-y-1">
+        <span className="font-calligraphy text-primary text-xl md:text-2xl">
+          Mian Kashif Manzoor &amp; Family.
+        </span>
       </div>
     </footer>
+    </Reveal>
   );
 }

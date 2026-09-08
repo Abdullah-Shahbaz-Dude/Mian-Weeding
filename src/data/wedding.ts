@@ -1,13 +1,8 @@
-import type {
-  Blessing,
-  NavItem,
-  PaletteSwatch,
-  TimelineEvent,
-} from "../types";
+import type { Blessing, NavItem, PaletteSwatch, TimelineEvent } from "../types";
 
 export const couple = {
-  bride: "Fatima",
-  groom: "Taimoor",
+  bride: "Fatima Kashif",
+  groom: "Taimoor Asad",
   brideFull: "Fatima Kashif",
   groomFull: "Taimoor Asad",
   monogramAlt: "F & T Wedding Monogram",
@@ -17,13 +12,13 @@ export const couple = {
 
 export const ceremony = {
   weekday: "SATURDAY",
-  displayDate: "OCTOBER 24, 2026",
+  displayDate: "OCTOBER 10, 2026",
   city: "FLORENCE, ITALY",
-  timeLabel: "4:30 PM CET — Sunset Vows",
-  longDate: "Saturday, October 24, 2026",
+  timeLabel: "Saturday",
+  longDate: "Saturday, October 10, 2026",
   venueShort: "VILLA GAMBERAIA • SETTIGNANO",
   muhurtham: "Auspicious Twilight Muhurtham • Water Parterre Gardens",
-  targetMs: new Date("October 24, 2026 16:30:00 GMT+0100").getTime(),
+  targetMs: new Date("October 10, 2026 07:00:00 GMT+5").getTime(),
 } as const;
 
 export const navItems: NavItem[] = [
@@ -49,20 +44,23 @@ export const images = {
   },
   map: {
     src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBfbHUaa5RcaHKwUUmxNY5UCuZS0ufNZw3pQbkmEPjaG5j7-GmEO2QOPsVQIMP0gQZUHDjCew2-jdTZDmezqNskFbsHrWWMohvlEWIVm9wwunBcpa2oIV0PggFcmVMHNT7uMbzLK2VQ4VuADzLxAYFUAMvCBJ6uJeITd5KwiQpj2VA575L_i5LyrjUoB6uVF127RcuL-RmaUYHCDdomn64Ow04pWgupqZt14fQy_fPL6iM1M0PjVLakUw",
-    alt: "Aerial view of Villa Gamberaia gardens in Settignano, Florence",
+    alt: "Map of Bahawalpur Royal Marquee, Bahawalpur, Punjab, Pakistan",
   },
 } as const;
 
 export const venue = {
-  name: "Villa Gamberaia",
-  region: "Settignano • Florence, Tuscany",
-  addressLine: "Via del Rossellino, 72",
-  cityLine: "50135 Settignano FI, Tuscany, Italy",
-  query: "Villa Gamberaia Settignano",
-  googleMaps: "https://maps.google.com/?q=Villa+Gamberaia+Settignano",
-  appleMaps: "http://maps.apple.com/?q=Villa+Gamberaia+Settignano",
+  name: "Bahawalpur Royal Marquee",
+  addressLine: "Bahawalpur, Punjab, Pakistan",
+  cityLine: "Bahawalpur, Punjab, Pakistan",
+  query: "Bahawalpur Royal Marquee",
+  googleMaps: "https://maps.app.goo.gl/qMVgHWyKEtun2pGYA?g_st=iw",
+  appleMaps: "https://maps.apple/p/UGL5mWYc2gyG24",
+  mapsQuery:
+    "Bahawalpur Royal Marquee, Multan road, Bahawalpur, Punjab, Pakistan",
+  /** Google Maps embed zoom: 1 = world, 20 = street. Lower = more zoomed out. */
+  mapsZoom: 13,
   description:
-    "Perched on the rolling hills of Settignano overlooking Florence and the Arno valley, this famed 17th-century historic estate embodies classical Renaissance symmetry and ethereal cypress gardens.",
+    "Multan road, near PSO Petrol Pump, Bahawalpur, Punjab, Pakistan",
   shuttle:
     "Complimentary Mercedes-Benz Sprinter shuttles depart continuously every 45 minutes from Hotel Lungarno (Piazza dei Rossi, Florence) directly to the Villa courtyard.",
 } as const;
@@ -73,22 +71,16 @@ export const timelineEvents: TimelineEvent[] = [
     badge: "DAY 01",
     badgeTone: "muted",
     icon: "wine_bar",
-    datetime: "Friday, Oct 23 • 6:00 PM",
-    title: "Welcome Soirée",
-    description:
-      "Chianti tastings, hand-rolled pasta stations, and live Italian jazz at the Lemon Grove Terrace.",
-    attire: "Cocktail Chic • Linen & Silk",
+    datetime: "7:00 PM",
+    title: "Arrival",
   },
   {
     id: "ceremony",
     badge: "SACRED VOWS",
     badgeTone: "primary",
     icon: "favorite",
-    datetime: "Saturday, Oct 24 • 4:30 PM",
-    title: "The Holy Ceremony",
-    description:
-      "Sunset exchange of vows accompanied by Florence String Quartet among antique fountains and rose colonnades.",
-    attire: "Black Tie & Formal Elegance",
+    datetime: " 08:00 PM",
+    title: "Nikkah ",
     featured: true,
   },
   {
@@ -96,23 +88,18 @@ export const timelineEvents: TimelineEvent[] = [
     badge: "CELEBRATION",
     badgeTone: "muted",
     icon: "nightlife",
-    datetime: "Saturday, Oct 24 • 7:00 PM",
-    title: "Gala Dinner & Dance",
-    description:
-      "Four-course Tuscan banquet under canopy chandeliers followed by twilight dancing and midnight gelato cart.",
-    attire: "Glamorous Eveningwear",
+    datetime: "08:30 PM",
+    title: "Dinner ",
   },
-  {
-    id: "brunch",
-    badge: "FAREWELL",
-    badgeTone: "muted",
-    icon: "bakery_dining",
-    datetime: "Sunday, Oct 25 • 11:00 AM",
-    title: "Farewell Garden Brunch",
-    description:
-      "Bellinis, fresh brioche, and relaxed farewell hugs poolside before departures to Rome and Florence airports.",
-    attire: "Garden Casual Chic",
-  },
+  // {
+  //   id: "brunch",
+  //   badge: "FAREWELL",
+  //   badgeTone: "muted",
+  //   icon: "bakery_dining",
+  //   datetime: "09:45 AM",
+  //   title: "Marquee Closing Time",
+  //   attire: "Casual and Comfortable",
+  // },
 ];
 
 export const palette: PaletteSwatch[] = [

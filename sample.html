@@ -1,0 +1,1113 @@
+<!doctype html>
+
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Wedding Ceremony of Veer &amp; Zara</title>
+    <!-- Tailwind CSS v3 with forms and container queries -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts for Authentic Calligraphy and Luxury Typography -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Great+Vibes&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              burgundy: {
+                DEFAULT: "#882239",
+                dark: "#6f192c",
+                light: "#a6344d",
+                card: "#942b42",
+              },
+              blush: {
+                50: "#fdf7f8",
+                100: "#fbf0f2",
+                200: "#f7dee3",
+                300: "#f0c2cb",
+                400: "#e59fae",
+                500: "#d77c91",
+              },
+            },
+            fontFamily: {
+              script: ['"Great Vibes"', "cursive"],
+              brush: ['"Alex Brush"', "cursive"],
+              serif: ['"Cormorant Garamond"', "serif"],
+              display: ['"Playfair Display"', "serif"],
+              sans: ['"Montserrat"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Custom Typography & Decorative Helpers -->
+    <style data-purpose="typography">
+      .font-calligraphy {
+        font-family: "Great Vibes", cursive;
+      }
+      .font-elegant {
+        font-family: "Cormorant Garamond", serif;
+      }
+      .text-shadow-sm {
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+      }
+      .text-shadow-glow {
+        text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+      }
+    </style>
+    <!-- Decorative Pattern and Scratch Card Canvas -->
+    <style data-purpose="layout-and-effects">
+      /* Subtle plus pattern watermark matching background screenshots */
+      .bg-pattern-cross {
+        background-color: #fbf0f2;
+        background-image: radial-gradient(#d68a98 0.75px, transparent 0.75px);
+        background-size: 26px 26px;
+      }
+
+      /* Scratch-card canvas styling */
+      .scratch-container {
+        position: relative;
+        width: 250px;
+        height: 220px;
+        margin: 0 auto;
+        user-select: none;
+      }
+
+      #scratchCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: crosshair;
+        touch-action: none;
+        border-radius: 50%;
+        transition: opacity 0.5s ease;
+      }
+
+      /* Floating doves keyframe animations */
+      @keyframes flutter {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-12px) rotate(3deg);
+        }
+      }
+      .dove-fly {
+        animation: flutter 6s ease-in-out infinite;
+      }
+      .dove-fly-delayed {
+        animation: flutter 7s ease-in-out 1.5s infinite;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-blush-100 text-[#54212b] font-sans antialiased selection:bg-burgundy selection:text-white"
+  >
+    <!-- BEGIN: AudioToggleFloat -->
+    <!-- Top Right floating music button -->
+    <div class="fixed top-5 right-5 z-50">
+      <button
+        aria-label="Toggle Background Music"
+        class="w-10 h-10 rounded-full bg-white/80 hover:bg-white text-burgundy shadow-md backdrop-blur-md flex items-center justify-center border border-burgundy/20 transition-transform active:scale-95"
+        data-purpose="audio-toggle"
+        id="audioToggleBtn"
+      >
+        <svg
+          class="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewbox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <!-- END: AudioToggleFloat -->
+    <!-- BEGIN: HeroSection -->
+    <!-- Hero Section showing night view, soft curtains, silhouettes and main couple names -->
+    <header
+      class="relative min-h-screen w-full flex flex-col justify-between items-center text-center overflow-hidden bg-gradient-to-b from-[#2b2434] via-[#4d3a4b] to-[#6d4d5a] px-4 py-10 select-none"
+    >
+      <!-- Background Scenic Skyline & Dusk Overlay -->
+      <div
+        class="absolute inset-0 z-0 opacity-70 bg-cover bg-center"
+        style="
+          background-image:
+            radial-gradient(
+              circle at 50% 60%,
+              rgba(220, 170, 175, 0.45),
+              transparent 70%
+            ),
+            linear-gradient(
+              to top,
+              rgba(16, 13, 20, 0.85) 0%,
+              rgba(35, 28, 40, 0.4) 60%,
+              rgba(20, 18, 25, 0.7) 100%
+            );
+        "
+      ></div>
+      <!-- Soft curtain drapes and side rose decor overlays -->
+      <div
+        class="absolute top-0 left-0 w-36 md:w-80 h-full pointer-events-none opacity-45 bg-gradient-to-r from-white/20 via-white/5 to-transparent backdrop-blur-[1px]"
+      ></div>
+      <div
+        class="absolute top-0 right-0 w-36 md:w-80 h-full pointer-events-none opacity-45 bg-gradient-to-l from-white/20 via-white/5 to-transparent backdrop-blur-[1px]"
+      ></div>
+      <!-- Ambient Doves silhouettes -->
+      <div
+        class="absolute top-16 left-1/4 pointer-events-none opacity-50 dove-fly hidden sm:block"
+      >
+        <svg fill="white" height="40" viewbox="0 0 24 24" width="40">
+          <path
+            d="M21.5 5.5c-.8.6-1.9 1-3 1.2.7-.5 1.3-1.2 1.6-2.1-1 .6-2.1 1-3.3 1.3-1-1.1-2.4-1.8-4-1.8-3 0-5.5 2.5-5.5 5.5 0 .4 0 .9.1 1.3-4.6-.2-8.6-2.4-11.3-5.7-.5.8-.7 1.8-.7 2.8 0 1.9 1 3.6 2.5 4.6-.9 0-1.8-.3-2.5-.7v.1c0 2.7 1.9 4.9 4.4 5.4-.5.1-.9.2-1.5.2-.4 0-.7 0-1.1-.1.7 2.2 2.7 3.8 5.1 3.9-1.9 1.5-4.2 2.4-6.8 2.4-.4 0-.9 0-1.3-.1 2.4 1.6 5.3 2.5 8.4 2.5 10.1 0 15.6-8.4 15.6-15.6v-.7c1.1-.8 2-1.8 2.7-2.9z"
+          ></path>
+        </svg>
+      </div>
+      <div
+        class="absolute top-28 right-1/4 pointer-events-none opacity-40 dove-fly-delayed hidden sm:block"
+      >
+        <svg fill="white" height="34" viewbox="0 0 24 24" width="34">
+          <path
+            d="M21.5 5.5c-.8.6-1.9 1-3 1.2.7-.5 1.3-1.2 1.6-2.1-1 .6-2.1 1-3.3 1.3-1-1.1-2.4-1.8-4-1.8-3 0-5.5 2.5-5.5 5.5 0 .4 0 .9.1 1.3-4.6-.2-8.6-2.4-11.3-5.7-.5.8-.7 1.8-.7 2.8 0 1.9 1 3.6 2.5 4.6-.9 0-1.8-.3-2.5-.7v.1c0 2.7 1.9 4.9 4.4 5.4-.5.1-.9.2-1.5.2-.4 0-.7 0-1.1-.1.7 2.2 2.7 3.8 5.1 3.9-1.9 1.5-4.2 2.4-6.8 2.4-.4 0-.9 0-1.3-.1 2.4 1.6 5.3 2.5 8.4 2.5 10.1 0 15.6-8.4 15.6-15.6v-.7c1.1-.8 2-1.8 2.7-2.9z"
+          ></path>
+        </svg>
+      </div>
+      <!-- Centered Hero Texts -->
+      <div
+        class="relative z-10 max-w-2xl mx-auto my-auto flex flex-col items-center"
+      >
+        <!-- White heart emblem -->
+        <div class="text-white/90 text-sm mb-4">
+          <svg
+            class="w-4 h-4 fill-white inline-block drop-shadow"
+            viewbox="0 0 24 24"
+          >
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            ></path>
+          </svg>
+        </div>
+        <p
+          class="font-serif italic text-white/95 text-lg md:text-xl font-light tracking-wide text-shadow-sm"
+        >
+          We are honored to welcome you to
+        </p>
+        <p
+          class="font-serif italic text-white/95 text-base md:text-lg font-light tracking-wide text-shadow-sm"
+        >
+          the Wedding ceremony of..
+        </p>
+        <!-- Decorative Divider with Heart -->
+        <div class="flex items-center justify-center space-x-3 w-48 my-5">
+          <div class="h-[1px] bg-white/50 flex-1"></div>
+          <span class="text-white/80 text-xs">♥</span>
+          <div class="h-[1px] bg-white/50 flex-1"></div>
+        </div>
+        <!-- Groom's Name -->
+        <h1
+          class="font-calligraphy text-white text-7xl md:text-8xl lg:text-9xl leading-tight font-normal text-shadow-glow"
+        >
+          Veer
+        </h1>
+        <!-- Groom's Credentials -->
+        <div
+          class="font-serif text-white/90 text-sm md:text-base space-y-0.5 tracking-wide mt-1 mb-4 text-shadow-sm"
+        >
+          <p>Son of Mr. &amp; Mrs. Khan</p>
+          <p>M.Tech, Phd</p>
+          <p>Software Engineer</p>
+        </div>
+        <!-- Ampersand -->
+        <div
+          class="font-calligraphy text-white/80 text-3xl md:text-4xl my-1 select-none"
+        >
+          &amp;
+        </div>
+        <!-- Bride's Name -->
+        <h2
+          class="font-calligraphy text-white text-7xl md:text-8xl lg:text-9xl leading-tight font-normal text-shadow-glow"
+        >
+          Zara
+        </h2>
+        <!-- Bride's Credentials -->
+        <div
+          class="font-serif text-white/90 text-sm md:text-base space-y-0.5 tracking-wide mt-1 text-shadow-sm"
+        >
+          <p>Daughter of Mr. &amp; Mrs. Pathan</p>
+          <p>B.Tech, MBA</p>
+          <p>Advocate, High Court</p>
+        </div>
+      </div>
+      <!-- Scroll Indicator -->
+      <a
+        aria-label="Scroll Down"
+        class="relative z-10 flex flex-col items-center text-white/70 hover:text-white transition-colors duration-200 mt-8 group"
+        href="#welcome"
+      >
+        <span
+          class="text-[10px] tracking-[0.25em] font-sans uppercase font-medium mb-1"
+          >SCROLL</span
+        >
+        <svg
+          class="w-4 h-4 transform group-hover:translate-y-1 transition-transform"
+          fill="none"
+          stroke="currentColor"
+          viewbox="0 0 24 24"
+        >
+          <path
+            d="M19 9l-7 7-7-7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          ></path>
+        </svg>
+      </a>
+    </header>
+    <!-- END: HeroSection -->
+    <!-- BEGIN: WelcomeAndScratchSection -->
+    <!-- Welcome Note and Glitter Scratch Card -->
+    <section
+      class="relative py-16 px-4 bg-pattern-cross flex flex-col items-center text-center overflow-hidden border-b border-burgundy/10"
+      id="welcome"
+    >
+      <!-- Top delicate divider -->
+      <div class="flex items-center justify-center space-x-3 w-64 mb-6">
+        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+        <span class="text-burgundy text-xs">♥</span>
+        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+      </div>
+      <!-- Welcome Message Paragraph -->
+      <div class="max-w-2xl mx-auto px-4">
+        <p
+          class="font-serif italic text-burgundy text-lg md:text-2xl leading-relaxed font-light"
+        >
+          We are honored to welcome you to the Wedding ceremony of
+          <br class="hidden sm:inline" />
+          <span class="font-medium">Veer &amp; Zara</span> As they begin their
+          journey together in faith and love, <br class="hidden sm:inline" />
+          we thank you for being part of this blessed occasion 🤍
+        </p>
+      </div>
+      <div class="flex items-center justify-center space-x-3 w-32 my-8">
+        <div class="h-[1px] bg-burgundy/25 flex-1"></div>
+        <span class="text-burgundy/60 text-xs">♥</span>
+        <div class="h-[1px] bg-burgundy/25 flex-1"></div>
+      </div>
+      <!-- Scratch to Reveal Header -->
+      <h3
+        class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mt-2 mb-2"
+      >
+        Scratch to Reveal
+      </h3>
+      <!-- Minor divider -->
+      <div class="flex items-center justify-center space-x-3 w-40 mb-8">
+        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+        <span class="text-burgundy text-xs">♥</span>
+        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+      </div>
+      <!-- Scratch-Off Heart Card Container -->
+      <div
+        class="scratch-container flex items-center justify-center my-3"
+        data-purpose="scratch-card-reveal"
+      >
+        <!-- Hidden Message underneath heart -->
+        <div
+          class="w-[220px] h-[200px] flex flex-col items-center justify-center text-center p-4 bg-white/90 rounded-3xl shadow-inner border border-rose-200"
+        >
+          <span
+            class="text-xs uppercase tracking-widest text-burgundy font-semibold mb-1"
+            >Save Our Date</span
+          >
+          <span class="font-serif text-3xl font-bold text-burgundy"
+            >30 . 06 . 2026</span
+          >
+          <span class="font-serif italic text-burgundy text-sm mt-1"
+            >Colaba, Mumbai</span
+          >
+        </div>
+        <!-- Scratch Surface Canvas -->
+        <canvas
+          class="shadow-lg"
+          height="210"
+          id="scratchCanvas"
+          width="230"
+        ></canvas>
+      </div>
+      <p
+        class="text-xs text-burgundy/70 font-sans tracking-wide mt-3 mb-6 italic"
+      >
+        (Rub or drag finger over the heart to uncover our date!)
+      </p>
+      <!-- Save The Date Action Button -->
+      <a
+        class="inline-flex items-center space-x-2 px-6 py-2.5 rounded-full bg-burgundy hover:bg-burgundy-dark text-white text-xs md:text-sm font-medium tracking-wider uppercase shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+        data-purpose="save-the-date-btn"
+        href="#timeline"
+      >
+        <svg
+          class="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewbox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          ></path>
+        </svg>
+        <span>Save The Date</span>
+      </a>
+    </section>
+    <!-- END: WelcomeAndScratchSection -->
+    <!-- BEGIN: CountdownAndTimelineSection -->
+    <!-- Countdown timer and wedding day schedule -->
+    <section
+      class="py-16 px-4 bg-blush-50 flex flex-col items-center text-center border-b border-burgundy/10"
+      id="timeline"
+    >
+      <!-- Countdown Heading -->
+      <h3
+        class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mb-2"
+      >
+        Counting Down to Forever
+      </h3>
+      <div class="flex items-center justify-center space-x-3 w-40 mb-10">
+        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+        <span class="text-burgundy text-xs">♥</span>
+        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+      </div>
+      <!-- Countdown Metric Cards -->
+      <div
+        class="grid grid-cols-4 gap-3 md:gap-6 max-w-xl w-full px-2"
+        data-purpose="countdown-cards"
+      >
+        <!-- Days -->
+        <div
+          class="flex flex-col items-center justify-center p-3 sm:p-5 rounded-lg bg-blush-200/60 border border-burgundy/15 shadow-sm"
+        >
+          <span
+            class="text-2xl sm:text-4xl font-serif font-bold text-burgundy"
+            id="countDays"
+            >21</span
+          >
+          <span
+            class="text-[10px] sm:text-xs tracking-widest text-burgundy/80 font-sans uppercase mt-1"
+            >Days</span
+          >
+        </div>
+        <!-- Hours -->
+        <div
+          class="flex flex-col items-center justify-center p-3 sm:p-5 rounded-lg bg-blush-200/60 border border-burgundy/15 shadow-sm"
+        >
+          <span
+            class="text-2xl sm:text-4xl font-serif font-bold text-burgundy"
+            id="countHours"
+            >20</span
+          >
+          <span
+            class="text-[10px] sm:text-xs tracking-widest text-burgundy/80 font-sans uppercase mt-1"
+            >Hours</span
+          >
+        </div>
+        <!-- Minutes -->
+        <div
+          class="flex flex-col items-center justify-center p-3 sm:p-5 rounded-lg bg-blush-200/60 border border-burgundy/15 shadow-sm"
+        >
+          <span
+            class="text-2xl sm:text-4xl font-serif font-bold text-burgundy"
+            id="countMinutes"
+            >27</span
+          >
+          <span
+            class="text-[10px] sm:text-xs tracking-widest text-burgundy/80 font-sans uppercase mt-1"
+            >Minutes</span
+          >
+        </div>
+        <!-- Seconds -->
+        <div
+          class="flex flex-col items-center justify-center p-3 sm:p-5 rounded-lg bg-blush-200/60 border border-burgundy/15 shadow-sm"
+        >
+          <span
+            class="text-2xl sm:text-4xl font-serif font-bold text-burgundy"
+            id="countSeconds"
+            >22</span
+          >
+          <span
+            class="text-[10px] sm:text-xs tracking-widest text-burgundy/80 font-sans uppercase mt-1"
+            >Seconds</span
+          >
+        </div>
+      </div>
+      <!-- Program Timeline Sub-Section -->
+      <div class="mt-20 flex flex-col items-center w-full max-w-xl">
+        <!-- Clock Icon -->
+        <div class="text-burgundy mb-2">
+          <svg
+            class="h-6 w-6 stroke-[1.5]"
+            fill="none"
+            stroke="currentColor"
+            viewbox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mb-2"
+        >
+          Program Timeline
+        </h3>
+        <div class="flex items-center justify-center space-x-3 w-40 mb-10">
+          <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+          <span class="text-burgundy text-xs">♥</span>
+          <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+        </div>
+        <!-- Vertical Timeline List -->
+        <div
+          class="relative pl-6 border-l-2 border-burgundy/30 space-y-9 text-left w-full max-w-md mx-auto"
+          data-purpose="wedding-program-schedule"
+        >
+          <!-- Event 1: Guest Arrival -->
+          <div class="relative group">
+            <span
+              class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-burgundy rounded-full border-2 border-white ring-2 ring-burgundy/30"
+            ></span>
+            <h4 class="font-serif font-semibold text-lg text-burgundy">
+              Guest Arrival
+            </h4>
+            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
+              Jun 30, 2026, 10:00 AM
+            </p>
+            <p class="text-xs font-serif italic text-burgundy/90 mt-1">
+              We Warmly welcome you.. !
+            </p>
+          </div>
+          <!-- Event 2: Wedding Ceremony -->
+          <div class="relative group">
+            <span
+              class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-burgundy rounded-full border-2 border-white ring-2 ring-burgundy/30"
+            ></span>
+            <h4 class="font-serif font-semibold text-lg text-burgundy">
+              Wedding Ceremony
+            </h4>
+            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
+              Jun 30, 2026, 10:30 AM
+            </p>
+            <p class="text-xs font-serif italic text-burgundy/90 mt-1">
+              Your gracious presence is requested ♥
+            </p>
+          </div>
+          <!-- Event 3: Reception & Feast -->
+          <div class="relative group">
+            <span
+              class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-burgundy rounded-full border-2 border-white ring-2 ring-burgundy/30"
+            ></span>
+            <h4 class="font-serif font-semibold text-lg text-burgundy">
+              Reception &amp; Feast
+            </h4>
+            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
+              Jun 30, 2026, 1:00 PM
+            </p>
+            <p class="text-xs font-serif italic text-burgundy/90 mt-1">
+              Followed by celebratory lunch &amp; blessings
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: CountdownAndTimelineSection -->
+    <!-- BEGIN: VenueSection -->
+    <!-- Taj Mahal Palace Mumbai venue details with delicate monument line illustration -->
+    <section
+      class="py-16 px-4 bg-pattern-cross flex flex-col items-center text-center border-b border-burgundy/10"
+      id="venue"
+    >
+      <!-- Location Pin Icon -->
+      <div class="text-burgundy mb-2">
+        <svg
+          class="h-6 w-6 stroke-[1.5]"
+          fill="none"
+          stroke="currentColor"
+          viewbox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
+      <!-- Venue Heading -->
+      <h3
+        class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mb-2"
+      >
+        Venue
+      </h3>
+      <div class="flex items-center justify-center space-x-3 w-40 mb-6">
+        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+        <span class="text-burgundy text-xs">♥</span>
+        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+      </div>
+      <h4 class="font-serif font-bold text-xl md:text-2xl text-burgundy">
+        The Taj Mahal Palace
+      </h4>
+      <p
+        class="font-sans text-xs md:text-sm text-burgundy/80 mt-1 mb-8 max-w-md"
+      >
+        Apollo Bandar, Colaba, Mumbai, Maharashtra 400001
+      </p>
+      <!-- Palace Delicate Line Art Vector SVG -->
+      <div
+        class="w-full max-w-md my-4 opacity-50 px-4"
+        data-purpose="palace-line-illustration"
+      >
+        <svg
+          class="w-full h-auto stroke-burgundy fill-none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.2"
+          viewbox="0 0 400 120"
+        >
+          <!-- Ground base line -->
+          <line x1="10" x2="390" y1="110" y2="110"></line>
+          <line x1="25" x2="375" y1="115" y2="115"></line>
+          <!-- Main Dome Center -->
+          <path d="M 180 60 Q 200 15 220 60 L 220 110 L 180 110 Z"></path>
+          <path d="M 190 110 L 190 75 Q 200 65 210 75 L 210 110"></path>
+          <line x1="200" x2="200" y1="15" y2="5"></line>
+          <circle class="fill-burgundy" cx="200" cy="5" r="2"></circle>
+          <!-- Left Wing & Pavilion -->
+          <rect height="45" width="60" x="120" y="65"></rect>
+          <path d="M 135 65 Q 150 40 165 65"></path>
+          <line x1="150" x2="150" y1="40" y2="30"></line>
+          <rect height="18" rx="6" width="12" x="135" y="78"></rect>
+          <rect height="18" rx="6" width="12" x="153" y="78"></rect>
+          <rect height="35" width="40" x="80" y="75"></rect>
+          <path d="M 88 75 Q 100 55 112 75"></path>
+          <!-- Right Wing & Pavilion -->
+          <rect height="45" width="60" x="220" y="65"></rect>
+          <path d="M 235 65 Q 250 40 265 65"></path>
+          <line x1="250" x2="250" y1="40" y2="30"></line>
+          <rect height="18" rx="6" width="12" x="235" y="78"></rect>
+          <rect height="18" rx="6" width="12" x="253" y="78"></rect>
+          <rect height="35" width="40" x="280" y="75"></rect>
+          <path d="M 288 75 Q 300 55 312 75"></path>
+          <!-- Minarets -->
+          <rect height="65" width="10" x="55" y="45"></rect>
+          <path d="M 52 45 Q 60 30 68 45"></path>
+          <rect height="65" width="10" x="335" y="45"></rect>
+          <path d="M 332 45 Q 340 30 348 45"></path>
+        </svg>
+      </div>
+      <!-- Google Maps Action Button -->
+      <a
+        class="mt-6 px-6 py-2.5 rounded-md bg-burgundy hover:bg-burgundy-dark text-white text-xs md:text-sm font-medium tracking-wide shadow-md transition-colors"
+        data-purpose="maps-btn"
+        href="https://maps.google.com/?q=The+Taj+Mahal+Palace+Mumbai"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        View on Google Maps
+      </a>
+    </section>
+    <!-- END: VenueSection -->
+    <!-- BEGIN: DressCodeAndPreWeddingSection -->
+    <!-- Dress Code guidelines and traditional pre-wedding functions -->
+    <section
+      class="py-16 px-4 bg-blush-50 flex flex-col items-center text-center border-b border-burgundy/10"
+      id="dresscode-and-events"
+    >
+      <!-- Dress Code Icon -->
+      <div class="text-burgundy mb-2">
+        <svg
+          class="h-7 w-7 stroke-[1.5]"
+          fill="none"
+          stroke="currentColor"
+          viewbox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 4v2m0 0a2 2 0 100 4 2 2 0 000-4zm-7 8l2-4h10l2 4M5 12l2 8h10l2-8M9 20v-4m6 4v-4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
+      <!-- Dress Code Heading -->
+      <h3
+        class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mb-2"
+      >
+        Dress Code
+      </h3>
+      <div class="flex items-center justify-center space-x-3 w-40 mb-10">
+        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+        <span class="text-burgundy text-xs">♥</span>
+        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+      </div>
+      <!-- Dress Code Columns -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-xl w-full px-4 text-center"
+      >
+        <!-- Women Column -->
+        <div class="space-y-2">
+          <h4 class="font-serif font-bold text-lg text-burgundy">Women</h4>
+          <p
+            class="text-xs md:text-sm text-burgundy/80 font-sans leading-relaxed"
+          >
+            Elegant formal attire in pastel or jewel tones
+          </p>
+        </div>
+        <!-- Men Column -->
+        <div class="space-y-2">
+          <h4 class="font-serif font-bold text-lg text-burgundy">Men</h4>
+          <p
+            class="text-xs md:text-sm text-burgundy/80 font-sans leading-relaxed"
+          >
+            Suit or traditional formal wear
+          </p>
+        </div>
+      </div>
+      <!-- Pre-Wedding Events Header -->
+      <div class="mt-20 flex flex-col items-center">
+        <!-- Party Popper Icon -->
+        <div class="text-burgundy mb-2">
+          <svg
+            class="h-6 w-6 stroke-[1.5]"
+            fill="none"
+            stroke="currentColor"
+            viewbox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mb-2"
+        >
+          Pre-Wedding Events
+        </h3>
+        <div class="flex items-center justify-center space-x-3 w-40 mb-10">
+          <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+          <span class="text-burgundy text-xs">♥</span>
+          <div class="h-[1px] bg-burgundy/30 flex-1"></div>
+        </div>
+        <!-- Events List -->
+        <div class="space-y-8 max-w-md w-full text-center">
+          <!-- Event 1: Mahendi -->
+          <div>
+            <h4 class="font-serif font-bold text-lg text-burgundy">Mahendi</h4>
+            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
+              Jun 27, 2026, 9:30 PM
+            </p>
+            <p class="text-xs text-burgundy/75 font-sans mt-0.5">
+              At Bride's House
+            </p>
+          </div>
+          <!-- Event 2: Haldi -->
+          <div>
+            <h4 class="font-serif font-bold text-lg text-burgundy">Haldi</h4>
+            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
+              Jun 28, 2026, 8:30 PM
+            </p>
+            <p class="text-xs text-burgundy/75 font-sans mt-0.5">
+              At Groom's House
+            </p>
+          </div>
+          <!-- Event 3: Sangeet Night -->
+          <div>
+            <h4 class="font-serif font-bold text-lg text-burgundy">Sangeet</h4>
+            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
+              Jun 29, 2026, 8:00 PM
+            </p>
+            <p class="text-xs text-burgundy/75 font-sans mt-0.5">
+              Grand Ballroom, Mumbai
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: DressCodeAndPreWeddingSection -->
+    <!-- BEGIN: RsvpSection -->
+    <!-- Attendance Form and Wishes Message -->
+    <section
+      class="py-16 px-4 bg-pattern-cross flex flex-col items-center"
+      id="rsvp"
+    >
+      <div class="max-w-md w-full bg-transparent">
+        <!-- Attendance Selector -->
+        <div class="mb-4">
+          <label
+            class="block text-xs font-sans text-burgundy font-medium mb-1 text-left"
+            for="attendingSelect"
+          >
+            Will you be attending?
+          </label>
+          <select
+            class="w-full text-xs md:text-sm bg-white border border-burgundy/30 rounded-md py-2.5 px-3 text-burgundy focus:ring-1 focus:ring-burgundy focus:border-burgundy shadow-sm"
+            id="attendingSelect"
+            name="attending"
+          >
+            <option value="">Select...</option>
+            <option value="yes">Joyfully Accept</option>
+            <option value="no">Regretfully Decline</option>
+          </select>
+        </div>
+        <!-- Wishes Textarea -->
+        <div class="mb-6">
+          <label
+            class="block text-xs font-sans text-burgundy font-medium mb-1 text-left"
+            for="messageTextarea"
+          >
+            Your Message
+          </label>
+          <textarea
+            class="w-full text-xs md:text-sm bg-white border border-burgundy/30 rounded-md py-2 px-3 text-burgundy placeholder:text-burgundy/40 focus:ring-1 focus:ring-burgundy focus:border-burgundy shadow-sm resize-none"
+            id="messageTextarea"
+            name="message"
+            placeholder="Write your wishes..."
+            rows="4"
+          ></textarea>
+        </div>
+        <!-- Send Message Button -->
+        <button
+          class="w-full py-2.5 rounded-md bg-burgundy hover:bg-burgundy-dark text-white font-serif text-sm font-medium tracking-wide shadow-md transition-colors"
+          data-purpose="send-rsvp-btn"
+          id="sendMessageBtn"
+          type="button"
+        >
+          Send Message
+        </button>
+        <div
+          class="hidden text-center text-xs text-burgundy font-medium mt-2"
+          id="rsvpSuccessAlert"
+        >
+          Thank you for your blessings and RSVP!
+        </div>
+      </div>
+    </section>
+    <!-- END: RsvpSection -->
+    <!-- BEGIN: ClosingBannerAndFooter -->
+    <!-- Garland Celebration Banner and Footnotes -->
+    <footer
+      class="relative pb-24 pt-12 px-4 bg-blush-50 border-t border-burgundy/10 text-center"
+    >
+      <!-- Decorative Hanging Banner Box -->
+      <div
+        class="max-w-xl mx-auto py-10 px-6 relative flex flex-col items-center"
+      >
+        <!-- Top Garland Wave SVG Line -->
+        <div class="w-full max-w-md opacity-40 mb-4">
+          <svg
+            class="w-full h-auto stroke-burgundy fill-none"
+            stroke-width="1.2"
+            viewbox="0 0 400 40"
+          >
+            <path d="M 0 10 Q 50 30 100 10 T 200 10 T 300 10 T 400 10"></path>
+            <circle class="fill-burgundy" cx="50" cy="20" r="2.5"></circle>
+            <circle class="fill-burgundy" cx="150" cy="20" r="2.5"></circle>
+            <circle class="fill-burgundy" cx="250" cy="20" r="2.5"></circle>
+            <circle class="fill-burgundy" cx="350" cy="20" r="2.5"></circle>
+          </svg>
+        </div>
+        <!-- Heartfelt Closing Heading -->
+        <h3
+          class="font-calligraphy text-burgundy text-4xl md:text-5xl lg:text-6xl font-normal leading-tight"
+        >
+          We can't wait to celebrate with you!
+        </h3>
+        <p class="font-calligraphy text-burgundy/90 text-2xl md:text-3xl mt-4">
+          Veer &amp; Zara
+        </p>
+        <!-- Bottom Garland Wave SVG Line -->
+        <div class="w-full max-w-md opacity-40 mt-6">
+          <svg
+            class="w-full h-auto stroke-burgundy fill-none"
+            stroke-width="1.2"
+            viewbox="0 0 400 40"
+          >
+            <path d="M 0 25 Q 50 5 100 25 T 200 25 T 300 25 T 400 25"></path>
+            <circle class="fill-burgundy" cx="50" cy="15" r="2.5"></circle>
+            <circle class="fill-burgundy" cx="150" cy="15" r="2.5"></circle>
+            <circle class="fill-burgundy" cx="250" cy="15" r="2.5"></circle>
+            <circle class="fill-burgundy" cx="350" cy="15" r="2.5"></circle>
+          </svg>
+        </div>
+      </div>
+      <!-- Attribution & Footer Brand -->
+      <div class="mt-6 flex flex-col items-center justify-center space-y-1">
+        <span class="font-calligraphy text-burgundy text-xl"
+          >Veer &amp; Zara</span
+        >
+        <p class="text-[11px] text-burgundy/70 font-sans">
+          Create your own Invitation on
+          <a
+            class="font-serif italic font-semibold text-amber-700 hover:underline"
+            href="#"
+            >Zareqia</a
+          >
+        </p>
+      </div>
+    </footer>
+    <!-- END: ClosingBannerAndFooter -->
+    <!-- BEGIN: BottomFloatingBadges -->
+    <!-- Language Toggle (Urdu) and Template Action (Use this Design) -->
+    <div class="fixed bottom-4 left-4 z-50">
+      <button
+        class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-white/90 hover:bg-white text-burgundy text-xs font-sans font-medium shadow-md border border-burgundy/20 backdrop-blur-sm transition-all"
+        data-purpose="lang-switcher"
+        id="langUrduBtn"
+        type="button"
+      >
+        <svg
+          class="h-3.5 w-3.5"
+          fill="none"
+          stroke="currentColor"
+          viewbox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          ></path>
+        </svg>
+        <span>Urdu</span>
+      </button>
+    </div>
+    <div class="fixed bottom-4 right-4 z-50">
+      <button
+        class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-[#fdf6e9]/95 hover:bg-white text-[#7d5621] text-xs font-sans font-medium shadow-md border border-[#e5d2b3] backdrop-blur-sm transition-all"
+        data-purpose="use-design-btn"
+        type="button"
+      >
+        <svg
+          class="h-3.5 w-3.5 text-[#b38334]"
+          fill="none"
+          stroke="currentColor"
+          viewbox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          ></path>
+        </svg>
+        <span>Use this Design</span>
+      </button>
+    </div>
+    <!-- END: BottomFloatingBadges -->
+    <!-- BEGIN: InteractiveScratchCardScript -->
+    <script data-purpose="scratch-to-reveal-canvas">
+      document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("scratchCanvas");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        const width = canvas.width;
+        const height = canvas.height;
+
+        // Draw Sparkling Rose-Gold Glitter Heart on Canvas
+        function drawGlitterHeart() {
+          ctx.save();
+          ctx.clearRect(0, 0, width, height);
+
+          // Heart path geometry
+          ctx.beginPath();
+          const topCurveHeight = height * 0.3;
+          ctx.moveTo(width / 2, height * 0.85);
+          // Left side curve
+          ctx.bezierCurveTo(
+            width / 2 - width * 0.45,
+            height * 0.65,
+            width / 2 - width * 0.55,
+            height * 0.2,
+            width / 2 - width * 0.25,
+            height * 0.1,
+          );
+          ctx.bezierCurveTo(
+            width / 2 - width * 0.1,
+            height * 0.05,
+            width / 2,
+            height * 0.2,
+            width / 2,
+            height * 0.32,
+          );
+          // Right side curve
+          ctx.bezierCurveTo(
+            width / 2,
+            height * 0.2,
+            width / 2 + width * 0.1,
+            height * 0.05,
+            width / 2 + width * 0.25,
+            height * 0.1,
+          );
+          ctx.bezierCurveTo(
+            width / 2 + width * 0.55,
+            height * 0.2,
+            width / 2 + width * 0.45,
+            height * 0.65,
+            width / 2,
+            height * 0.85,
+          );
+          ctx.closePath();
+          ctx.clip();
+
+          // Rose-gold gradient base
+          const grad = ctx.createRadialGradient(
+            width * 0.4,
+            height * 0.35,
+            10,
+            width / 2,
+            height / 2,
+            width * 0.55,
+          );
+          grad.addColorStop(0, "#f9c5cc");
+          grad.addColorStop(0.3, "#d88194");
+          grad.addColorStop(0.7, "#b75b70");
+          grad.addColorStop(1, "#812b40");
+          ctx.fillStyle = grad;
+          ctx.fillRect(0, 0, width, height);
+
+          // Shimmer glitter specks
+          for (let i = 0; i < 350; i++) {
+            const x = Math.random() * width;
+            const y = Math.random() * height;
+            const radius = Math.random() * 1.5;
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fillStyle =
+              Math.random() > 0.4
+                ? "rgba(255, 255, 255, 0.75)"
+                : "rgba(255, 220, 230, 0.5)";
+            ctx.fill();
+          }
+
+          ctx.restore();
+        }
+
+        drawGlitterHeart();
+
+        let isDrawing = false;
+
+        function scratch(e) {
+          if (!isDrawing) return;
+          const rect = canvas.getBoundingClientRect();
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          const x = (clientX - rect.left) * (canvas.width / rect.width);
+          const y = (clientY - rect.top) * (canvas.height / rect.height);
+
+          ctx.globalCompositeOperation = "destination-out";
+          ctx.beginPath();
+          ctx.arc(x, y, 16, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        canvas.addEventListener("mousedown", (e) => {
+          isDrawing = true;
+          scratch(e);
+        });
+        window.addEventListener("mouseup", () => {
+          isDrawing = false;
+        });
+        canvas.addEventListener("mousemove", scratch);
+
+        canvas.addEventListener(
+          "touchstart",
+          (e) => {
+            isDrawing = true;
+            scratch(e);
+          },
+          { passive: false },
+        );
+        window.addEventListener("touchend", () => {
+          isDrawing = false;
+        });
+        canvas.addEventListener(
+          "touchmove",
+          (e) => {
+            e.preventDefault();
+            scratch(e);
+          },
+          { passive: false },
+        );
+      });
+    </script>
+    <!-- END: InteractiveScratchCardScript -->
+    <!-- BEGIN: GeneralInteractivityScript -->
+    <!-- Countdown timer simulator, RSVP handler, audio feedback -->
+    <script data-purpose="page-interactivity">
+      document.addEventListener("DOMContentLoaded", () => {
+        // RSVP Send Message confirmation simulation
+        const sendBtn = document.getElementById("sendMessageBtn");
+        const alertMsg = document.getElementById("rsvpSuccessAlert");
+        if (sendBtn && alertMsg) {
+          sendBtn.addEventListener("click", () => {
+            sendBtn.innerText = "Sending...";
+            sendBtn.classList.add("opacity-70");
+            setTimeout(() => {
+              sendBtn.innerText = "Sent Successfully!";
+              sendBtn.classList.remove("opacity-70");
+              sendBtn.classList.add("bg-emerald-800");
+              alertMsg.classList.remove("hidden");
+            }, 600);
+          });
+        }
+
+        // Audio Toggle Simulation
+        const audioBtn = document.getElementById("audioToggleBtn");
+        let isPlaying = false;
+        if (audioBtn) {
+          audioBtn.addEventListener("click", () => {
+            isPlaying = !isPlaying;
+            audioBtn.classList.toggle("text-rose-600", isPlaying);
+            audioBtn.title = isPlaying ? "Music Playing" : "Music Paused";
+          });
+        }
+
+        // Live countdown seconds decrementer simulation
+        const secEl = document.getElementById("countSeconds");
+        if (secEl) {
+          let sec = 22;
+          setInterval(() => {
+            sec--;
+            if (sec < 0) sec = 59;
+            secEl.innerText = sec < 10 ? "0" + sec : sec;
+          }, 1000);
+        }
+      });
+    </script>
+    <!-- END: GeneralInteractivityScript -->
+  </body>
+</html>

@@ -1,62 +1,50 @@
-import { palette } from "../data/wedding";
-import { Icon } from "./Icon";
+import { timelineEvents } from "../data/wedding";
+import { HeartDivider } from "./HeartDivider";
+
+const extraEvents = timelineEvents.filter((event) => !event.featured);
 
 export function DressCode() {
   return (
     <section
       id="dress-code"
-      className="w-full bg-surface-container-low/50 py-space-2xl scroll-mt-20"
+      className="py-16 px-margin-mobile lg:px-margin-desktop bg-surface-container-low/50 flex flex-col items-center text-center border-b border-primary/10 scroll-mt-20"
     >
-      <div className="max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop text-center">
-        <span className="font-label-caps text-label-caps text-primary uppercase">
-          Aesthetic Harmony
-        </span>
-        <h2 className="font-headline-lg text-headline-lg text-on-surface mt-space-3xs">
-          Guest Dress Code &amp; Color Palette
-        </h2>
-        <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto mt-space-2xs">
-          To create a cohesive visual atmosphere in harmony with the Tuscan
-          estate, we gently invite guests to dress in our curated celebration
-          palette.
-        </p>
+      <h3 className="font-calligraphy text-primary text-4xl md:text-5xl font-medium mb-2">
+        Dress Code
+      </h3>
+      <HeartDivider className="w-40 mb-10" />
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-md max-w-3xl mx-auto mt-space-xl">
-          {palette.map((swatch) => (
-            <div
-              key={swatch.hex}
-              className="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center"
-            >
-              <div
-                className="w-16 h-16 rounded-full shadow-inner mb-space-sm"
-                style={{ backgroundColor: swatch.hex }}
-              />
-              <span className="font-title-md text-title-md text-on-surface font-medium text-[16px]">
-                {swatch.name}
-              </span>
-              <span className="font-label-caps text-label-caps text-secondary mt-space-3xs">
-                {swatch.hex}
-              </span>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-xl w-full px-4 text-center">
+        <div className="space-y-2">
+          <h4 className="font-serif font-bold text-lg text-primary">Women</h4>
+          <p className="text-xs md:text-sm text-primary/80 font-sans leading-relaxed">
+            Elegant formal attire in champagne, ivory, sage, or rose dust
+          </p>
+        </div>
+        <div className="space-y-2">
+          <h4 className="font-serif font-bold text-lg text-primary">Men</h4>
+          <p className="text-xs md:text-sm text-primary/80 font-sans leading-relaxed">
+            Suit or traditional formal wear
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-20 flex flex-col items-center w-full">
+        <h3 className="font-calligraphy text-primary text-4xl md:text-5xl font-medium mb-2">
+          Pre-Wedding Events
+        </h3>
+        <HeartDivider className="w-40 mb-10" />
+        <div className="space-y-8 max-w-md w-full text-center">
+          {extraEvents.map((event) => (
+            <div key={event.id}>
+              <h4 className="font-serif font-bold text-lg text-primary">
+                {event.title}
+              </h4>
+              <p className="text-xs text-primary/80 font-sans mt-0.5">
+                {event.datetime}
+              </p>
             </div>
           ))}
-        </div>
-
-        <div className="mt-space-lg flex flex-wrap justify-center gap-space-md text-left max-w-2xl mx-auto">
-          <div className="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container-high/60 backdrop-blur-sm flex-1 min-w-[240px]">
-            <Icon name="check_circle" className="text-primary text-[20px] shrink-0" />
-            <p className="font-body-sm text-body-sm text-on-surface-variant">
-              <strong className="text-on-surface">Ladies:</strong> Full-length
-              formal gowns, refined silhouettes, muted floral embellishments,
-              block heels recommended for ancient stone walkways.
-            </p>
-          </div>
-          <div className="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container-high/60 backdrop-blur-sm flex-1 min-w-[240px]">
-            <Icon name="check_circle" className="text-primary text-[20px] shrink-0" />
-            <p className="font-body-sm text-body-sm text-on-surface-variant">
-              <strong className="text-on-surface">Gentlemen:</strong> Classic
-              tuxedo or dark tailored suit with bow-tie or understated neckwear.
-              Velvet dinner jackets warmly welcomed.
-            </p>
-          </div>
         </div>
       </div>
     </section>

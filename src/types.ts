@@ -25,8 +25,6 @@ export type TimelineEvent = {
   icon: string;
   datetime: string;
   title: string;
-  description: string;
-  attire: string;
   featured?: boolean;
 };
 

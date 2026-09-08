@@ -64,3 +64,25 @@
 .animate-fade-in {
   animation: fade-in 0.8s ease-out both;
 }
+
+.text-shadow-sm {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.font-calligraphy {
+  font-family: "Great Vibes", cursive;
+}
+
+.font-elegant {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.bg-pattern-cross {
+  background-color: #fff1ec;
+  background-image: radial-gradient(#7d562d 0.75px, transparent 0.75px);
+  background-size: 26px 26px;
+}

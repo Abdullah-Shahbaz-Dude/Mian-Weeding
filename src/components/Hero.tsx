@@ -209,7 +209,7 @@ export function Hero({ onVideoStarted }: HeroProps) {
 
   return (
     <section className="relative w-full flex flex-col items-center text-center">
-      <div className="relative w-full h-screen min-h-[70vh] overflow-hidden bg-surface">
+      <div className="relative w-full h-screen min-h-[70vh] overflow-hidden bg-[#fff8f6]">
         {heroBackdrop && (videoStarted || videoDone) ? (
           <img
             src={heroBackdrop}
@@ -219,7 +219,7 @@ export function Hero({ onVideoStarted }: HeroProps) {
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : null}
-        {!playRequested && !videoDone ? (
+        {!videoStarted && !videoDone ? (
           <img
             src={envelopeSrc}
             alt=""

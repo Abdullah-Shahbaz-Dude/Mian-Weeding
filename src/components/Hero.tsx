@@ -257,33 +257,7 @@ export function Hero({ onVideoStarted }: HeroProps) {
           />
         ) : null}
         {!playRequested && !videoDone ? (
-          <div className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2 px-margin-mobile">
-            <div
-              className={`flex items-center gap-2 rounded-full bg-inverse-surface/75 px-4 py-2 text-white shadow-md backdrop-blur-md ${
-                lang === "ur" ? "font-urdu" : "font-sans"
-              }`}
-              role="status"
-              aria-live="polite"
-            >
-              {videoReady ? (
-                <span className="h-2 w-2 shrink-0 rounded-full bg-primary-container animate-pulse" />
-              ) : (
-                <span
-                  className="h-3.5 w-3.5 shrink-0 rounded-full border-2 border-white/30 border-t-white animate-spin"
-                  aria-hidden
-                />
-              )}
-              <span
-                className={
-                  lang === "ur"
-                    ? "text-sm"
-                    : "text-[11px] font-medium uppercase tracking-[0.18em]"
-                }
-              >
-                {videoReady ? t.readyToTap : t.loading}
-              </span>
-            </div>
-          </div>
+          <div className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2 px-margin-mobile"></div>
         ) : null}
         <motion.div
           className="absolute inset-0 bg-gradient-to-t from-inverse-surface/75 via-inverse-surface/30 to-transparent"
@@ -391,7 +365,11 @@ export function Hero({ onVideoStarted }: HeroProps) {
         </h1>
         <HeartDivider className="w-40 mb-8" />
         {videoStarted ? (
-          <Suspense fallback={<div className="h-[460px] sm:h-[580px] w-full max-w-4xl" />}>
+          <Suspense
+            fallback={
+              <div className="h-[460px] sm:h-[580px] w-full max-w-4xl" />
+            }
+          >
             <InvitationSlides />
           </Suspense>
         ) : (

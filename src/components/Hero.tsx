@@ -30,7 +30,12 @@ export function Hero() {
   const invitationRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const namesVisibleAtRef = useRef<number | null>(null);
+  const videoReadyRef = useRef(false);
   const textClass = lang === "ur" ? "font-urdu" : "font-serif italic";
+
+  useEffect(() => {
+    videoReadyRef.current = videoReady;
+  }, [videoReady]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -42,7 +47,7 @@ export function Hero() {
   useEffect(() => {
     function startVideo() {
       const video = videoRef.current;
-      if (!video || !video.paused) {
+      if (!video || !video.paused || !videoReadyRef.current) {
         return;
       }
       void video.play().catch(() => undefined);
@@ -120,7 +125,10 @@ export function Hero() {
       return;
     }
     const shownAt = namesVisibleAtRef.current ?? Date.now();
-    const overlayRemaining = Math.max(0, OVERLAY_DURATION_MS - (Date.now() - shownAt));
+    const overlayRemaining = Math.max(
+      0,
+      OVERLAY_DURATION_MS - (Date.now() - shownAt),
+    );
     const wait = overlayRemaining + SCROLL_AFTER_OVERLAY_MS;
     let animation: ReturnType<typeof animate> | undefined;
     const id = window.setTimeout(() => {
@@ -169,7 +177,7 @@ export function Hero() {
           ref={videoRef}
           poster={envelope}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-            videoDone || !videoReady
+            videoDone || !videoStarted
               ? "opacity-0 pointer-events-none"
               : "opacity-100"
           }`}
@@ -183,11 +191,43 @@ export function Hero() {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
+        {!videoStarted && !videoDone ? (
+          <div className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2 px-margin-mobile">
+            <div
+              className={`flex items-center gap-2 rounded-full bg-inverse-surface/75 px-4 py-2 text-white shadow-md backdrop-blur-md ${
+                lang === "ur" ? "font-urdu" : "font-sans"
+              }`}
+              role="status"
+              aria-live="polite"
+            >
+              {videoReady ? (
+                <span className="h-2 w-2 shrink-0 rounded-full bg-primary-container animate-pulse" />
+              ) : (
+                <span
+                  className="h-3.5 w-3.5 shrink-0 rounded-full border-2 border-white/30 border-t-white animate-spin"
+                  aria-hidden
+                />
+              )}
+              <span
+                className={
+                  lang === "ur"
+                    ? "text-sm"
+                    : "text-[11px] font-medium uppercase tracking-[0.18em]"
+                }
+              >
+                {videoReady ? t.readyToTap : t.loading}
+              </span>
+            </div>
+          </div>
+        ) : null}
         <motion.div
           className="absolute inset-0 bg-gradient-to-t from-inverse-surface/75 via-inverse-surface/30 to-transparent"
           initial={{ opacity: 0 }}
           animate={{ opacity: namesVisible ? 1 : 0 }}
-          transition={{ duration: OVERLAY_DURATION_S, ease: [0.45, 0, 0.55, 1] }}
+          transition={{
+            duration: OVERLAY_DURATION_S,
+            ease: [0.45, 0, 0.55, 1],
+          }}
         />
         <div className="absolute inset-0 flex items-center justify-center px-margin-mobile">
           <motion.div
@@ -196,7 +236,10 @@ export function Hero() {
             animate={
               namesVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }
             }
-            transition={{ duration: OVERLAY_DURATION_S, ease: [0.45, 0, 0.55, 1] }}
+            transition={{
+              duration: OVERLAY_DURATION_S,
+              ease: [0.45, 0, 0.55, 1],
+            }}
           >
             <img
               src={bismillah}
@@ -228,7 +271,10 @@ export function Hero() {
           href="#invitation"
           initial={{ opacity: 0, y: 16 }}
           animate={namesVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-          transition={{ duration: OVERLAY_DURATION_S, ease: [0.45, 0, 0.55, 1] }}
+          transition={{
+            duration: OVERLAY_DURATION_S,
+            ease: [0.45, 0, 0.55, 1],
+          }}
           style={{ pointerEvents: namesVisible ? "auto" : "none" }}
         >
           <span className="text-[10px] tracking-[0.25em] font-sans uppercase font-medium mb-1">

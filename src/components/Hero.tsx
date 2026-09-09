@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { animate, motion } from "framer-motion";
 import bismillah from "../assets/BIMILLAH.png";
+import envelope from "../assets/image.png";
 import heroBackdrop from "../assets/hero1.png";
 import heroVideo from "../assets/invitation-landscape-cream-gold.mp4";
 import slide1 from "../assets/slide-1.jpg";
@@ -22,6 +23,7 @@ const SCROLL_AFTER_OVERLAY_MS = 700;
 export function Hero() {
   const { lang, t } = useLanguage();
   const [namesVisible, setNamesVisible] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
   const [videoStarted, setVideoStarted] = useState(false);
   const [videoDone, setVideoDone] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -29,6 +31,13 @@ export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const namesVisibleAtRef = useRef<number | null>(null);
   const textClass = lang === "ur" ? "font-urdu" : "font-serif italic";
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video && video.readyState >= 2) {
+      setVideoReady(true);
+    }
+  }, []);
 
   useEffect(() => {
     function startVideo() {
@@ -152,21 +161,23 @@ export function Hero() {
     <section className="relative w-full flex flex-col items-center text-center">
       <div className="relative w-full h-screen min-h-[70vh] overflow-hidden bg-inverse-surface">
         <img
-          src={heroBackdrop}
+          src={videoDone ? heroBackdrop : envelope}
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
         <video
           ref={videoRef}
-          className={`absolute inset-0 h-full w-full object-cover bg-inverse-surface ${
-            videoDone
-              ? "opacity-0 pointer-events-none transition-opacity duration-700"
+          poster={envelope}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+            videoDone || !videoReady
+              ? "opacity-0 pointer-events-none"
               : "opacity-100"
           }`}
           muted
           playsInline
           preload="auto"
           aria-label="Fatima and Taimoor wedding invitation film"
+          onLoadedData={() => setVideoReady(true)}
           onPlaying={() => setVideoStarted(true)}
           onEnded={() => setVideoDone(true)}
         >

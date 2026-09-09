@@ -1,38 +1,70 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { animate, motion } from "framer-motion";
-import bismillah from "../assets/BIMILLAH.png";
-import envelope from "../assets/image.png";
-import heroBackdrop from "../assets/hero1.png";
-import heroVideo from "../assets/invitation-landscape-cream-gold.mp4";
-import slide1 from "../assets/slide-1.jpg";
-import slide2 from "../assets/slide-2.jpg";
-import slide3 from "../assets/slide-3.jpg";
-import slide4 from "../assets/slide-4.jpg";
 import { couple } from "../data/wedding";
 import { useLanguage } from "../lib/i18n";
 import { HeartDivider } from "./HeartDivider";
 import { Reveal } from "./Reveal";
 
-const SLIDES = [slide1, slide2, slide3, slide4];
-const SLIDE_MS = 2000;
+const InvitationSlides = lazy(() => import("./InvitationSlides"));
+
 const NAMES_DELAY_MS = 7000;
 const OVERLAY_DURATION_S = 2.2;
 const OVERLAY_DURATION_MS = OVERLAY_DURATION_S * 1000;
 const SCROLL_AFTER_OVERLAY_MS = 700;
+const HAVE_FUTURE_DATA = 3;
 
-export function Hero() {
+const envelopeSrc = `${import.meta.env.BASE_URL}envelope.webp`;
+
+type HeroProps = {
+  onVideoStarted?: () => void;
+};
+
+export function Hero({ onVideoStarted }: HeroProps) {
   const { lang, t } = useLanguage();
   const [namesVisible, setNamesVisible] = useState(false);
+  const [loadFilm, setLoadFilm] = useState(false);
+  const [videoSrc, setVideoSrc] = useState<string>();
+  const [heroBackdrop, setHeroBackdrop] = useState<string>();
+  const [bismillah, setBismillah] = useState<string>();
   const [videoReady, setVideoReady] = useState(false);
   const [playRequested, setPlayRequested] = useState(false);
   const [videoStarted, setVideoStarted] = useState(false);
   const [videoDone, setVideoDone] = useState(false);
-  const [slideIndex, setSlideIndex] = useState(0);
   const invitationRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const namesVisibleAtRef = useRef<number | null>(null);
   const videoReadyRef = useRef(false);
+  const onVideoStartedRef = useRef(onVideoStarted);
   const textClass = lang === "ur" ? "font-urdu" : "font-serif italic";
+
+  useEffect(() => {
+    document.getElementById("boot")?.remove();
+  }, []);
+
+  useEffect(() => {
+    if (!loadFilm) {
+      return;
+    }
+    void import("../assets/invitation-720.mp4").then((mod) => {
+      setVideoSrc(mod.default);
+    });
+  }, [loadFilm]);
+
+  useEffect(() => {
+    if (!videoStarted && !videoDone) {
+      return;
+    }
+    void import("../assets/hero1.webp").then((mod) => {
+      setHeroBackdrop(mod.default);
+    });
+    void import("../assets/BIMILLAH.webp").then((mod) => {
+      setBismillah(mod.default);
+    });
+  }, [videoStarted, videoDone]);
+
+  useEffect(() => {
+    onVideoStartedRef.current = onVideoStarted;
+  }, [onVideoStarted]);
 
   useEffect(() => {
     videoReadyRef.current = videoReady;
@@ -40,10 +72,10 @@ export function Hero() {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video && video.readyState >= 2) {
+    if (video && video.readyState >= HAVE_FUTURE_DATA) {
       setVideoReady(true);
     }
-  }, []);
+  }, [loadFilm]);
 
   useEffect(() => {
     function startVideo() {
@@ -67,6 +99,7 @@ export function Hero() {
     if (!videoStarted) {
       return;
     }
+    onVideoStartedRef.current?.();
     const id = window.setTimeout(() => setNamesVisible(true), NAMES_DELAY_MS);
     return () => window.clearTimeout(id);
   }, [videoStarted]);
@@ -160,54 +193,67 @@ export function Hero() {
     };
   }, [videoDone, namesVisible]);
 
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setSlideIndex((index) => (index + 1) % SLIDES.length);
-    }, SLIDE_MS);
-    return () => window.clearInterval(id);
-  }, []);
+  function beginFilmLoad() {
+    const start = () => setLoadFilm(true);
+    window.setTimeout(start, 50);
+  }
+
+  function markReadyIfBuffered() {
+    const video = videoRef.current;
+    if (video && video.readyState >= HAVE_FUTURE_DATA) {
+      setVideoReady(true);
+    }
+  }
 
   return (
     <section className="relative w-full flex flex-col items-center text-center">
-      <div className="relative w-full h-screen min-h-[70vh] overflow-hidden bg-inverse-surface">
-        {(videoStarted || videoDone) && (
+      <div className="relative w-full h-screen min-h-[70vh] overflow-hidden bg-surface">
+        {heroBackdrop && (videoStarted || videoDone) ? (
           <img
             src={heroBackdrop}
             alt=""
+            width={1920}
+            height={1080}
             className="absolute inset-0 h-full w-full object-cover"
           />
-        )}
-        <img
-          src={heroBackdrop}
-          alt=""
-          className="pointer-events-none invisible absolute h-0 w-0"
-        />
+        ) : null}
         {!videoStarted && !videoDone ? (
           <img
-            src={envelope}
+            src={envelopeSrc}
             alt=""
+            width={1920}
+            height={1080}
+            fetchPriority="high"
             className="absolute inset-0 z-[1] h-full w-full object-cover"
+            onLoad={beginFilmLoad}
+            ref={(img) => {
+              if (img?.complete) {
+                beginFilmLoad();
+              }
+            }}
           />
         ) : null}
-        <video
-          ref={videoRef}
-          className={`absolute inset-0 h-full w-full object-cover ${
-            videoDone
-              ? "opacity-0 pointer-events-none transition-opacity duration-700"
-              : playRequested
-                ? "opacity-100"
-                : "opacity-0 pointer-events-none"
-          }`}
-          muted
-          playsInline
-          preload="auto"
-          aria-label="Fatima and Taimoor wedding invitation film"
-          onLoadedData={() => setVideoReady(true)}
-          onPlaying={() => setVideoStarted(true)}
-          onEnded={() => setVideoDone(true)}
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+        {loadFilm && videoSrc ? (
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            className={`absolute inset-0 h-full w-full object-cover ${
+              videoDone
+                ? "opacity-0 pointer-events-none transition-opacity duration-700"
+                : playRequested
+                  ? "opacity-100"
+                  : "opacity-0 pointer-events-none"
+            }`}
+            muted
+            playsInline
+            preload="auto"
+            aria-label="Fatima and Taimoor wedding invitation film"
+            onCanPlay={markReadyIfBuffered}
+            onLoadedData={markReadyIfBuffered}
+            onPlaying={() => setVideoStarted(true)}
+            onEnded={() => setVideoDone(true)}
+          />
+        ) : null}
         {!playRequested && !videoDone ? (
           <div className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2 px-margin-mobile">
             <div
@@ -258,11 +304,15 @@ export function Hero() {
               ease: [0.45, 0, 0.55, 1],
             }}
           >
-            <img
-              src={bismillah}
-              alt="Bismillah ir-Rahman ir-Rahim"
-              className="w-64 sm:w-80 md:w-[36rem] h-auto mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
-            />
+            {bismillah && videoStarted ? (
+              <img
+                src={bismillah}
+                alt="Bismillah ir-Rahman ir-Rahim"
+                width={593}
+                height={421}
+                className="w-64 sm:w-80 md:w-[36rem] h-auto mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
+              />
+            ) : null}
             <svg
               className="w-4 h-4 fill-white/90 mb-4 drop-shadow"
               viewBox="0 0 24 24"
@@ -338,21 +388,13 @@ export function Hero() {
           {couple.groom}
         </h1>
         <HeartDivider className="w-40 mb-8" />
-        <div className="relative w-full max-w-4xl mx-auto rounded-xl p-space-2xs bg-surface-container-high/60 backdrop-blur-xl shadow-xl">
-          <div className="relative w-full h-[460px] sm:h-[580px] rounded-lg overflow-hidden">
-            {SLIDES.map((src, index) => (
-              <img
-                key={src}
-                src={src}
-                alt=""
-                className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out ${
-                  index === slideIndex ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            ))}
-            <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-surface-container/20" />
-          </div>
-        </div>
+        {videoStarted ? (
+          <Suspense fallback={<div className="h-[460px] sm:h-[580px] w-full max-w-4xl" />}>
+            <InvitationSlides />
+          </Suspense>
+        ) : (
+          <div className="h-[460px] sm:h-[580px] w-full max-w-4xl" />
+        )}
         <p
           className={`${textClass} text-primary text-lg md:text-3xl mt-20 md:mt-24 leading-relaxed font-light`}
         >

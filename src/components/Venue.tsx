@@ -1,9 +1,40 @@
-import marqueeImage from "../assets/marquee-image.jpg";
+import marqueeImage from "../assets/marquee-image.webp";
 import { venue } from "../data/wedding";
 import { useLanguage } from "../lib/i18n";
 import { HeartDivider } from "./HeartDivider";
-import { Icon } from "./Icon";
 import { Reveal } from "./Reveal";
+
+function MapIcon() {
+  return (
+    <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M9 20l-6 2V6l6-2 6 2 6-2v16l-6 2-6-2zM9 4v16M15 6v16"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function DirectionsIcon() {
+  return (
+    <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M12 3l9 9-9 9-9-9 9-9z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 8v5h4"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 
 export function Venue() {
   const { lang, t } = useLanguage();
@@ -42,6 +73,9 @@ export function Venue() {
               <img
                 src={marqueeImage}
                 alt={`${venue.name} exterior`}
+                width={1840}
+                height={1072}
+                loading="lazy"
                 className="w-full h-auto object-cover"
               />
             </div>
@@ -53,7 +87,7 @@ export function Venue() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Icon name="map" className="text-[18px]" />
+                <MapIcon />
                 {t.viewMaps}
               </a>
               <a
@@ -62,7 +96,7 @@ export function Venue() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Icon name="directions" className="text-[18px]" />
+                <DirectionsIcon />
                 {t.appleMaps}
               </a>
             </div>

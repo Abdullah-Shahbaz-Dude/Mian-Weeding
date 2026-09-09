@@ -1,18 +1,31 @@
-import { useEffect, useRef, useState } from "react";
-import weddingSong from "./assets/refined-afternoon-wedding-song.mp3";
-import { Countdown } from "./components/Countdown";
-import { Footer } from "./components/Footer";
-import { HeartReveal } from "./components/HeartReveal";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Hero } from "./components/Hero";
 import { LanguageButton } from "./components/LanguageButton";
 import { MusicButton } from "./components/MusicButton";
-import { Venue } from "./components/Venue";
 import { LanguageProvider } from "./lib/i18n";
+
+const HeartReveal = lazy(() =>
+  import("./components/HeartReveal").then((module) => ({
+    default: module.HeartReveal,
+  })),
+);
+const Countdown = lazy(() =>
+  import("./components/Countdown").then((module) => ({
+    default: module.Countdown,
+  })),
+);
+const Venue = lazy(() =>
+  import("./components/Venue").then((module) => ({ default: module.Venue })),
+);
+const Footer = lazy(() =>
+  import("./components/Footer").then((module) => ({ default: module.Footer })),
+);
 
 const MUSIC_LIMIT_MS = 100000;
 
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showRest, setShowRest] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const stopTimerRef = useRef<number | null>(null);
 
@@ -40,10 +53,14 @@ export default function App() {
     stopTimerRef.current = window.setTimeout(stopMusic, MUSIC_LIMIT_MS);
   }
 
-  function playMusic() {
+  async function playMusic() {
     const audio = audioRef.current;
     if (!audio) {
       return;
+    }
+    if (!audio.src) {
+      const { default: src } = await import("./assets/wedding-song-128.mp3");
+      audio.src = src;
     }
     void audio
       .play()
@@ -88,19 +105,27 @@ export default function App() {
 
   return (
     <LanguageProvider>
-      <audio ref={audioRef} src={weddingSong} preload="auto" />
+      <audio ref={audioRef} preload="none" />
       <div className="bg-surface font-sans text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen">
         <main className="w-full bg-surface relative min-h-screen">
           <MusicButton isPlaying={isPlaying} onToggle={toggleMusic} />
           <LanguageButton />
           <div className="flex flex-col w-full">
-            <Hero />
-            <HeartReveal />
-            <Countdown />
-            <Venue />
+            <Hero onVideoStarted={() => setShowRest(true)} />
+            {showRest ? (
+              <Suspense fallback={null}>
+                <HeartReveal />
+                <Countdown />
+                <Venue />
+              </Suspense>
+            ) : null}
           </div>
         </main>
-        <Footer />
+        {showRest ? (
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
+        ) : null}
       </div>
     </LanguageProvider>
   );

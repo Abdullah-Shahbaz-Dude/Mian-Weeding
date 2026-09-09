@@ -2,21 +2,65 @@
 <html class="scroll-smooth" lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fatima &amp; Taimoor</title>
+    <title>Fatima &amp; Taimoor — Nikkah Invitation</title>
+    <meta
+      name="description"
+      content="Mr. and Mrs. Mian Kashif Manzoor invite you to the Nikkah Ceremony of Fatima Kashif and Taimoor Asad. Saturday, 10 October 2026, Bahawalpur Royal Marquee."
+    />
+    <meta name="theme-color" content="#fff8f6" />
+    <meta property="og:title" content="Fatima &amp; Taimoor — Nikkah Invitation" />
+    <meta
+      property="og:description"
+      content="Join us for the Nikkah Ceremony of Fatima Kashif and Taimoor Asad on Saturday, 10 October 2026."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./envelope.webp" />
+    <link rel="preload" as="image" href="./envelope.webp" type="image/webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300..700;1,300..700&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Noto+Nastaliq+Urdu:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-      rel="stylesheet"
-    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Noto+Nastaliq+Urdu:wght@400;500&display=swap"
+      />
+    </noscript>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #fff8f6;
+      }
+      #boot {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #fff8f6;
+      }
+      #boot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
   </head>
   <body>
+    <div id="boot">
+      <img
+        src="./envelope.webp"
+        width="1920"
+        height="1080"
+        alt="You are invited"
+        fetchpriority="high"
+      />
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

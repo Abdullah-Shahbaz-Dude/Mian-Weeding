@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { animate, motion } from "framer-motion";
+import heroVideo from "../assets/invitation-720.mp4";
 import { couple } from "../data/wedding";
 import { useLanguage } from "../lib/i18n";
 import { HeartDivider } from "./HeartDivider";
@@ -23,7 +24,6 @@ export function Hero({ onVideoStarted }: HeroProps) {
   const { lang, t } = useLanguage();
   const [namesVisible, setNamesVisible] = useState(false);
   const [loadFilm, setLoadFilm] = useState(false);
-  const [videoSrc, setVideoSrc] = useState<string>();
   const [heroBackdrop, setHeroBackdrop] = useState<string>();
   const [bismillah, setBismillah] = useState<string>();
   const [videoReady, setVideoReady] = useState(false);
@@ -33,22 +33,13 @@ export function Hero({ onVideoStarted }: HeroProps) {
   const invitationRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const namesVisibleAtRef = useRef<number | null>(null);
-  const videoReadyRef = useRef(false);
+  const playRequestedRef = useRef(false);
   const onVideoStartedRef = useRef(onVideoStarted);
   const textClass = lang === "ur" ? "font-urdu" : "font-serif italic";
 
   useEffect(() => {
     document.getElementById("boot")?.remove();
   }, []);
-
-  useEffect(() => {
-    if (!loadFilm) {
-      return;
-    }
-    void import("../assets/invitation-720.mp4").then((mod) => {
-      setVideoSrc(mod.default);
-    });
-  }, [loadFilm]);
 
   useEffect(() => {
     if (!videoStarted && !videoDone) {
@@ -67,10 +58,6 @@ export function Hero({ onVideoStarted }: HeroProps) {
   }, [onVideoStarted]);
 
   useEffect(() => {
-    videoReadyRef.current = videoReady;
-  }, [videoReady]);
-
-  useEffect(() => {
     const video = videoRef.current;
     if (video && video.readyState >= HAVE_FUTURE_DATA) {
       setVideoReady(true);
@@ -78,12 +65,27 @@ export function Hero({ onVideoStarted }: HeroProps) {
   }, [loadFilm]);
 
   useEffect(() => {
+    if (!playRequested || !loadFilm) {
+      return;
+    }
+    const video = videoRef.current;
+    if (video && video.paused) {
+      void video.play().catch(() => undefined);
+    }
+  }, [playRequested, loadFilm]);
+
+  useEffect(() => {
     function startVideo() {
-      const video = videoRef.current;
-      if (!video || !video.paused || !videoReadyRef.current) {
+      if (playRequestedRef.current) {
         return;
       }
+      playRequestedRef.current = true;
+      document.getElementById("boot")?.remove();
       setPlayRequested(true);
+      const video = videoRef.current;
+      if (!video) {
+        return;
+      }
       void video.play().catch(() => undefined);
     }
 
@@ -217,7 +219,7 @@ export function Hero({ onVideoStarted }: HeroProps) {
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : null}
-        {!videoStarted && !videoDone ? (
+        {!playRequested && !videoDone ? (
           <img
             src={envelopeSrc}
             alt=""
@@ -233,10 +235,10 @@ export function Hero({ onVideoStarted }: HeroProps) {
             }}
           />
         ) : null}
-        {loadFilm && videoSrc ? (
+        {loadFilm ? (
           <video
             ref={videoRef}
-            src={videoSrc}
+            src={heroVideo}
             className={`absolute inset-0 h-full w-full object-cover ${
               videoDone
                 ? "opacity-0 pointer-events-none transition-opacity duration-700"

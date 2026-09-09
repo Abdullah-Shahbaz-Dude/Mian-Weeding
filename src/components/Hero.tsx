@@ -14,28 +14,105 @@ import { Reveal } from "./Reveal";
 
 const SLIDES = [slide1, slide2, slide3, slide4];
 const SLIDE_MS = 2000;
+const NAMES_DELAY_MS = 7000;
+const OVERLAY_DURATION_S = 2.2;
+const OVERLAY_DURATION_MS = OVERLAY_DURATION_S * 1000;
+const SCROLL_AFTER_OVERLAY_MS = 700;
 
-type HeroProps = {
-  onVideoPlaying?: () => void;
-};
-
-export function Hero({ onVideoPlaying }: HeroProps) {
+export function Hero() {
   const { lang, t } = useLanguage();
   const [namesVisible, setNamesVisible] = useState(false);
+  const [videoStarted, setVideoStarted] = useState(false);
   const [videoDone, setVideoDone] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
   const invitationRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const namesVisibleAtRef = useRef<number | null>(null);
   const textClass = lang === "ur" ? "font-urdu" : "font-serif italic";
 
   useEffect(() => {
-    const id = window.setTimeout(() => setNamesVisible(true), 8000);
-    return () => window.clearTimeout(id);
+    function startVideo() {
+      const video = videoRef.current;
+      if (!video || !video.paused) {
+        return;
+      }
+      void video.play().catch(() => undefined);
+    }
+
+    window.addEventListener("pointerdown", startVideo);
+    window.addEventListener("keydown", startVideo);
+    return () => {
+      window.removeEventListener("pointerdown", startVideo);
+      window.removeEventListener("keydown", startVideo);
+    };
   }, []);
 
   useEffect(() => {
-    if (!videoDone) {
+    if (!videoStarted) {
       return;
     }
+    const id = window.setTimeout(() => setNamesVisible(true), NAMES_DELAY_MS);
+    return () => window.clearTimeout(id);
+  }, [videoStarted]);
+
+  useEffect(() => {
+    if (namesVisible) {
+      return;
+    }
+
+    const html = document.documentElement;
+    const body = document.body;
+    const previousHtmlOverflow = html.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    function preventScroll(event: Event) {
+      event.preventDefault();
+    }
+
+    function preventScrollKeys(event: KeyboardEvent) {
+      if (
+        event.key === "ArrowUp" ||
+        event.key === "ArrowDown" ||
+        event.key === "PageUp" ||
+        event.key === "PageDown" ||
+        event.key === "Home" ||
+        event.key === "End" ||
+        event.key === " "
+      ) {
+        event.preventDefault();
+      }
+    }
+
+    window.addEventListener("wheel", preventScroll, { passive: false });
+    window.addEventListener("touchmove", preventScroll, { passive: false });
+    window.addEventListener("keydown", preventScrollKeys);
+
+    return () => {
+      html.style.overflow = previousHtmlOverflow;
+      body.style.overflow = previousBodyOverflow;
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("keydown", preventScrollKeys);
+    };
+  }, [namesVisible]);
+
+  useEffect(() => {
+    if (!namesVisible) {
+      return;
+    }
+    namesVisibleAtRef.current = Date.now();
+  }, [namesVisible]);
+
+  useEffect(() => {
+    if (!videoDone || !namesVisible) {
+      return;
+    }
+    const shownAt = namesVisibleAtRef.current ?? Date.now();
+    const overlayRemaining = Math.max(0, OVERLAY_DURATION_MS - (Date.now() - shownAt));
+    const wait = overlayRemaining + SCROLL_AFTER_OVERLAY_MS;
     let animation: ReturnType<typeof animate> | undefined;
     const id = window.setTimeout(() => {
       const el = invitationRef.current;
@@ -43,17 +120,26 @@ export function Hero({ onVideoPlaying }: HeroProps) {
         return;
       }
       const top = el.getBoundingClientRect().top + window.scrollY;
+      const html = document.documentElement;
+      const previousBehavior = html.style.scrollBehavior;
+      html.style.scrollBehavior = "auto";
       animation = animate(window.scrollY, top, {
-        duration: 1.2,
-        ease: "easeInOut",
-        onUpdate: (latest) => window.scrollTo(0, latest),
+        duration: OVERLAY_DURATION_S,
+        ease: [0.45, 0, 0.55, 1],
+        onUpdate: (latest) => {
+          window.scrollTo({ top: latest, behavior: "auto" });
+        },
+        onComplete: () => {
+          html.style.scrollBehavior = previousBehavior;
+        },
       });
-    }, 700);
+    }, wait);
     return () => {
       window.clearTimeout(id);
       animation?.stop();
+      document.documentElement.style.scrollBehavior = "";
     };
-  }, [videoDone]);
+  }, [videoDone, namesVisible]);
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -71,17 +157,17 @@ export function Hero({ onVideoPlaying }: HeroProps) {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <video
+          ref={videoRef}
           className={`absolute inset-0 h-full w-full object-cover bg-inverse-surface ${
             videoDone
               ? "opacity-0 pointer-events-none transition-opacity duration-700"
               : "opacity-100"
           }`}
-          autoPlay
           muted
           playsInline
+          preload="auto"
           aria-label="Fatima and Taimoor wedding invitation film"
-          onPlaying={() => onVideoPlaying?.()}
-          onCanPlay={() => onVideoPlaying?.()}
+          onPlaying={() => setVideoStarted(true)}
           onEnded={() => setVideoDone(true)}
         >
           <source src={heroVideo} type="video/mp4" />
@@ -90,7 +176,7 @@ export function Hero({ onVideoPlaying }: HeroProps) {
           className="absolute inset-0 bg-gradient-to-t from-inverse-surface/75 via-inverse-surface/30 to-transparent"
           initial={{ opacity: 0 }}
           animate={{ opacity: namesVisible ? 1 : 0 }}
-          transition={{ duration: 2.2, ease: [0.45, 0, 0.55, 1] }}
+          transition={{ duration: OVERLAY_DURATION_S, ease: [0.45, 0, 0.55, 1] }}
         />
         <div className="absolute inset-0 flex items-center justify-center px-margin-mobile">
           <motion.div
@@ -99,7 +185,7 @@ export function Hero({ onVideoPlaying }: HeroProps) {
             animate={
               namesVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }
             }
-            transition={{ duration: 2.2, ease: [0.45, 0, 0.55, 1] }}
+            transition={{ duration: OVERLAY_DURATION_S, ease: [0.45, 0, 0.55, 1] }}
           >
             <img
               src={bismillah}
@@ -131,7 +217,7 @@ export function Hero({ onVideoPlaying }: HeroProps) {
           href="#invitation"
           initial={{ opacity: 0, y: 16 }}
           animate={namesVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-          transition={{ duration: 2.2, ease: [0.45, 0, 0.55, 1] }}
+          transition={{ duration: OVERLAY_DURATION_S, ease: [0.45, 0, 0.55, 1] }}
           style={{ pointerEvents: namesVisible ? "auto" : "none" }}
         >
           <span className="text-[10px] tracking-[0.25em] font-sans uppercase font-medium mb-1">

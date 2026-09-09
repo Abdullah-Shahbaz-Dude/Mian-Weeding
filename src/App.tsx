@@ -4,17 +4,14 @@ import { Countdown } from "./components/Countdown";
 import { Footer } from "./components/Footer";
 import { HeartReveal } from "./components/HeartReveal";
 import { Hero } from "./components/Hero";
-import { InvitationGate } from "./components/InvitationGate";
 import { LanguageButton } from "./components/LanguageButton";
 import { MusicButton } from "./components/MusicButton";
 import { Venue } from "./components/Venue";
 import { LanguageProvider } from "./lib/i18n";
 
-const MUSIC_LIMIT_MS = 45_000;
+const MUSIC_LIMIT_MS = 100000;
 
 export default function App() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [videoReady, setVideoReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const stopTimerRef = useRef<number | null>(null);
@@ -69,34 +66,42 @@ export default function App() {
     }
   }
 
-  useEffect(() => () => clearStopTimer(), []);
+  useEffect(() => {
+    function startOnGesture() {
+      if (audioRef.current?.paused) {
+        playMusic();
+      }
+      window.removeEventListener("pointerdown", startOnGesture);
+      window.removeEventListener("keydown", startOnGesture);
+    }
+
+    window.addEventListener("pointerdown", startOnGesture);
+    window.addEventListener("keydown", startOnGesture);
+
+    return () => {
+      clearStopTimer();
+      window.removeEventListener("pointerdown", startOnGesture);
+      window.removeEventListener("keydown", startOnGesture);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- start music on first click
+  }, []);
 
   return (
     <LanguageProvider>
       <audio ref={audioRef} src={weddingSong} preload="auto" />
-      {isOpen ? (
-        <div className="bg-surface font-sans text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen">
-          <main className="w-full bg-surface relative min-h-screen">
-            <MusicButton isPlaying={isPlaying} onToggle={toggleMusic} />
-            <LanguageButton />
-            <div className="flex flex-col w-full">
-              <Hero onVideoPlaying={() => setVideoReady(true)} />
-              <HeartReveal />
-              <Countdown />
-              <Venue />
-            </div>
-          </main>
-          <Footer />
-        </div>
-      ) : null}
-      {!isOpen || !videoReady ? (
-        <InvitationGate
-          onOpen={() => {
-            playMusic();
-            setIsOpen(true);
-          }}
-        />
-      ) : null}
+      <div className="bg-surface font-sans text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen">
+        <main className="w-full bg-surface relative min-h-screen">
+          <MusicButton isPlaying={isPlaying} onToggle={toggleMusic} />
+          <LanguageButton />
+          <div className="flex flex-col w-full">
+            <Hero />
+            <HeartReveal />
+            <Countdown />
+            <Venue />
+          </div>
+        </main>
+        <Footer />
+      </div>
     </LanguageProvider>
   );
 }

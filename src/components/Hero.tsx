@@ -12,7 +12,6 @@ const NAMES_DELAY_MS = 7000;
 const OVERLAY_DURATION_S = 2.2;
 const OVERLAY_DURATION_MS = OVERLAY_DURATION_S * 1000;
 const SCROLL_AFTER_OVERLAY_MS = 700;
-const HAVE_FUTURE_DATA = 3;
 
 const envelopeSrc = `${import.meta.env.BASE_URL}envelope.webp`;
 
@@ -26,7 +25,6 @@ export function Hero({ onVideoStarted }: HeroProps) {
   const [loadFilm, setLoadFilm] = useState(false);
   const [heroBackdrop, setHeroBackdrop] = useState<string>();
   const [bismillah, setBismillah] = useState<string>();
-  const [videoReady, setVideoReady] = useState(false);
   const [playRequested, setPlayRequested] = useState(false);
   const [videoStarted, setVideoStarted] = useState(false);
   const [videoDone, setVideoDone] = useState(false);
@@ -56,13 +54,6 @@ export function Hero({ onVideoStarted }: HeroProps) {
   useEffect(() => {
     onVideoStartedRef.current = onVideoStarted;
   }, [onVideoStarted]);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video && video.readyState >= HAVE_FUTURE_DATA) {
-      setVideoReady(true);
-    }
-  }, [loadFilm]);
 
   useEffect(() => {
     if (!playRequested || !loadFilm) {
@@ -200,13 +191,6 @@ export function Hero({ onVideoStarted }: HeroProps) {
     window.setTimeout(start, 50);
   }
 
-  function markReadyIfBuffered() {
-    const video = videoRef.current;
-    if (video && video.readyState >= HAVE_FUTURE_DATA) {
-      setVideoReady(true);
-    }
-  }
-
   return (
     <section className="relative w-full flex flex-col items-center text-center">
       <div className="relative w-full h-screen min-h-[70vh] overflow-hidden bg-[#fff8f6]">
@@ -250,14 +234,9 @@ export function Hero({ onVideoStarted }: HeroProps) {
             playsInline
             preload="auto"
             aria-label="Fatima and Taimoor wedding invitation film"
-            onCanPlay={markReadyIfBuffered}
-            onLoadedData={markReadyIfBuffered}
             onPlaying={() => setVideoStarted(true)}
             onEnded={() => setVideoDone(true)}
           />
-        ) : null}
-        {!playRequested && !videoDone ? (
-          <div className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2 px-margin-mobile"></div>
         ) : null}
         <motion.div
           className="absolute inset-0 bg-gradient-to-t from-inverse-surface/75 via-inverse-surface/30 to-transparent"

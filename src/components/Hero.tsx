@@ -24,6 +24,7 @@ export function Hero() {
   const { lang, t } = useLanguage();
   const [namesVisible, setNamesVisible] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const [playRequested, setPlayRequested] = useState(false);
   const [videoStarted, setVideoStarted] = useState(false);
   const [videoDone, setVideoDone] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
@@ -50,6 +51,7 @@ export function Hero() {
       if (!video || !video.paused || !videoReadyRef.current) {
         return;
       }
+      setPlayRequested(true);
       void video.play().catch(() => undefined);
     }
 
@@ -168,24 +170,33 @@ export function Hero() {
   return (
     <section className="relative w-full flex flex-col items-center text-center">
       <div className="relative w-full h-screen min-h-[70vh] overflow-hidden bg-inverse-surface">
+        {(videoStarted || videoDone) && (
+          <img
+            src={heroBackdrop}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        )}
         <img
           src={heroBackdrop}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
+          className="pointer-events-none invisible absolute h-0 w-0"
         />
         {!videoStarted && !videoDone ? (
           <img
             src={envelope}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 z-[1] h-full w-full object-cover"
           />
         ) : null}
         <video
           ref={videoRef}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-            videoDone || !videoStarted
-              ? "opacity-0 pointer-events-none"
-              : "opacity-100"
+          className={`absolute inset-0 h-full w-full object-cover ${
+            videoDone
+              ? "opacity-0 pointer-events-none transition-opacity duration-700"
+              : playRequested
+                ? "opacity-100"
+                : "opacity-0 pointer-events-none"
           }`}
           muted
           playsInline
@@ -197,7 +208,7 @@ export function Hero() {
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
-        {!videoStarted && !videoDone ? (
+        {!playRequested && !videoDone ? (
           <div className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2 px-margin-mobile">
             <div
               className={`flex items-center gap-2 rounded-full bg-inverse-surface/75 px-4 py-2 text-white shadow-md backdrop-blur-md ${

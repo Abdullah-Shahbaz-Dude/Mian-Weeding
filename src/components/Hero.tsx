@@ -169,13 +169,19 @@ export function Hero() {
     <section className="relative w-full flex flex-col items-center text-center">
       <div className="relative w-full h-screen min-h-[70vh] overflow-hidden bg-inverse-surface">
         <img
-          src={videoDone ? heroBackdrop : envelope}
+          src={heroBackdrop}
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
+        {!videoStarted && !videoDone ? (
+          <img
+            src={envelope}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : null}
         <video
           ref={videoRef}
-          poster={envelope}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
             videoDone || !videoStarted
               ? "opacity-0 pointer-events-none"

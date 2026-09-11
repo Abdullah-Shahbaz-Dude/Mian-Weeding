@@ -1,1113 +1,1745 @@
 <!doctype html>
-
-<html class="scroll-smooth" lang="en">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Wedding Ceremony of Veer &amp; Zara</title>
-    <!-- Tailwind CSS v3 with forms and container queries -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <!-- Google Fonts for Authentic Calligraphy and Luxury Typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Alex+Brush&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Great+Vibes&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..700;1,300..700&amp;display=swap"
       rel="stylesheet"
     />
-    <script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
-              burgundy: {
-                DEFAULT: "#882239",
-                dark: "#6f192c",
-                light: "#a6344d",
-                card: "#942b42",
-              },
-              blush: {
-                50: "#fdf7f8",
-                100: "#fbf0f2",
-                200: "#f7dee3",
-                300: "#f0c2cb",
-                400: "#e59fae",
-                500: "#d77c91",
-              },
+              "on-tertiary-container": "#44403c",
+              "on-error": "#ffffff",
+              "inverse-surface": "#372f2b",
+              "on-primary-fixed-variant": "#623f18",
+              "outline-variant": "#d4c4b7",
+              background: "#fff8f6",
+              "on-primary-fixed": "#2c1600",
+              surface: "#fff8f6",
+              "tertiary-fixed": "#e9e1db",
+              "secondary-fixed": "#ffdcc7",
+              "inverse-on-surface": "#fdeee8",
+              tertiary: "#625d59",
+              primary: "#7d562d",
+              "inverse-primary": "#f0bd8b",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#ccc5c0",
+              "primary-container": "#d4a373",
+              "on-tertiary-fixed-variant": "#4a4642",
+              "on-tertiary": "#ffffff",
+              secondary: "#735948",
+              "on-secondary-container": "#785d4c",
+              "surface-tint": "#7d562d",
+              "surface-dim": "#e6d7d2",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-surface-variant": "#50453b",
+              outline: "#82756a",
+              "primary-fixed-dim": "#f0bd8b",
+              "surface-bright": "#fff8f6",
+              "on-secondary-fixed": "#2a170a",
+              "surface-container-highest": "#eedfda",
+              "surface-container": "#faebe6",
+              "secondary-container": "#fdd9c3",
+              "surface-container-high": "#f4e5e0",
+              "secondary-fixed-dim": "#e2c0ab",
+              "tertiary-container": "#b2aba6",
+              error: "#ba1a1a",
+              "surface-variant": "#eedfda",
+              "on-secondary-fixed-variant": "#5a4232",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#fff1ec",
+              "primary-fixed": "#ffdcbd",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#1e1b18",
+              "on-primary-container": "#5b3912",
+              "on-background": "#211a17",
+              "on-surface": "#211a17",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "space-2xs": "0.5rem",
+              "space-2xl": "6rem",
+              "margin-desktop": "3rem",
+              "space-xl": "4rem",
+              "max-content-width": "72rem",
+              "space-3xl": "9rem",
+              "space-sm": "1rem",
+              "margin-mobile": "1.25rem",
+              "space-3xs": "0.25rem",
+              "space-lg": "2.5rem",
+              "space-xs": "0.75rem",
+              gutter: "1.5rem",
+              "space-md": "1.5rem",
             },
             fontFamily: {
-              script: ['"Great Vibes"', "cursive"],
-              brush: ['"Alex Brush"', "cursive"],
-              serif: ['"Cormorant Garamond"', "serif"],
-              display: ['"Playfair Display"', "serif"],
-              sans: ['"Montserrat"', "sans-serif"],
+              "body-lg": ["Plus Jakarta Sans"],
+              "title-md": ["Plus Jakarta Sans"],
+              "body-sm": ["Plus Jakarta Sans"],
+              "headline-lg-mobile": ["Playfair Display"],
+              "body-md": ["Plus Jakarta Sans"],
+              "label-caps": ["Plus Jakarta Sans"],
+              "label-subtle": ["Plus Jakarta Sans"],
+              "headline-lg": ["Playfair Display"],
+              display: ["Playfair Display"],
+              "headline-md": ["Playfair Display"],
+              "display-mobile": ["Playfair Display"],
+              "headline-sm": ["Playfair Display"],
+            },
+            fontSize: {
+              "body-lg": [
+                "18px",
+                {
+                  lineHeight: "30px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "300",
+                },
+              ],
+              "title-md": [
+                "18px",
+                {
+                  lineHeight: "26px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "500",
+                },
+              ],
+              "body-sm": [
+                "13px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.015em",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg-mobile": [
+                "32px",
+                { lineHeight: "40px", letterSpacing: "0em", fontWeight: "400" },
+              ],
+              "body-md": [
+                "15px",
+                {
+                  lineHeight: "24px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "400",
+                },
+              ],
+              "label-caps": [
+                "11px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.2em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-subtle": [
+                "13px",
+                {
+                  lineHeight: "18px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "500",
+                },
+              ],
+              "headline-lg": [
+                "44px",
+                { lineHeight: "54px", letterSpacing: "0em", fontWeight: "400" },
+              ],
+              display: [
+                "64px",
+                {
+                  lineHeight: "76px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-md": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "400",
+                },
+              ],
+              "display-mobile": [
+                "40px",
+                { lineHeight: "48px", letterSpacing: "0em", fontWeight: "400" },
+              ],
+              "headline-sm": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "500",
+                },
+              ],
             },
           },
         },
       };
     </script>
-    <!-- Custom Typography & Decorative Helpers -->
-    <style data-purpose="typography">
-      .font-calligraphy {
-        font-family: "Great Vibes", cursive;
-      }
-      .font-elegant {
-        font-family: "Cormorant Garamond", serif;
-      }
-      .text-shadow-sm {
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-      }
-      .text-shadow-glow {
-        text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-      }
-    </style>
-    <!-- Decorative Pattern and Scratch Card Canvas -->
-    <style data-purpose="layout-and-effects">
-      /* Subtle plus pattern watermark matching background screenshots */
-      .bg-pattern-cross {
-        background-color: #fbf0f2;
-        background-image: radial-gradient(#d68a98 0.75px, transparent 0.75px);
-        background-size: 26px 26px;
-      }
-
-      /* Scratch-card canvas styling */
-      .scratch-container {
-        position: relative;
-        width: 250px;
-        height: 220px;
-        margin: 0 auto;
-        user-select: none;
-      }
-
-      #scratchCanvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        cursor: crosshair;
-        touch-action: none;
-        border-radius: 50%;
-        transition: opacity 0.5s ease;
-      }
-
-      /* Floating doves keyframe animations */
-      @keyframes flutter {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-12px) rotate(3deg);
-        }
-      }
-      .dove-fly {
-        animation: flutter 6s ease-in-out infinite;
-      }
-      .dove-fly-delayed {
-        animation: flutter 7s ease-in-out 1.5s infinite;
-      }
-    </style>
   </head>
   <body
-    class="bg-blush-100 text-[#54212b] font-sans antialiased selection:bg-burgundy selection:text-white"
+    class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"
   >
-    <!-- BEGIN: AudioToggleFloat -->
-    <!-- Top Right floating music button -->
-    <div class="fixed top-5 right-5 z-50">
-      <button
-        aria-label="Toggle Background Music"
-        class="w-10 h-10 rounded-full bg-white/80 hover:bg-white text-burgundy shadow-md backdrop-blur-md flex items-center justify-center border border-burgundy/20 transition-transform active:scale-95"
-        data-purpose="audio-toggle"
-        id="audioToggleBtn"
-      >
-        <svg
-          class="h-4 w-4"
-          fill="none"
-          stroke="currentColor"
-          viewbox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></path>
-        </svg>
-      </button>
-    </div>
-    <!-- END: AudioToggleFloat -->
-    <!-- BEGIN: HeroSection -->
-    <!-- Hero Section showing night view, soft curtains, silhouettes and main couple names -->
     <header
-      class="relative min-h-screen w-full flex flex-col justify-between items-center text-center overflow-hidden bg-gradient-to-b from-[#2b2434] via-[#4d3a4b] to-[#6d4d5a] px-4 py-10 select-none"
+      class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
     >
-      <!-- Background Scenic Skyline & Dusk Overlay -->
       <div
-        class="absolute inset-0 z-0 opacity-70 bg-cover bg-center"
-        style="
-          background-image:
-            radial-gradient(
-              circle at 50% 60%,
-              rgba(220, 170, 175, 0.45),
-              transparent 70%
-            ),
-            linear-gradient(
-              to top,
-              rgba(16, 13, 20, 0.85) 0%,
-              rgba(35, 28, 40, 0.4) 60%,
-              rgba(20, 18, 25, 0.7) 100%
-            );
-        "
-      ></div>
-      <!-- Soft curtain drapes and side rose decor overlays -->
-      <div
-        class="absolute top-0 left-0 w-36 md:w-80 h-full pointer-events-none opacity-45 bg-gradient-to-r from-white/20 via-white/5 to-transparent backdrop-blur-[1px]"
-      ></div>
-      <div
-        class="absolute top-0 right-0 w-36 md:w-80 h-full pointer-events-none opacity-45 bg-gradient-to-l from-white/20 via-white/5 to-transparent backdrop-blur-[1px]"
-      ></div>
-      <!-- Ambient Doves silhouettes -->
-      <div
-        class="absolute top-16 left-1/4 pointer-events-none opacity-50 dove-fly hidden sm:block"
+        class="h-20 max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between"
       >
-        <svg fill="white" height="40" viewbox="0 0 24 24" width="40">
-          <path
-            d="M21.5 5.5c-.8.6-1.9 1-3 1.2.7-.5 1.3-1.2 1.6-2.1-1 .6-2.1 1-3.3 1.3-1-1.1-2.4-1.8-4-1.8-3 0-5.5 2.5-5.5 5.5 0 .4 0 .9.1 1.3-4.6-.2-8.6-2.4-11.3-5.7-.5.8-.7 1.8-.7 2.8 0 1.9 1 3.6 2.5 4.6-.9 0-1.8-.3-2.5-.7v.1c0 2.7 1.9 4.9 4.4 5.4-.5.1-.9.2-1.5.2-.4 0-.7 0-1.1-.1.7 2.2 2.7 3.8 5.1 3.9-1.9 1.5-4.2 2.4-6.8 2.4-.4 0-.9 0-1.3-.1 2.4 1.6 5.3 2.5 8.4 2.5 10.1 0 15.6-8.4 15.6-15.6v-.7c1.1-.8 2-1.8 2.7-2.9z"
-          ></path>
-        </svg>
-      </div>
-      <div
-        class="absolute top-28 right-1/4 pointer-events-none opacity-40 dove-fly-delayed hidden sm:block"
-      >
-        <svg fill="white" height="34" viewbox="0 0 24 24" width="34">
-          <path
-            d="M21.5 5.5c-.8.6-1.9 1-3 1.2.7-.5 1.3-1.2 1.6-2.1-1 .6-2.1 1-3.3 1.3-1-1.1-2.4-1.8-4-1.8-3 0-5.5 2.5-5.5 5.5 0 .4 0 .9.1 1.3-4.6-.2-8.6-2.4-11.3-5.7-.5.8-.7 1.8-.7 2.8 0 1.9 1 3.6 2.5 4.6-.9 0-1.8-.3-2.5-.7v.1c0 2.7 1.9 4.9 4.4 5.4-.5.1-.9.2-1.5.2-.4 0-.7 0-1.1-.1.7 2.2 2.7 3.8 5.1 3.9-1.9 1.5-4.2 2.4-6.8 2.4-.4 0-.9 0-1.3-.1 2.4 1.6 5.3 2.5 8.4 2.5 10.1 0 15.6-8.4 15.6-15.6v-.7c1.1-.8 2-1.8 2.7-2.9z"
-          ></path>
-        </svg>
-      </div>
-      <!-- Centered Hero Texts -->
-      <div
-        class="relative z-10 max-w-2xl mx-auto my-auto flex flex-col items-center"
-      >
-        <!-- White heart emblem -->
-        <div class="text-white/90 text-sm mb-4">
-          <svg
-            class="w-4 h-4 fill-white inline-block drop-shadow"
-            viewbox="0 0 24 24"
-          >
-            <path
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-            ></path>
-          </svg>
-        </div>
-        <p
-          class="font-serif italic text-white/95 text-lg md:text-xl font-light tracking-wide text-shadow-sm"
-        >
-          We are honored to welcome you to
-        </p>
-        <p
-          class="font-serif italic text-white/95 text-base md:text-lg font-light tracking-wide text-shadow-sm"
-        >
-          the Wedding ceremony of..
-        </p>
-        <!-- Decorative Divider with Heart -->
-        <div class="flex items-center justify-center space-x-3 w-48 my-5">
-          <div class="h-[1px] bg-white/50 flex-1"></div>
-          <span class="text-white/80 text-xs">♥</span>
-          <div class="h-[1px] bg-white/50 flex-1"></div>
-        </div>
-        <!-- Groom's Name -->
-        <h1
-          class="font-calligraphy text-white text-7xl md:text-8xl lg:text-9xl leading-tight font-normal text-shadow-glow"
-        >
-          Veer
-        </h1>
-        <!-- Groom's Credentials -->
-        <div
-          class="font-serif text-white/90 text-sm md:text-base space-y-0.5 tracking-wide mt-1 mb-4 text-shadow-sm"
-        >
-          <p>Son of Mr. &amp; Mrs. Khan</p>
-          <p>M.Tech, Phd</p>
-          <p>Software Engineer</p>
-        </div>
-        <!-- Ampersand -->
-        <div
-          class="font-calligraphy text-white/80 text-3xl md:text-4xl my-1 select-none"
-        >
-          &amp;
-        </div>
-        <!-- Bride's Name -->
-        <h2
-          class="font-calligraphy text-white text-7xl md:text-8xl lg:text-9xl leading-tight font-normal text-shadow-glow"
-        >
-          Zara
-        </h2>
-        <!-- Bride's Credentials -->
-        <div
-          class="font-serif text-white/90 text-sm md:text-base space-y-0.5 tracking-wide mt-1 text-shadow-sm"
-        >
-          <p>Daughter of Mr. &amp; Mrs. Pathan</p>
-          <p>B.Tech, MBA</p>
-          <p>Advocate, High Court</p>
-        </div>
-      </div>
-      <!-- Scroll Indicator -->
-      <a
-        aria-label="Scroll Down"
-        class="relative z-10 flex flex-col items-center text-white/70 hover:text-white transition-colors duration-200 mt-8 group"
-        href="#welcome"
-      >
-        <span
-          class="text-[10px] tracking-[0.25em] font-sans uppercase font-medium mb-1"
-          >SCROLL</span
-        >
-        <svg
-          class="w-4 h-4 transform group-hover:translate-y-1 transition-transform"
-          fill="none"
-          stroke="currentColor"
-          viewbox="0 0 24 24"
-        >
-          <path
-            d="M19 9l-7 7-7-7"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></path>
-        </svg>
-      </a>
-    </header>
-    <!-- END: HeroSection -->
-    <!-- BEGIN: WelcomeAndScratchSection -->
-    <!-- Welcome Note and Glitter Scratch Card -->
-    <section
-      class="relative py-16 px-4 bg-pattern-cross flex flex-col items-center text-center overflow-hidden border-b border-burgundy/10"
-      id="welcome"
-    >
-      <!-- Top delicate divider -->
-      <div class="flex items-center justify-center space-x-3 w-64 mb-6">
-        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-        <span class="text-burgundy text-xs">♥</span>
-        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-      </div>
-      <!-- Welcome Message Paragraph -->
-      <div class="max-w-2xl mx-auto px-4">
-        <p
-          class="font-serif italic text-burgundy text-lg md:text-2xl leading-relaxed font-light"
-        >
-          We are honored to welcome you to the Wedding ceremony of
-          <br class="hidden sm:inline" />
-          <span class="font-medium">Veer &amp; Zara</span> As they begin their
-          journey together in faith and love, <br class="hidden sm:inline" />
-          we thank you for being part of this blessed occasion 🤍
-        </p>
-      </div>
-      <div class="flex items-center justify-center space-x-3 w-32 my-8">
-        <div class="h-[1px] bg-burgundy/25 flex-1"></div>
-        <span class="text-burgundy/60 text-xs">♥</span>
-        <div class="h-[1px] bg-burgundy/25 flex-1"></div>
-      </div>
-      <!-- Scratch to Reveal Header -->
-      <h3
-        class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mt-2 mb-2"
-      >
-        Scratch to Reveal
-      </h3>
-      <!-- Minor divider -->
-      <div class="flex items-center justify-center space-x-3 w-40 mb-8">
-        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-        <span class="text-burgundy text-xs">♥</span>
-        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-      </div>
-      <!-- Scratch-Off Heart Card Container -->
-      <div
-        class="scratch-container flex items-center justify-center my-3"
-        data-purpose="scratch-card-reveal"
-      >
-        <!-- Hidden Message underneath heart -->
-        <div
-          class="w-[220px] h-[200px] flex flex-col items-center justify-center text-center p-4 bg-white/90 rounded-3xl shadow-inner border border-rose-200"
-        >
-          <span
-            class="text-xs uppercase tracking-widest text-burgundy font-semibold mb-1"
-            >Save Our Date</span
-          >
-          <span class="font-serif text-3xl font-bold text-burgundy"
-            >30 . 06 . 2026</span
-          >
-          <span class="font-serif italic text-burgundy text-sm mt-1"
-            >Colaba, Mumbai</span
+        <div class="flex items-center gap-space-sm">
+          <img
+            alt="A &amp; M Royal Wedding Monogram"
+            class="h-8 w-auto object-contain"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1V3zIb2DYn2WQYKcRMGhS4ljlPHsT_w6_16NQhBkANB-NJwXnB1V2b2NhXgpUctlT8l_Z79Ztz3ngrUkzmOLrVQqHMjy7H9orlaFfR67W0yUCE3o30k7Q7zsyxQwhDl_xF1i8KFiOx7GloTNeyWFjg8oi4vwCf8TfrPSMlSEhPotWczWEWh1yVtnEqc_4pTCi34FzLAzf6N3xzGdzouDlmpX1zQZ_3nGdP5NTOMzWE9PJOkVgmbvNQ6E2M"
+          /><span
+            class="font-headline-sm text-headline-sm tracking-tight text-primary hidden sm:inline-block"
+            >Aria &amp; Mateo</span
           >
         </div>
-        <!-- Scratch Surface Canvas -->
-        <canvas
-          class="shadow-lg"
-          height="210"
-          id="scratchCanvas"
-          width="230"
-        ></canvas>
-      </div>
-      <p
-        class="text-xs text-burgundy/70 font-sans tracking-wide mt-3 mb-6 italic"
-      >
-        (Rub or drag finger over the heart to uncover our date!)
-      </p>
-      <!-- Save The Date Action Button -->
-      <a
-        class="inline-flex items-center space-x-2 px-6 py-2.5 rounded-full bg-burgundy hover:bg-burgundy-dark text-white text-xs md:text-sm font-medium tracking-wider uppercase shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
-        data-purpose="save-the-date-btn"
-        href="#timeline"
-      >
-        <svg
-          class="h-4 w-4"
-          fill="none"
-          stroke="currentColor"
-          viewbox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+        <nav
+          class="hidden xl:flex items-center gap-space-xs p-space-3xs rounded-full bg-surface-container/60 backdrop-blur-md"
+          data-active-classes="bg-primary-container text-on-primary-container rounded-full"
         >
-          <path
-            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></path>
-        </svg>
-        <span>Save The Date</span>
-      </a>
-    </section>
-    <!-- END: WelcomeAndScratchSection -->
-    <!-- BEGIN: CountdownAndTimelineSection -->
-    <!-- Countdown timer and wedding day schedule -->
-    <section
-      class="py-16 px-4 bg-blush-50 flex flex-col items-center text-center border-b border-burgundy/10"
-      id="timeline"
-    >
-      <!-- Countdown Heading -->
-      <h3
-        class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mb-2"
-      >
-        Counting Down to Forever
-      </h3>
-      <div class="flex items-center justify-center space-x-3 w-40 mb-10">
-        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-        <span class="text-burgundy text-xs">♥</span>
-        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-      </div>
-      <!-- Countdown Metric Cards -->
-      <div
-        class="grid grid-cols-4 gap-3 md:gap-6 max-w-xl w-full px-2"
-        data-purpose="countdown-cards"
-      >
-        <!-- Days -->
-        <div
-          class="flex flex-col items-center justify-center p-3 sm:p-5 rounded-lg bg-blush-200/60 border border-burgundy/15 shadow-sm"
-        >
-          <span
-            class="text-2xl sm:text-4xl font-serif font-bold text-burgundy"
-            id="countDays"
-            >21</span
-          >
-          <span
-            class="text-[10px] sm:text-xs tracking-widest text-burgundy/80 font-sans uppercase mt-1"
-            >Days</span
-          >
-        </div>
-        <!-- Hours -->
-        <div
-          class="flex flex-col items-center justify-center p-3 sm:p-5 rounded-lg bg-blush-200/60 border border-burgundy/15 shadow-sm"
-        >
-          <span
-            class="text-2xl sm:text-4xl font-serif font-bold text-burgundy"
-            id="countHours"
-            >20</span
-          >
-          <span
-            class="text-[10px] sm:text-xs tracking-widest text-burgundy/80 font-sans uppercase mt-1"
-            >Hours</span
-          >
-        </div>
-        <!-- Minutes -->
-        <div
-          class="flex flex-col items-center justify-center p-3 sm:p-5 rounded-lg bg-blush-200/60 border border-burgundy/15 shadow-sm"
-        >
-          <span
-            class="text-2xl sm:text-4xl font-serif font-bold text-burgundy"
-            id="countMinutes"
-            >27</span
-          >
-          <span
-            class="text-[10px] sm:text-xs tracking-widest text-burgundy/80 font-sans uppercase mt-1"
-            >Minutes</span
-          >
-        </div>
-        <!-- Seconds -->
-        <div
-          class="flex flex-col items-center justify-center p-3 sm:p-5 rounded-lg bg-blush-200/60 border border-burgundy/15 shadow-sm"
-        >
-          <span
-            class="text-2xl sm:text-4xl font-serif font-bold text-burgundy"
-            id="countSeconds"
-            >22</span
-          >
-          <span
-            class="text-[10px] sm:text-xs tracking-widest text-burgundy/80 font-sans uppercase mt-1"
-            >Seconds</span
-          >
-        </div>
-      </div>
-      <!-- Program Timeline Sub-Section -->
-      <div class="mt-20 flex flex-col items-center w-full max-w-xl">
-        <!-- Clock Icon -->
-        <div class="text-burgundy mb-2">
-          <svg
-            class="h-6 w-6 stroke-[1.5]"
-            fill="none"
-            stroke="currentColor"
-            viewbox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
-          </svg>
-        </div>
-        <h3
-          class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mb-2"
-        >
-          Program Timeline
-        </h3>
-        <div class="flex items-center justify-center space-x-3 w-40 mb-10">
-          <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-          <span class="text-burgundy text-xs">♥</span>
-          <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-        </div>
-        <!-- Vertical Timeline List -->
-        <div
-          class="relative pl-6 border-l-2 border-burgundy/30 space-y-9 text-left w-full max-w-md mx-auto"
-          data-purpose="wedding-program-schedule"
-        >
-          <!-- Event 1: Guest Arrival -->
-          <div class="relative group">
-            <span
-              class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-burgundy rounded-full border-2 border-white ring-2 ring-burgundy/30"
-            ></span>
-            <h4 class="font-serif font-semibold text-lg text-burgundy">
-              Guest Arrival
-            </h4>
-            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
-              Jun 30, 2026, 10:00 AM
-            </p>
-            <p class="text-xs font-serif italic text-burgundy/90 mt-1">
-              We Warmly welcome you.. !
-            </p>
-          </div>
-          <!-- Event 2: Wedding Ceremony -->
-          <div class="relative group">
-            <span
-              class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-burgundy rounded-full border-2 border-white ring-2 ring-burgundy/30"
-            ></span>
-            <h4 class="font-serif font-semibold text-lg text-burgundy">
-              Wedding Ceremony
-            </h4>
-            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
-              Jun 30, 2026, 10:30 AM
-            </p>
-            <p class="text-xs font-serif italic text-burgundy/90 mt-1">
-              Your gracious presence is requested ♥
-            </p>
-          </div>
-          <!-- Event 3: Reception & Feast -->
-          <div class="relative group">
-            <span
-              class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-burgundy rounded-full border-2 border-white ring-2 ring-burgundy/30"
-            ></span>
-            <h4 class="font-serif font-semibold text-lg text-burgundy">
-              Reception &amp; Feast
-            </h4>
-            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
-              Jun 30, 2026, 1:00 PM
-            </p>
-            <p class="text-xs font-serif italic text-burgundy/90 mt-1">
-              Followed by celebratory lunch &amp; blessings
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END: CountdownAndTimelineSection -->
-    <!-- BEGIN: VenueSection -->
-    <!-- Taj Mahal Palace Mumbai venue details with delicate monument line illustration -->
-    <section
-      class="py-16 px-4 bg-pattern-cross flex flex-col items-center text-center border-b border-burgundy/10"
-      id="venue"
-    >
-      <!-- Location Pin Icon -->
-      <div class="text-burgundy mb-2">
-        <svg
-          class="h-6 w-6 stroke-[1.5]"
-          fill="none"
-          stroke="currentColor"
-          viewbox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-          <path
-            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-        </svg>
-      </div>
-      <!-- Venue Heading -->
-      <h3
-        class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mb-2"
-      >
-        Venue
-      </h3>
-      <div class="flex items-center justify-center space-x-3 w-40 mb-6">
-        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-        <span class="text-burgundy text-xs">♥</span>
-        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-      </div>
-      <h4 class="font-serif font-bold text-xl md:text-2xl text-burgundy">
-        The Taj Mahal Palace
-      </h4>
-      <p
-        class="font-sans text-xs md:text-sm text-burgundy/80 mt-1 mb-8 max-w-md"
-      >
-        Apollo Bandar, Colaba, Mumbai, Maharashtra 400001
-      </p>
-      <!-- Palace Delicate Line Art Vector SVG -->
-      <div
-        class="w-full max-w-md my-4 opacity-50 px-4"
-        data-purpose="palace-line-illustration"
-      >
-        <svg
-          class="w-full h-auto stroke-burgundy fill-none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.2"
-          viewbox="0 0 400 120"
-        >
-          <!-- Ground base line -->
-          <line x1="10" x2="390" y1="110" y2="110"></line>
-          <line x1="25" x2="375" y1="115" y2="115"></line>
-          <!-- Main Dome Center -->
-          <path d="M 180 60 Q 200 15 220 60 L 220 110 L 180 110 Z"></path>
-          <path d="M 190 110 L 190 75 Q 200 65 210 75 L 210 110"></path>
-          <line x1="200" x2="200" y1="15" y2="5"></line>
-          <circle class="fill-burgundy" cx="200" cy="5" r="2"></circle>
-          <!-- Left Wing & Pavilion -->
-          <rect height="45" width="60" x="120" y="65"></rect>
-          <path d="M 135 65 Q 150 40 165 65"></path>
-          <line x1="150" x2="150" y1="40" y2="30"></line>
-          <rect height="18" rx="6" width="12" x="135" y="78"></rect>
-          <rect height="18" rx="6" width="12" x="153" y="78"></rect>
-          <rect height="35" width="40" x="80" y="75"></rect>
-          <path d="M 88 75 Q 100 55 112 75"></path>
-          <!-- Right Wing & Pavilion -->
-          <rect height="45" width="60" x="220" y="65"></rect>
-          <path d="M 235 65 Q 250 40 265 65"></path>
-          <line x1="250" x2="250" y1="40" y2="30"></line>
-          <rect height="18" rx="6" width="12" x="235" y="78"></rect>
-          <rect height="18" rx="6" width="12" x="253" y="78"></rect>
-          <rect height="35" width="40" x="280" y="75"></rect>
-          <path d="M 288 75 Q 300 55 312 75"></path>
-          <!-- Minarets -->
-          <rect height="65" width="10" x="55" y="45"></rect>
-          <path d="M 52 45 Q 60 30 68 45"></path>
-          <rect height="65" width="10" x="335" y="45"></rect>
-          <path d="M 332 45 Q 340 30 348 45"></path>
-        </svg>
-      </div>
-      <!-- Google Maps Action Button -->
-      <a
-        class="mt-6 px-6 py-2.5 rounded-md bg-burgundy hover:bg-burgundy-dark text-white text-xs md:text-sm font-medium tracking-wide shadow-md transition-colors"
-        data-purpose="maps-btn"
-        href="https://maps.google.com/?q=The+Taj+Mahal+Palace+Mumbai"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        View on Google Maps
-      </a>
-    </section>
-    <!-- END: VenueSection -->
-    <!-- BEGIN: DressCodeAndPreWeddingSection -->
-    <!-- Dress Code guidelines and traditional pre-wedding functions -->
-    <section
-      class="py-16 px-4 bg-blush-50 flex flex-col items-center text-center border-b border-burgundy/10"
-      id="dresscode-and-events"
-    >
-      <!-- Dress Code Icon -->
-      <div class="text-burgundy mb-2">
-        <svg
-          class="h-7 w-7 stroke-[1.5]"
-          fill="none"
-          stroke="currentColor"
-          viewbox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 4v2m0 0a2 2 0 100 4 2 2 0 000-4zm-7 8l2-4h10l2 4M5 12l2 8h10l2-8M9 20v-4m6 4v-4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-        </svg>
-      </div>
-      <!-- Dress Code Heading -->
-      <h3
-        class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mb-2"
-      >
-        Dress Code
-      </h3>
-      <div class="flex items-center justify-center space-x-3 w-40 mb-10">
-        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-        <span class="text-burgundy text-xs">♥</span>
-        <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-      </div>
-      <!-- Dress Code Columns -->
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-xl w-full px-4 text-center"
-      >
-        <!-- Women Column -->
-        <div class="space-y-2">
-          <h4 class="font-serif font-bold text-lg text-burgundy">Women</h4>
-          <p
-            class="text-xs md:text-sm text-burgundy/80 font-sans leading-relaxed"
-          >
-            Elegant formal attire in pastel or jewel tones
-          </p>
-        </div>
-        <!-- Men Column -->
-        <div class="space-y-2">
-          <h4 class="font-serif font-bold text-lg text-burgundy">Men</h4>
-          <p
-            class="text-xs md:text-sm text-burgundy/80 font-sans leading-relaxed"
-          >
-            Suit or traditional formal wear
-          </p>
-        </div>
-      </div>
-      <!-- Pre-Wedding Events Header -->
-      <div class="mt-20 flex flex-col items-center">
-        <!-- Party Popper Icon -->
-        <div class="text-burgundy mb-2">
-          <svg
-            class="h-6 w-6 stroke-[1.5]"
-            fill="none"
-            stroke="currentColor"
-            viewbox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
-          </svg>
-        </div>
-        <h3
-          class="font-calligraphy text-burgundy text-4xl md:text-5xl font-medium mb-2"
-        >
-          Pre-Wedding Events
-        </h3>
-        <div class="flex items-center justify-center space-x-3 w-40 mb-10">
-          <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-          <span class="text-burgundy text-xs">♥</span>
-          <div class="h-[1px] bg-burgundy/30 flex-1"></div>
-        </div>
-        <!-- Events List -->
-        <div class="space-y-8 max-w-md w-full text-center">
-          <!-- Event 1: Mahendi -->
-          <div>
-            <h4 class="font-serif font-bold text-lg text-burgundy">Mahendi</h4>
-            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
-              Jun 27, 2026, 9:30 PM
-            </p>
-            <p class="text-xs text-burgundy/75 font-sans mt-0.5">
-              At Bride's House
-            </p>
-          </div>
-          <!-- Event 2: Haldi -->
-          <div>
-            <h4 class="font-serif font-bold text-lg text-burgundy">Haldi</h4>
-            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
-              Jun 28, 2026, 8:30 PM
-            </p>
-            <p class="text-xs text-burgundy/75 font-sans mt-0.5">
-              At Groom's House
-            </p>
-          </div>
-          <!-- Event 3: Sangeet Night -->
-          <div>
-            <h4 class="font-serif font-bold text-lg text-burgundy">Sangeet</h4>
-            <p class="text-xs text-burgundy/80 font-sans mt-0.5">
-              Jun 29, 2026, 8:00 PM
-            </p>
-            <p class="text-xs text-burgundy/75 font-sans mt-0.5">
-              Grand Ballroom, Mumbai
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- END: DressCodeAndPreWeddingSection -->
-    <!-- BEGIN: RsvpSection -->
-    <!-- Attendance Form and Wishes Message -->
-    <section
-      class="py-16 px-4 bg-pattern-cross flex flex-col items-center"
-      id="rsvp"
-    >
-      <div class="max-w-md w-full bg-transparent">
-        <!-- Attendance Selector -->
-        <div class="mb-4">
-          <label
-            class="block text-xs font-sans text-burgundy font-medium mb-1 text-left"
-            for="attendingSelect"
-          >
-            Will you be attending?
-          </label>
-          <select
-            class="w-full text-xs md:text-sm bg-white border border-burgundy/30 rounded-md py-2.5 px-3 text-burgundy focus:ring-1 focus:ring-burgundy focus:border-burgundy shadow-sm"
-            id="attendingSelect"
-            name="attending"
-          >
-            <option value="">Select...</option>
-            <option value="yes">Joyfully Accept</option>
-            <option value="no">Regretfully Decline</option>
-          </select>
-        </div>
-        <!-- Wishes Textarea -->
-        <div class="mb-6">
-          <label
-            class="block text-xs font-sans text-burgundy font-medium mb-1 text-left"
-            for="messageTextarea"
-          >
-            Your Message
-          </label>
-          <textarea
-            class="w-full text-xs md:text-sm bg-white border border-burgundy/30 rounded-md py-2 px-3 text-burgundy placeholder:text-burgundy/40 focus:ring-1 focus:ring-burgundy focus:border-burgundy shadow-sm resize-none"
-            id="messageTextarea"
-            name="message"
-            placeholder="Write your wishes..."
-            rows="4"
-          ></textarea>
-        </div>
-        <!-- Send Message Button -->
-        <button
-          class="w-full py-2.5 rounded-md bg-burgundy hover:bg-burgundy-dark text-white font-serif text-sm font-medium tracking-wide shadow-md transition-colors"
-          data-purpose="send-rsvp-btn"
-          id="sendMessageBtn"
-          type="button"
-        >
-          Send Message
-        </button>
-        <div
-          class="hidden text-center text-xs text-burgundy font-medium mt-2"
-          id="rsvpSuccessAlert"
-        >
-          Thank you for your blessings and RSVP!
-        </div>
-      </div>
-    </section>
-    <!-- END: RsvpSection -->
-    <!-- BEGIN: ClosingBannerAndFooter -->
-    <!-- Garland Celebration Banner and Footnotes -->
-    <footer
-      class="relative pb-24 pt-12 px-4 bg-blush-50 border-t border-burgundy/10 text-center"
-    >
-      <!-- Decorative Hanging Banner Box -->
-      <div
-        class="max-w-xl mx-auto py-10 px-6 relative flex flex-col items-center"
-      >
-        <!-- Top Garland Wave SVG Line -->
-        <div class="w-full max-w-md opacity-40 mb-4">
-          <svg
-            class="w-full h-auto stroke-burgundy fill-none"
-            stroke-width="1.2"
-            viewbox="0 0 400 40"
-          >
-            <path d="M 0 10 Q 50 30 100 10 T 200 10 T 300 10 T 400 10"></path>
-            <circle class="fill-burgundy" cx="50" cy="20" r="2.5"></circle>
-            <circle class="fill-burgundy" cx="150" cy="20" r="2.5"></circle>
-            <circle class="fill-burgundy" cx="250" cy="20" r="2.5"></circle>
-            <circle class="fill-burgundy" cx="350" cy="20" r="2.5"></circle>
-          </svg>
-        </div>
-        <!-- Heartfelt Closing Heading -->
-        <h3
-          class="font-calligraphy text-burgundy text-4xl md:text-5xl lg:text-6xl font-normal leading-tight"
-        >
-          We can't wait to celebrate with you!
-        </h3>
-        <p class="font-calligraphy text-burgundy/90 text-2xl md:text-3xl mt-4">
-          Veer &amp; Zara
-        </p>
-        <!-- Bottom Garland Wave SVG Line -->
-        <div class="w-full max-w-md opacity-40 mt-6">
-          <svg
-            class="w-full h-auto stroke-burgundy fill-none"
-            stroke-width="1.2"
-            viewbox="0 0 400 40"
-          >
-            <path d="M 0 25 Q 50 5 100 25 T 200 25 T 300 25 T 400 25"></path>
-            <circle class="fill-burgundy" cx="50" cy="15" r="2.5"></circle>
-            <circle class="fill-burgundy" cx="150" cy="15" r="2.5"></circle>
-            <circle class="fill-burgundy" cx="250" cy="15" r="2.5"></circle>
-            <circle class="fill-burgundy" cx="350" cy="15" r="2.5"></circle>
-          </svg>
-        </div>
-      </div>
-      <!-- Attribution & Footer Brand -->
-      <div class="mt-6 flex flex-col items-center justify-center space-y-1">
-        <span class="font-calligraphy text-burgundy text-xl"
-          >Veer &amp; Zara</span
-        >
-        <p class="text-[11px] text-burgundy/70 font-sans">
-          Create your own Invitation on
           <a
-            class="font-serif italic font-semibold text-amber-700 hover:underline"
+            aria-current="page"
+            class="px-space-sm py-space-3xs font-label-subtle transition-colors bg-primary-container text-on-primary-container rounded-full"
+            data-path="our-story"
             href="#"
-            >Zareqia</a
+            >Our Story</a
+          ><a
+            class="px-space-sm py-space-3xs text-on-surface-variant font-label-subtle text-label-subtle hover:text-on-surface transition-colors"
+            data-path="events-timeline"
+            href="#"
+            >Events &amp; Timeline</a
+          ><a
+            class="px-space-sm py-space-3xs text-on-surface-variant font-label-subtle text-label-subtle hover:text-on-surface transition-colors"
+            data-path="venue-directions"
+            href="#"
+            >Venue &amp; Directions</a
+          ><a
+            class="px-space-sm py-space-3xs text-on-surface-variant font-label-subtle text-label-subtle hover:text-on-surface transition-colors"
+            data-path="dress-code"
+            href="#"
+            >Dress Code</a
+          ><a
+            class="px-space-sm py-space-3xs text-on-surface-variant font-label-subtle text-label-subtle hover:text-on-surface transition-colors"
+            data-path="rsvp-guestbook"
+            href="#"
+            >RSVP &amp; Guestbook</a
+          ><a
+            class="px-space-sm py-space-3xs text-on-surface-variant font-label-subtle text-label-subtle hover:text-on-surface transition-colors"
+            data-path="guest-concierge"
+            href="#guest-concierge"
+            >Concierge</a
           >
-        </p>
+        </nav>
+        <div class="flex items-center gap-space-xs">
+          <button
+            class="hidden md:flex items-center gap-space-2xs px-space-sm py-space-3xs rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all font-label-subtle text-label-subtle"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[16px] text-primary"
+              >music_note</span
+            ><span class="">Canon in D</span><span class="text-outline">|</span
+            ><span class="material-symbols-outlined text-[16px]"
+              >volume_up</span
+            ></button
+          ><a
+            class="px-space-md py-space-2xs rounded-full bg-primary text-on-primary font-label-subtle text-label-subtle shadow-[0_4px_16px_rgba(212,163,115,0.25)] hover:bg-primary-container hover:text-on-primary-container transition-all"
+            data-path="rsvp-guestbook"
+            href="#"
+            >RSVP Now</a
+          >
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined text-on-primary text-[18px]"
+              >person</span
+            >
+          </div>
+        </div>
       </div>
-    </footer>
-    <!-- END: ClosingBannerAndFooter -->
-    <!-- BEGIN: BottomFloatingBadges -->
-    <!-- Language Toggle (Urdu) and Template Action (Use this Design) -->
-    <div class="fixed bottom-4 left-4 z-50">
-      <button
-        class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-white/90 hover:bg-white text-burgundy text-xs font-sans font-medium shadow-md border border-burgundy/20 backdrop-blur-sm transition-all"
-        data-purpose="lang-switcher"
-        id="langUrduBtn"
-        type="button"
-      >
-        <svg
-          class="h-3.5 w-3.5"
-          fill="none"
-          stroke="currentColor"
-          viewbox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+    </header>
+    <main class="w-full pt-20 bg-surface relative min-h-screen">
+      <div class="flex flex-col w-full">
+        <!-- Top Ambient Glowing Orbs -->
+        <div class="relative w-full overflow-hidden pointer-events-none">
+          <div
+            class="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-secondary-container/40 rounded-full blur-[140px] -z-10"
+          ></div>
+          <div
+            class="absolute top-80 right-10 w-[420px] h-[420px] bg-primary-fixed/30 rounded-full blur-[110px] -z-10"
+          ></div>
+        </div>
+        <!-- HERO SECTION / ROYAL WELCOME -->
+        <section
+          class="relative w-full px-margin-mobile lg:px-margin-desktop py-space-xl lg:py-space-2xl flex flex-col items-center text-center"
         >
-          <path
-            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></path>
-        </svg>
-        <span>Urdu</span>
-      </button>
-    </div>
-    <div class="fixed bottom-4 right-4 z-50">
-      <button
-        class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-[#fdf6e9]/95 hover:bg-white text-[#7d5621] text-xs font-sans font-medium shadow-md border border-[#e5d2b3] backdrop-blur-sm transition-all"
-        data-purpose="use-design-btn"
-        type="button"
-      >
-        <svg
-          class="h-3.5 w-3.5 text-[#b38334]"
-          fill="none"
-          stroke="currentColor"
-          viewbox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+          <!-- Emblem & Greeting Overline -->
+          <div
+            class="flex flex-col items-center gap-space-xs mb-space-md animate-fade-in"
+          >
+            <img
+              alt="A &amp; M Royal Wedding Monogram"
+              class="h-14 w-auto object-contain drop-shadow-sm mb-space-2xs"
+              src="https://lh3.googleusercontent.com/aida/AEtjO1V3zIb2DYn2WQYKcRMGhS4ljlPHsT_w6_16NQhBkANB-NJwXnB1V2b2NhXgpUctlT8l_Z79Ztz3ngrUkzmOLrVQqHMjy7H9orlaFfR67W0yUCE3o30k7Q7zsyxQwhDl_xF1i8KFiOx7GloTNeyWFjg8oi4vwCf8TfrPSMlSEhPotWczWEWh1yVtnEqc_4pTCi34FzLAzf6N3xzGdzouDlmpX1zQZ_3nGdP5NTOMzWE9PJOkVgmbvNQ6E2M"
+            />
+            <span
+              class="font-label-caps text-label-caps uppercase tracking-[0.25em] text-primary"
+              >Imperial Nuptial Celebration</span
+            >
+            <p
+              class="font-body-md text-body-md text-secondary max-w-xl mx-auto italic"
+            >
+              Together with their families, Aria Montgomery &amp; Mateo Rossi
+              invite you to celebrate their sacred union in the Tuscan hills
+            </p>
+          </div>
+          <!-- Couple Display Names -->
+          <div class="mb-space-lg">
+            <h1
+              class="font-display text-display text-on-surface tracking-tight leading-none mb-space-3xs"
+            >
+              Aria
+              <span
+                class="font-headline-lg italic font-normal text-primary-container mx-space-2xs"
+                >&amp;</span
+              >
+              Mateo
+            </h1>
+            <div
+              class="flex items-center justify-center gap-space-sm mt-space-xs text-on-surface-variant font-label-subtle text-label-subtle"
+            >
+              <span class="">SATURDAY</span>
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-primary-container"
+              ></span>
+              <span class="tracking-widest font-semibold text-primary"
+                >OCTOBER 24, 2026</span
+              >
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-primary-container"
+              ></span>
+              <span class="">FLORENCE, ITALY</span>
+            </div>
+          </div>
+          <!-- Hero Couple Vignette Visual -->
+          <div
+            class="relative w-full max-w-4xl mx-auto rounded-xl p-space-2xs bg-surface-container-high/60 backdrop-blur-xl shadow-xl"
+          >
+            <div
+              class="relative w-full h-[460px] sm:h-[580px] rounded-lg overflow-hidden"
+            >
+              <img
+                class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
+                data-alt="Romantic cinematic editorial portrait of bride Aria in intricate delicate floral lace wedding gown and groom Mateo in tailored champagne cream tuxedo suit smiling tenderly at each other amidst lavish ivory garden roses, pampas grass, warm Italian sunlight and soft bokeh fairy lights at Villa Gamberaia in Tuscany, warm golden hour romance"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtBPYWGTQa7pjGTwtLWyvbBnDUXTpV-JOiLaDMRk8_qdQPlx0ASpUgZO17uQNAqIL3zq9g1ke07WjE6DLSHqFKbBE595YjXp7Evu6AQ0rZzRc_UvPi8MKBwf2skllz14uW3PKJN1xbfBMSITWiMzUpKcuwjtFy8t2nVm6xZ2c-06HGWR7CEa0e_nhDzGNJpBJHap8SY3znJuNnIMjcNWKC27-FhqjFD24KRye1RY1riN_2qLjjaH3aaw"
+              />
+              <!-- Radial Frosted Gradient Vignette -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-surface-container/20"
+              ></div>
+              <!-- Bottom Floating Caption Card -->
+              <div
+                class="absolute bottom-space-md left-space-md right-space-md sm:left-auto sm:right-space-md sm:max-w-md p-space-md rounded-lg bg-surface-container-lowest/90 backdrop-blur-md shadow-lg text-left"
+              >
+                <div
+                  class="flex items-center gap-space-2xs mb-space-3xs text-primary font-label-caps text-label-caps"
+                >
+                  <span class="material-symbols-outlined text-[16px]"
+                    >location_on</span
+                  >
+                  <span class="">VILLA GAMBERAIA • SETTIGNANO</span>
+                </div>
+                <p
+                  class="font-headline-sm text-headline-sm text-on-surface leading-snug"
+                >
+                  The Sacred Exchange of Eternal Vows
+                </p>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant mt-space-3xs"
+                >
+                  Under the whispering cypresses and ancient Florentine arches
+                  overlooking the Arno Valley.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- INTERACTIVE DATE REVEAL / ROYAL WAX SEAL UNFOLD -->
+        <section
+          class="w-full max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop py-space-xl"
         >
-          <path
-            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></path>
-        </svg>
-        <span>Use this Design</span>
-      </button>
-    </div>
-    <!-- END: BottomFloatingBadges -->
-    <!-- BEGIN: InteractiveScratchCardScript -->
-    <script data-purpose="scratch-to-reveal-canvas">
-      document.addEventListener("DOMContentLoaded", () => {
-        const canvas = document.getElementById("scratchCanvas");
-        if (!canvas) return;
-        const ctx = canvas.getContext("2d");
-        const width = canvas.width;
-        const height = canvas.height;
+          <div
+            class="relative rounded-xl p-space-lg lg:p-space-xl bg-surface-container-low/90 backdrop-blur-md shadow-md flex flex-col items-center text-center overflow-hidden"
+          >
+            <!-- Background Ambient Glow -->
+            <div
+              class="absolute -top-24 -left-24 w-80 h-80 bg-secondary-container/50 rounded-full blur-3xl pointer-events-none"
+            ></div>
+            <div class="max-w-xl mx-auto mb-space-md">
+              <span
+                class="font-label-caps text-label-caps text-primary uppercase"
+                >The Grand Reveal</span
+              >
+              <h2
+                class="font-headline-lg text-headline-lg text-on-surface mt-space-3xs"
+              >
+                Auspicious Muhurtham &amp; Sunset Hour
+              </h2>
+              <p
+                class="font-body-md text-body-md text-on-surface-variant mt-space-2xs"
+              >
+                Touch or tap the royal crest envelope below to unseal our
+                official auspicious ceremony timeline and celestial blessing
+                hour.
+              </p>
+            </div>
+            <!-- Wax Seal Card Flip / Scratch Interactive Element -->
+            <div
+              class="cursor-pointer group relative w-full max-w-md h-64 rounded-xl transition-transform duration-500 hover:scale-[1.02]"
+              id="dateRevealContainer"
+            >
+              <!-- Front Cover (Seal & Foil) -->
+              <div
+                class="absolute inset-0 rounded-xl bg-gradient-to-br from-surface-container-highest via-secondary-container/70 to-surface-container-high p-space-md flex flex-col items-center justify-center shadow-lg transition-all duration-700 ease-in-out"
+                id="revealCover"
+              >
+                <div
+                  class="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-md mb-space-sm transform group-hover:scale-110 transition-transform"
+                >
+                  <span
+                    class="material-symbols-outlined text-on-primary text-[36px]"
+                    >lock_open</span
+                  >
+                </div>
+                <span
+                  class="font-title-md text-title-md text-on-surface font-semibold"
+                  >Touch to Break Wax Seal</span
+                >
+                <span
+                  class="font-label-caps text-label-caps text-secondary mt-space-3xs tracking-wider"
+                  >TAP TO REVEAL CEREMONY HOUR</span
+                >
+              </div>
+              <!-- Hidden Revealed Card -->
+              <div
+                class="absolute inset-0 rounded-xl bg-surface-container-lowest p-space-md flex flex-col items-center justify-center shadow-xl opacity-0 scale-95 transition-all duration-700 pointer-events-none"
+                id="revealedContent"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-[32px] mb-space-3xs"
+                  >verified</span
+                >
+                <span
+                  class="font-label-caps text-label-caps text-primary tracking-widest uppercase"
+                  >Ceremony Confirmed</span
+                >
+                <p
+                  class="font-headline-sm text-headline-sm text-on-surface mt-space-3xs"
+                >
+                  Saturday, October 24, 2026
+                </p>
+                <p
+                  class="font-title-md text-title-md text-primary font-bold mt-space-3xs"
+                >
+                  4:30 PM CET — Sunset Vows
+                </p>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs"
+                >
+                  Auspicious Twilight Muhurtham • Water Parterre Gardens
+                </p>
+              </div>
+            </div>
+            <!-- Calendar Sync Actions -->
+            <div
+              class="mt-space-lg flex flex-wrap items-center justify-center gap-space-sm"
+            >
+              <a
+                class="inline-flex items-center gap-space-2xs px-space-md py-space-2xs rounded-full bg-primary text-on-primary font-label-subtle text-label-subtle shadow-md hover:bg-primary-container hover:text-on-primary-container transition-all"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-[18px]"
+                  >calendar_add_on</span
+                >
+                Add to Google Calendar
+              </a>
+              <a
+                class="inline-flex items-center gap-space-2xs px-space-md py-space-2xs rounded-full bg-surface-container-high text-on-surface font-label-subtle text-label-subtle hover:bg-surface-variant transition-colors"
+                href="#"
+              >
+                <span class="material-symbols-outlined text-[18px]">event</span>
+                Add to Apple iCal
+              </a>
+            </div>
+          </div>
+        </section>
+        <!-- LIVE COUNTDOWN TIMER -->
+        <section
+          class="w-full max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop py-space-xl"
+        >
+          <div class="flex flex-col items-center text-center mb-space-lg">
+            <span class="font-label-caps text-label-caps text-primary uppercase"
+              >Anticipation</span
+            >
+            <h2
+              class="font-headline-md text-headline-md text-on-surface mt-space-3xs"
+            >
+              Counting Down Every Heartbeat
+            </h2>
+            <p
+              class="font-body-lg text-body-lg text-secondary italic mt-space-2xs"
+            >
+              Until we say “I Do” under the Tuscan sky
+            </p>
+          </div>
+          <!-- 4 Ticker Cards -->
+          <div
+            class="grid grid-cols-2 md:grid-cols-4 gap-space-sm max-w-3xl mx-auto"
+          >
+            <!-- Days -->
+            <div
+              class="p-space-md rounded-xl bg-surface-container-low backdrop-blur-sm shadow-sm flex flex-col items-center justify-center"
+            >
+              <span
+                class="font-display text-headline-lg lg:text-display text-primary font-normal leading-none tracking-tight"
+                id="countdownDays"
+                >43</span
+              >
+              <span
+                class="font-label-caps text-label-caps text-on-surface-variant mt-space-2xs uppercase"
+                >Days</span
+              >
+            </div>
+            <!-- Hours -->
+            <div
+              class="p-space-md rounded-xl bg-surface-container-low backdrop-blur-sm shadow-sm flex flex-col items-center justify-center"
+            >
+              <span
+                class="font-display text-headline-lg lg:text-display text-primary font-normal leading-none tracking-tight"
+                id="countdownHours"
+                >05</span
+              >
+              <span
+                class="font-label-caps text-label-caps text-on-surface-variant mt-space-2xs uppercase"
+                >Hours</span
+              >
+            </div>
+            <!-- Minutes -->
+            <div
+              class="p-space-md rounded-xl bg-surface-container-low backdrop-blur-sm shadow-sm flex flex-col items-center justify-center"
+            >
+              <span
+                class="font-display text-headline-lg lg:text-display text-primary font-normal leading-none tracking-tight"
+                id="countdownMinutes"
+                >10</span
+              >
+              <span
+                class="font-label-caps text-label-caps text-on-surface-variant mt-space-2xs uppercase"
+                >Minutes</span
+              >
+            </div>
+            <!-- Seconds -->
+            <div
+              class="p-space-md rounded-xl bg-surface-container-low backdrop-blur-sm shadow-sm flex flex-col items-center justify-center"
+            >
+              <span
+                class="font-display text-headline-lg lg:text-display text-primary-container font-normal leading-none tracking-tight"
+                id="countdownSeconds"
+                >55</span
+              >
+              <span
+                class="font-label-caps text-label-caps text-on-surface-variant mt-space-2xs uppercase"
+                >Seconds</span
+              >
+            </div>
+          </div>
+        </section>
+        <!-- OUR STORY & BESPOKE MEMOIR -->
+        <section
+          class="w-full max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop py-space-2xl"
+        >
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center"
+          >
+            <!-- Story Narrative (7 cols) -->
+            <div class="lg:col-span-7 flex flex-col justify-center">
+              <span
+                class="font-label-caps text-label-caps text-primary uppercase"
+                >The Prologue</span
+              >
+              <h2
+                class="font-headline-lg text-headline-lg text-on-surface mt-space-3xs"
+              >
+                How Our Chapter Began
+              </h2>
+              <div
+                class="mt-space-md space-y-space-sm text-body-lg text-on-surface-variant leading-relaxed"
+              >
+                <p class="">
+                  It began on a rain-kissed autumn morning in Milan over an
+                  accidental exchange of sketchbooks at Caffè Cova. What was
+                  meant to be an apology coffee blossomed into a six-hour
+                  conversation spanning architecture, chamber music, and the
+                  quiet beauty of vintage bookstalls.
+                </p>
+                <p class="">
+                  Four years, countless passports, and quiet dawn strolls later,
+                  Mateo brought Aria back to Lake Como. In the private rose
+                  conservatory of Villa del Balbianello, as dusk softened into
+                  twilight, he whispered the question that sealed two lifetimes
+                  into one.
+                </p>
+              </div>
+              <!-- Editorial Blockquote -->
+              <div
+                class="mt-space-lg p-space-md rounded-lg bg-surface-container-high/60 backdrop-blur-md"
+              >
+                <p
+                  class="font-headline-sm text-headline-sm text-primary italic"
+                >
+                  “In all the world, there is no heart for me like yours. In all
+                  the world, there is no love for you like mine.”
+                </p>
+                <span
+                  class="block mt-space-2xs font-label-subtle text-label-subtle text-secondary"
+                  >— Maya Angelou</span
+                >
+              </div>
+            </div>
+            <!-- Photo Collage (5 cols) -->
+            <div class="lg:col-span-5 relative">
+              <div
+                class="relative w-full h-[480px] rounded-xl overflow-hidden shadow-xl"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="Intimate romantic portrait of Aria and Mateo laughing together at sunset in Lake Como Italy, dressed in sophisticated quiet luxury neutral attire, soft golden lighting and tranquil waters reflecting mountains"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4tZWoBur-tqpQ1I0YwYDfPTXCTuR0GZmTxke7rghm_e9maxF_79mJiGijnJsLzUeJGsxMywUuGszaNvZTQpvaMZRWsnW1E5WLyxp6X_EVEO3xvnpKJ7enamadvE0u9NDvPpHc_OMJazaM9c8lFIe5L0Sd2IPQ_tA-8922pp4oO9rDPM1WK-MiJiAK6ZGiF7V7QyC1LFVjxi_dyQTr8wEFfm5fyrG-dkSu78Vpjtlnr5jEk8AwZnToDQ"
+                />
+              </div>
+              <!-- Overlapping polaroid card -->
+              <div
+                class="absolute -bottom-8 -left-6 w-48 p-space-2xs bg-surface-container-lowest shadow-xl rounded-lg transform -rotate-3 hover:rotate-0 transition-transform"
+              >
+                <div class="w-full h-44 rounded overflow-hidden mb-space-3xs">
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="Delicate close-up of Mateo slipping a classic emerald cut diamond engagement ring onto Aria's finger beside blooming garden roses in vintage film grain"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKf2V1CVW3boi7Ie1aLxfnTkLxbqNcSORBu-SrCo_LfOWJrwa1KyxF9Lms2AcA51sQ45lvI-Uv7ZyrOjocbykPxsdlhjSU7B56zX5z6tgr20P03vtqwKlQPUxi6HZXHh0eMP9gMp5tY-X95_-3kWa1u1q7mGhHKSfj0hxGedMh_7Pe1nC9D82qV8YIF0WZGAoj1bgYL0Pwh7l8uQicdT4PeCyapSgVOFV3lA6pFRgsMPYmISF2361mCA"
+                  />
+                </div>
+                <p
+                  class="font-body-sm text-body-sm text-center text-on-surface italic"
+                >
+                  The Yes Moment • Como
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- CELEBRATION SCHEDULE & TIMELINE -->
+        <section class="w-full bg-surface-container-low/70 py-space-2xl">
+          <div
+            class="max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop"
+          >
+            <div class="text-center max-w-2xl mx-auto mb-space-xl">
+              <span
+                class="font-label-caps text-label-caps text-primary uppercase"
+                >Celebration Itinerary</span
+              >
+              <h2
+                class="font-headline-lg text-headline-lg text-on-surface mt-space-3xs"
+              >
+                Four Moments of Elegance
+              </h2>
+              <p
+                class="font-body-md text-body-md text-on-surface-variant mt-space-2xs"
+              >
+                Please join us throughout our celebration weekend across the
+                terraced villas of Florence.
+              </p>
+            </div>
+            <!-- 4 Timeline Cards Grid -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md"
+            >
+              <!-- Event 1 -->
+              <div
+                class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+              >
+                <div>
+                  <div class="flex items-center justify-between mb-space-sm">
+                    <span
+                      class="font-label-caps text-label-caps text-primary px-space-2xs py-space-3xs rounded-full bg-surface-container-high"
+                      >DAY 01</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-primary-container text-[24px]"
+                      >wine_bar</span
+                    >
+                  </div>
+                  <span
+                    class="font-label-subtle text-label-subtle text-secondary block"
+                    >Friday, Oct 23 • 6:00 PM</span
+                  >
+                  <h3
+                    class="font-headline-sm text-headline-sm text-on-surface mt-space-3xs"
+                  >
+                    Welcome Soirée
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed"
+                  >
+                    Chianti tastings, hand-rolled pasta stations, and live
+                    Italian jazz at the Lemon Grove Terrace.
+                  </p>
+                </div>
+                <div class="mt-space-md pt-space-xs">
+                  <span
+                    class="block font-label-caps text-label-caps text-on-surface-variant uppercase"
+                    >Attire Code</span
+                  >
+                  <span
+                    class="font-body-sm text-body-sm text-primary font-medium"
+                    >Cocktail Chic • Linen &amp; Silk</span
+                  >
+                </div>
+              </div>
+              <!-- Event 2 (Primary) -->
+              <div
+                class="p-space-lg rounded-xl bg-surface-container-highest/60 backdrop-blur-md shadow-md hover:shadow-lg transition-shadow flex flex-col justify-between relative overflow-hidden"
+              >
+                <div
+                  class="absolute top-0 right-0 w-24 h-24 bg-primary-container/20 rounded-full blur-xl pointer-events-none"
+                ></div>
+                <div>
+                  <div class="flex items-center justify-between mb-space-sm">
+                    <span
+                      class="font-label-caps text-label-caps text-on-primary bg-primary px-space-2xs py-space-3xs rounded-full"
+                      >SACRED VOWS</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-primary text-[24px]"
+                      >favorite</span
+                    >
+                  </div>
+                  <span
+                    class="font-label-subtle text-label-subtle text-secondary block"
+                    >Saturday, Oct 24 • 4:30 PM</span
+                  >
+                  <h3
+                    class="font-headline-sm text-headline-sm text-on-surface mt-space-3xs"
+                  >
+                    The Holy Ceremony
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed"
+                  >
+                    Sunset exchange of vows accompanied by Florence String
+                    Quartet among antique fountains and rose colonnades.
+                  </p>
+                </div>
+                <div class="mt-space-md pt-space-xs">
+                  <span
+                    class="block font-label-caps text-label-caps text-on-surface-variant uppercase"
+                    >Attire Code</span
+                  >
+                  <span
+                    class="font-body-sm text-body-sm text-primary font-medium"
+                    >Black Tie &amp; Formal Elegance</span
+                  >
+                </div>
+              </div>
+              <!-- Event 3 -->
+              <div
+                class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+              >
+                <div>
+                  <div class="flex items-center justify-between mb-space-sm">
+                    <span
+                      class="font-label-caps text-label-caps text-primary px-space-2xs py-space-3xs rounded-full bg-surface-container-high"
+                      >CELEBRATION</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-primary-container text-[24px]"
+                      >nightlife</span
+                    >
+                  </div>
+                  <span
+                    class="font-label-subtle text-label-subtle text-secondary block"
+                    >Saturday, Oct 24 • 7:00 PM</span
+                  >
+                  <h3
+                    class="font-headline-sm text-headline-sm text-on-surface mt-space-3xs"
+                  >
+                    Gala Dinner &amp; Dance
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed"
+                  >
+                    Four-course Tuscan banquet under canopy chandeliers followed
+                    by twilight dancing and midnight gelato cart.
+                  </p>
+                </div>
+                <div class="mt-space-md pt-space-xs">
+                  <span
+                    class="block font-label-caps text-label-caps text-on-surface-variant uppercase"
+                    >Attire Code</span
+                  >
+                  <span
+                    class="font-body-sm text-body-sm text-primary font-medium"
+                    >Glamorous Eveningwear</span
+                  >
+                </div>
+              </div>
+              <!-- Event 4 -->
+              <div
+                class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+              >
+                <div>
+                  <div class="flex items-center justify-between mb-space-sm">
+                    <span
+                      class="font-label-caps text-label-caps text-primary px-space-2xs py-space-3xs rounded-full bg-surface-container-high"
+                      >FAREWELL</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-primary-container text-[24px]"
+                      >bakery_dining</span
+                    >
+                  </div>
+                  <span
+                    class="font-label-subtle text-label-subtle text-secondary block"
+                    >Sunday, Oct 25 • 11:00 AM</span
+                  >
+                  <h3
+                    class="font-headline-sm text-headline-sm text-on-surface mt-space-3xs"
+                  >
+                    Farewell Garden Brunch
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed"
+                  >
+                    Bellinis, fresh brioche, and relaxed farewell hugs poolside
+                    before departures to Rome and Florence airports.
+                  </p>
+                </div>
+                <div class="mt-space-md pt-space-xs">
+                  <span
+                    class="block font-label-caps text-label-caps text-on-surface-variant uppercase"
+                    >Attire Code</span
+                  >
+                  <span
+                    class="font-body-sm text-body-sm text-primary font-medium"
+                    >Garden Casual Chic</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- VENUE & LIVE DIRECTIONS -->
+        <section
+          class="w-full max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop py-space-2xl"
+        >
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center"
+          >
+            <!-- Venue Description (5 cols) -->
+            <div class="lg:col-span-5 flex flex-col justify-center">
+              <span
+                class="font-label-caps text-label-caps text-primary uppercase"
+                >The Sanctuary</span
+              >
+              <h2
+                class="font-headline-lg text-headline-lg text-on-surface mt-space-3xs"
+              >
+                Villa Gamberaia
+              </h2>
+              <p
+                class="font-body-sm text-body-sm text-secondary uppercase tracking-widest mt-space-3xs"
+              >
+                Settignano • Florence, Tuscany
+              </p>
+              <p
+                class="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed"
+              >
+                Perched on the rolling hills of Settignano overlooking Florence
+                and the Arno valley, this famed 17th-century historic estate
+                embodies classical Renaissance symmetry and ethereal cypress
+                gardens.
+              </p>
+              <!-- Shuttle & Logistics Note -->
+              <div
+                class="mt-space-md p-space-sm rounded-lg bg-surface-container flex items-start gap-space-xs"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5"
+                  >airport_shuttle</span
+                >
+                <div>
+                  <span
+                    class="font-title-md text-title-md text-on-surface block text-[15px]"
+                    >Private Guest Shuttle</span
+                  >
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Complimentary Mercedes-Benz Sprinter shuttles depart
+                    continuously every 45 minutes from Hotel Lungarno (Piazza
+                    dei Rossi, Florence) directly to the Villa courtyard.
+                  </p>
+                </div>
+              </div>
+              <!-- Map Navigation Buttons -->
+              <div class="mt-space-md flex flex-wrap gap-space-xs">
+                <a
+                  class="inline-flex items-center gap-space-2xs px-space-md py-space-2xs rounded-full bg-primary text-on-primary font-label-subtle text-label-subtle hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+                  href="https://maps.google.com/?q=Villa+Gamberaia+Settignano"
+                  target="_blank"
+                >
+                  <span class="material-symbols-outlined text-[18px]">map</span>
+                  Open in Google Maps
+                </a>
+                <a
+                  class="inline-flex items-center gap-space-2xs px-space-md py-space-2xs rounded-full bg-surface-container-high text-on-surface font-label-subtle text-label-subtle hover:bg-surface-variant transition-colors"
+                  href="http://maps.apple.com/?q=Villa+Gamberaia+Settignano"
+                  target="_blank"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >directions</span
+                  >
+                  Apple Maps
+                </a>
+              </div>
+            </div>
+            <!-- Map Display Container (7 cols) -->
+            <div class="lg:col-span-7">
+              <div
+                class="relative w-full rounded-xl overflow-hidden shadow-xl bg-surface-container-high p-space-2xs"
+              >
+                <div
+                  class="w-full h-80 sm:h-96 rounded-lg bg-cover bg-center relative flex flex-col justify-end p-space-md"
+                  data-location="Villa Gamberaia, Settignano, Florence, Italy"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBfbHUaa5RcaHKwUUmxNY5UCuZS0ufNZw3pQbkmEPjaG5j7-GmEO2QOPsVQIMP0gQZUHDjCew2-jdTZDmezqNskFbsHrWWMohvlEWIVm9wwunBcpa2oIV0PggFcmVMHNT7uMbzLK2VQ4VuADzLxAYFUAMvCBJ6uJeITd5KwiQpj2VA575L_i5LyrjUoB6uVF127RcuL-RmaUYHCDdomn64Ow04pWgupqZt14fQy_fPL6iM1M0PjVLakUw&quot;);
+                  "
+                >
+                  <!-- Map Card Overlay -->
+                  <div
+                    class="p-space-sm rounded-lg bg-surface-container-lowest/90 backdrop-blur-md shadow-lg max-w-sm"
+                  >
+                    <div
+                      class="flex items-center gap-space-2xs text-primary font-label-caps text-label-caps mb-space-3xs"
+                    >
+                      <span class="material-symbols-outlined text-[16px]"
+                        >pin_drop</span
+                      >
+                      <span class="">DESTINATION COORDINATES</span>
+                    </div>
+                    <p
+                      class="font-title-md text-title-md text-on-surface font-semibold"
+                    >
+                      Via del Rossellino, 72
+                    </p>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      50135 Settignano FI, Tuscany, Italy
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- DRESS CODE & PALETTE GUIDE -->
+        <section class="w-full bg-surface-container-low/50 py-space-2xl">
+          <div
+            class="max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop text-center"
+          >
+            <span class="font-label-caps text-label-caps text-primary uppercase"
+              >Aesthetic Harmony</span
+            >
+            <h2
+              class="font-headline-lg text-headline-lg text-on-surface mt-space-3xs"
+            >
+              Guest Dress Code &amp; Color Palette
+            </h2>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto mt-space-2xs"
+            >
+              To create a cohesive visual atmosphere in harmony with the Tuscan
+              estate, we gently invite guests to dress in our curated
+              celebration palette.
+            </p>
+            <!-- Palette Swatches -->
+            <div
+              class="grid grid-cols-2 sm:grid-cols-4 gap-space-md max-w-3xl mx-auto mt-space-xl"
+            >
+              <!-- Swatch 1 -->
+              <div
+                class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center"
+              >
+                <div
+                  class="w-16 h-16 rounded-full shadow-inner mb-space-sm"
+                  style="background-color: #e8c5b0"
+                ></div>
+                <span
+                  class="font-title-md text-title-md text-on-surface font-medium text-[16px]"
+                  >Warm Champagne</span
+                >
+                <span
+                  class="font-label-caps text-label-caps text-secondary mt-space-3xs"
+                  >#E8C5B0</span
+                >
+              </div>
+              <!-- Swatch 2 -->
+              <div
+                class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center"
+              >
+                <div
+                  class="w-16 h-16 rounded-full shadow-inner mb-space-sm"
+                  style="background-color: #faf7f2"
+                ></div>
+                <span
+                  class="font-title-md text-title-md text-on-surface font-medium text-[16px]"
+                  >Antique Ivory</span
+                >
+                <span
+                  class="font-label-caps text-label-caps text-secondary mt-space-3xs"
+                  >#FAF7F2</span
+                >
+              </div>
+              <!-- Swatch 3 -->
+              <div
+                class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center"
+              >
+                <div
+                  class="w-16 h-16 rounded-full shadow-inner mb-space-sm"
+                  style="background-color: #a8bba2"
+                ></div>
+                <span
+                  class="font-title-md text-title-md text-on-surface font-medium text-[16px]"
+                  >Soft Sage</span
+                >
+                <span
+                  class="font-label-caps text-label-caps text-secondary mt-space-3xs"
+                  >#A8BBA2</span
+                >
+              </div>
+              <!-- Swatch 4 -->
+              <div
+                class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center"
+              >
+                <div
+                  class="w-16 h-16 rounded-full shadow-inner mb-space-sm"
+                  style="background-color: #d8a48f"
+                ></div>
+                <span
+                  class="font-title-md text-title-md text-on-surface font-medium text-[16px]"
+                  >Rose Dust</span
+                >
+                <span
+                  class="font-label-caps text-label-caps text-secondary mt-space-3xs"
+                  >#D8A48F</span
+                >
+              </div>
+            </div>
+            <!-- Sartorial Cues -->
+            <div
+              class="mt-space-lg flex flex-wrap justify-center gap-space-md text-left max-w-2xl mx-auto"
+            >
+              <div
+                class="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container-high/60 backdrop-blur-sm flex-1 min-w-[240px]"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-[20px] shrink-0"
+                  >check_circle</span
+                >
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  <strong class="text-on-surface">Ladies:</strong> Full-length
+                  formal gowns, refined silhouettes, muted floral
+                  embellishments, block heels recommended for ancient stone
+                  walkways.
+                </p>
+              </div>
+              <div
+                class="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container-high/60 backdrop-blur-sm flex-1 min-w-[240px]"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-[20px] shrink-0"
+                  >check_circle</span
+                >
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  <strong class="text-on-surface">Gentlemen:</strong> Classic
+                  tuxedo or dark tailored suit with bow-tie or understated
+                  neckwear. Velvet dinner jackets warmly welcomed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- INTERACTIVE RSVP & GUEST MESSAGE INBOX -->
+        <section
+          class="w-full max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop py-space-2xl"
+          id="rsvp-section"
+        >
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start"
+          >
+            <!-- RSVP Interactive Form (7 cols) -->
+            <div
+              class="lg:col-span-7 p-space-lg sm:p-space-xl rounded-xl bg-surface-container-lowest shadow-xl"
+            >
+              <div class="mb-space-md">
+                <span
+                  class="font-label-caps text-label-caps text-primary uppercase"
+                  >Répondez S'il Vous Plaît</span
+                >
+                <h2
+                  class="font-headline-lg text-headline-lg text-on-surface mt-space-3xs"
+                >
+                  Grace Us With Your Presence
+                </h2>
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant mt-space-2xs"
+                >
+                  Kindly respond on or before August 15, 2026. We eagerly look
+                  forward to embracing you.
+                </p>
+              </div>
+              <form
+                class="space-y-space-md"
+                id="rsvpForm"
+                onsubmit="handleRSVPSubmit(event)"
+              >
+                <!-- Name & Email Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+                  <div>
+                    <label
+                      class="block font-label-caps text-label-caps text-on-surface mb-space-3xs uppercase"
+                      >Full Name</label
+                    >
+                    <input
+                      class="w-full px-space-sm py-space-2xs rounded-lg bg-surface-container text-on-surface placeholder:text-outline font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                      placeholder="Lord / Lady..."
+                      required=""
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block font-label-caps text-label-caps text-on-surface mb-space-3xs uppercase"
+                      >Email Address</label
+                    >
+                    <input
+                      class="w-full px-space-sm py-space-2xs rounded-lg bg-surface-container text-on-surface placeholder:text-outline font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                      placeholder="contact@domain.com"
+                      required=""
+                      type="email"
+                    />
+                  </div>
+                </div>
+                <!-- Attendance Radio Group -->
+                <div>
+                  <label
+                    class="block font-label-caps text-label-caps text-on-surface mb-space-2xs uppercase"
+                    >Your Attendance</label
+                  >
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs">
+                    <label
+                      class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container cursor-pointer hover:bg-surface-container-high transition-colors"
+                    >
+                      <input
+                        checked=""
+                        class="w-4 h-4 accent-primary text-primary"
+                        name="attendance"
+                        type="radio"
+                        value="accept"
+                      />
+                      <span
+                        class="font-body-md text-body-md text-on-surface font-medium"
+                        >Joyfully Accepts</span
+                      >
+                    </label>
+                    <label
+                      class="flex items-center gap-space-xs p-space-sm rounded-lg bg-surface-container cursor-pointer hover:bg-surface-container-high transition-colors"
+                    >
+                      <input
+                        class="w-4 h-4 accent-primary text-primary"
+                        name="attendance"
+                        type="radio"
+                        value="decline"
+                      />
+                      <span
+                        class="font-body-md text-body-md text-on-surface font-medium"
+                        >Regretfully Declines</span
+                      >
+                    </label>
+                  </div>
+                </div>
+                <!-- Guest Count & Meal Selection -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+                  <div>
+                    <label
+                      class="block font-label-caps text-label-caps text-on-surface mb-space-3xs uppercase"
+                      >Party Size</label
+                    >
+                    <select
+                      class="w-full px-space-sm py-space-2xs rounded-lg bg-surface-container text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                    >
+                      <option value="1">1 Guest (Solo)</option>
+                      <option value="2">2 Guests (Couple)</option>
+                      <option value="3">3 Guests (With Family)</option>
+                      <option value="4">4 Guests</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      class="block font-label-caps text-label-caps text-on-surface mb-space-3xs uppercase"
+                      >Dinner Entrée</label
+                    >
+                    <select
+                      class="w-full px-space-sm py-space-2xs rounded-lg bg-surface-container text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                    >
+                      <option>Tuscan Truffle Beef Filet</option>
+                      <option>Wild Mediterranean Seabass</option>
+                      <option>
+                        Acquerello Saffron &amp; Morel Risotto (Vegan)
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <!-- Song Request -->
+                <div>
+                  <label
+                    class="block font-label-caps text-label-caps text-on-surface mb-space-3xs uppercase"
+                    >Dance Floor Song Request</label
+                  >
+                  <input
+                    class="w-full px-space-sm py-space-2xs rounded-lg bg-surface-container text-on-surface placeholder:text-outline font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                    placeholder="Artist — Track title that will get you moving..."
+                    type="text"
+                  />
+                </div>
+                <!-- Submit Button -->
+                <button
+                  class="w-full py-space-sm rounded-full bg-primary text-on-primary font-title-md text-title-md font-semibold tracking-wide hover:bg-primary-container hover:text-on-primary-container transition-all shadow-lg flex items-center justify-center gap-space-2xs"
+                  type="submit"
+                >
+                  <span class="material-symbols-outlined text-[20px]"
+                    >mark_email_read</span
+                  >
+                  Confirm Formal RSVP
+                </button>
+              </form>
+              <!-- Toast Confirmation Message -->
+              <div
+                class="hidden mt-space-md p-space-sm rounded-lg bg-secondary-container text-on-secondary-container text-center font-body-md text-body-md"
+                id="rsvpSuccessMsg"
+              >
+                Heartfelt thanks! Your response has been joyfully recorded in
+                Aria &amp; Mateo's guest ledger.
+              </div>
+            </div>
+            <!-- Heartfelt Guestbook & Blessings Inbox (5 cols) -->
+            <div class="lg:col-span-5 flex flex-col">
+              <div class="mb-space-md">
+                <span
+                  class="font-label-caps text-label-caps text-primary uppercase"
+                  >The Guestbook</span
+                >
+                <h3
+                  class="font-headline-sm text-headline-sm text-on-surface mt-space-3xs"
+                >
+                  Blessings &amp; Well Wishes
+                </h3>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant mt-space-3xs"
+                >
+                  Leave your warm words for the couple to treasure forever.
+                </p>
+              </div>
+              <!-- Add Blessing Input -->
+              <div
+                class="p-space-sm rounded-xl bg-surface-container-high/60 backdrop-blur-md shadow-sm mb-space-md"
+              >
+                <textarea
+                  class="w-full p-space-2xs bg-surface-container-lowest rounded-lg text-on-surface placeholder:text-outline font-body-sm text-body-sm outline-none resize-none focus:ring-2 focus:ring-primary-container"
+                  id="guestBlessingInput"
+                  placeholder="Write a blessing or warm memory for Aria &amp; Mateo..."
+                  rows="3"
+                ></textarea>
+                <div class="flex items-center justify-between mt-space-2xs">
+                  <input
+                    class="px-space-2xs py-1 rounded bg-surface-container-lowest text-on-surface text-body-sm outline-none w-44"
+                    id="guestAuthorInput"
+                    placeholder="Your name"
+                    type="text"
+                  />
+                  <button
+                    class="px-space-sm py-1 rounded-full bg-primary text-on-primary font-label-subtle text-label-subtle hover:bg-primary-container hover:text-on-primary-container transition-colors"
+                    onclick="postBlessing()"
+                    type="button"
+                  >
+                    Post Blessing
+                  </button>
+                </div>
+              </div>
+              <!-- Live Messages Feed -->
+              <div
+                class="space-y-space-sm max-h-[380px] overflow-y-auto pr-space-2xs"
+                id="blessingsList"
+              >
+                <!-- Message 1 -->
+                <div
+                  class="p-space-sm rounded-lg bg-surface-container-low shadow-sm"
+                >
+                  <div class="flex items-center justify-between mb-space-3xs">
+                    <span
+                      class="font-title-md text-title-md text-on-surface font-semibold text-[15px]"
+                      >Countess Beatrice D'Este</span
+                    >
+                    <span class="font-label-caps text-label-caps text-secondary"
+                      >2 hours ago</span
+                    >
+                  </div>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic"
+                  >
+                    “May your love bloom as eternally as the Tuscan olive
+                    groves. We cannot wait to raise a glass in Florence!”
+                  </p>
+                </div>
+                <!-- Message 2 -->
+                <div
+                  class="p-space-sm rounded-lg bg-surface-container-low shadow-sm"
+                >
+                  <div class="flex items-center justify-between mb-space-3xs">
+                    <span
+                      class="font-title-md text-title-md text-on-surface font-semibold text-[15px]"
+                      >Julian &amp; Clara Montgomery</span
+                    >
+                    <span class="font-label-caps text-label-caps text-secondary"
+                      >Yesterday</span
+                    >
+                  </div>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic"
+                  >
+                    “Aria, our sweet sister, seeing you find your forever match
+                    in Mateo is the greatest joy of our family. Cheers to the
+                    great journey ahead!”
+                  </p>
+                </div>
+                <!-- Message 3 -->
+                <div
+                  class="p-space-sm rounded-lg bg-surface-container-low shadow-sm"
+                >
+                  <div class="flex items-center justify-between mb-space-3xs">
+                    <span
+                      class="font-title-md text-title-md text-on-surface font-semibold text-[15px]"
+                      >Marco Rossi &amp; Elena</span
+                    >
+                    <span class="font-label-caps text-label-caps text-secondary"
+                      >2 days ago</span
+                    >
+                  </div>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant italic"
+                  >
+                    “Benvenuti in famiglia, Aria! Get ready for endless pasta
+                    and decades of laughter together Mateo.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="w-full bg-surface-container-low/50 py-space-2xl"
+          id="guest-concierge"
+        >
+          <div
+            class="max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop"
+          >
+            <div class="text-center max-w-2xl mx-auto mb-space-xl">
+              <span
+                class="font-label-caps text-label-caps text-primary uppercase tracking-[0.25em]"
+                >At Your Service</span
+              >
+              <h2
+                class="font-headline-lg text-headline-lg text-on-surface mt-space-3xs"
+              >
+                Wedding Concierge &amp; Guest Assistance
+              </h2>
+              <p
+                class="font-body-md text-body-md text-on-surface-variant mt-space-2xs leading-relaxed"
+              >
+                Have questions about travel, accommodations, dietary needs, or
+                the celebration weekend? Our dedicated wedding party and
+                hospitality team are here to assist you.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+              <div
+                class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between border-t-2 border-primary-container"
+              >
+                <div class="flex flex-col items-center text-center">
+                  <div
+                    class="w-14 h-14 rounded-full bg-secondary-container/50 flex items-center justify-center text-primary mb-space-sm"
+                  >
+                    <span class="material-symbols-outlined text-[24px]"
+                      >support_agent</span
+                    >
+                  </div>
+                  <span
+                    class="font-label-caps text-label-caps text-primary uppercase"
+                    >Matron of Honor</span
+                  >
+                  <h3
+                    class="font-headline-sm text-headline-sm text-on-surface mt-space-3xs"
+                  >
+                    Elena Vance
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed"
+                  >
+                    Logistics, Bridal Suite &amp; Dress Code Inquiries
+                  </p>
+                  <div
+                    class="flex items-center gap-space-2xs text-secondary mt-space-sm font-label-subtle text-label-subtle"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px] text-primary"
+                      >call</span
+                    ><span class="">+39 055 234 5678</span>
+                  </div>
+                </div>
+                <div
+                  class="mt-space-md pt-space-xs flex flex-col gap-space-2xs"
+                >
+                  <a
+                    class="w-full py-space-2xs px-space-sm rounded-full bg-primary text-on-primary font-label-subtle text-label-subtle flex items-center justify-center gap-space-2xs hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+                    href="https://wa.me/390552345678"
+                    target="_blank"
+                    ><span class="material-symbols-outlined text-[18px]"
+                      >chat</span
+                    ><span class="">Message on WhatsApp</span></a
+                  >
+                </div>
+              </div>
+              <div
+                class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between border-t-2 border-primary"
+              >
+                <div class="flex flex-col items-center text-center">
+                  <div
+                    class="w-14 h-14 rounded-full bg-secondary-container/50 flex items-center justify-center text-primary mb-space-sm"
+                  >
+                    <span class="material-symbols-outlined text-[24px]"
+                      >directions_car</span
+                    >
+                  </div>
+                  <span
+                    class="font-label-caps text-label-caps text-primary uppercase"
+                    >Best Man</span
+                  >
+                  <h3
+                    class="font-headline-sm text-headline-sm text-on-surface mt-space-3xs"
+                  >
+                    Julian Montgomery
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed"
+                  >
+                    Groom Party, Shuttle &amp; Transport Schedule
+                  </p>
+                  <div
+                    class="flex items-center gap-space-2xs text-secondary mt-space-sm font-label-subtle text-label-subtle"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px] text-primary"
+                      >call</span
+                    ><span class="">+39 055 876 5432</span>
+                  </div>
+                </div>
+                <div
+                  class="mt-space-md pt-space-xs flex flex-col gap-space-2xs"
+                >
+                  <a
+                    class="w-full py-space-2xs px-space-sm rounded-full bg-primary text-on-primary font-label-subtle text-label-subtle flex items-center justify-center gap-space-2xs hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+                    href="https://wa.me/390558765432"
+                    target="_blank"
+                    ><span class="material-symbols-outlined text-[18px]"
+                      >chat</span
+                    ><span class="">Message on WhatsApp</span></a
+                  >
+                </div>
+              </div>
+              <div
+                class="p-space-lg rounded-xl bg-surface-container-lowest/90 backdrop-blur-md shadow-sm hover:shadow-md transition-all flex flex-col justify-between border-t-2 border-primary-container"
+              >
+                <div class="flex flex-col items-center text-center">
+                  <div
+                    class="w-14 h-14 rounded-full bg-secondary-container/50 flex items-center justify-center text-primary mb-space-sm"
+                  >
+                    <span class="material-symbols-outlined text-[24px]"
+                      >hotel</span
+                    >
+                  </div>
+                  <span
+                    class="font-label-caps text-label-caps text-primary uppercase"
+                    >Villa Hospitality</span
+                  >
+                  <h3
+                    class="font-headline-sm text-headline-sm text-on-surface mt-space-3xs"
+                  >
+                    Concierge Desk
+                  </h3>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed"
+                  >
+                    Check-in, Private Transfers &amp; Local Tour Bookings
+                  </p>
+                  <div
+                    class="flex items-center gap-space-2xs text-secondary mt-space-sm font-label-subtle text-label-subtle"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px] text-primary"
+                      >call</span
+                    ><span class="">+39 055 698 2110</span>
+                  </div>
+                  <div
+                    class="flex items-center gap-space-2xs text-secondary mt-space-3xs font-label-subtle text-label-subtle"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[16px] text-primary"
+                      >mail</span
+                    ><a
+                      class="hover:underline"
+                      href="mailto:concierge@villagamberaia-weddings.it"
+                      >concierge@villagamberaia-weddings.it</a
+                    >
+                  </div>
+                </div>
+                <div
+                  class="mt-space-md pt-space-xs flex flex-col gap-space-2xs"
+                >
+                  <a
+                    class="w-full py-space-2xs px-space-sm rounded-full bg-primary text-on-primary font-label-subtle text-label-subtle flex items-center justify-center gap-space-2xs hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+                    href="https://wa.me/390556982110"
+                    target="_blank"
+                    ><span class="material-symbols-outlined text-[18px]"
+                      >chat</span
+                    ><span class="">Quick Assistance</span></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Interactive Scripts for Scratch Reveal, Countdown & Guestbook -->
+        <script>
+          // 1. Royal Seal Reveal Handler
+          const revealContainer = document.getElementById(
+            "dateRevealContainer",
+          );
+          const revealCover = document.getElementById("revealCover");
+          const revealedContent = document.getElementById("revealedContent");
+          let isRevealed = false;
 
-        // Draw Sparkling Rose-Gold Glitter Heart on Canvas
-        function drawGlitterHeart() {
-          ctx.save();
-          ctx.clearRect(0, 0, width, height);
-
-          // Heart path geometry
-          ctx.beginPath();
-          const topCurveHeight = height * 0.3;
-          ctx.moveTo(width / 2, height * 0.85);
-          // Left side curve
-          ctx.bezierCurveTo(
-            width / 2 - width * 0.45,
-            height * 0.65,
-            width / 2 - width * 0.55,
-            height * 0.2,
-            width / 2 - width * 0.25,
-            height * 0.1,
-          );
-          ctx.bezierCurveTo(
-            width / 2 - width * 0.1,
-            height * 0.05,
-            width / 2,
-            height * 0.2,
-            width / 2,
-            height * 0.32,
-          );
-          // Right side curve
-          ctx.bezierCurveTo(
-            width / 2,
-            height * 0.2,
-            width / 2 + width * 0.1,
-            height * 0.05,
-            width / 2 + width * 0.25,
-            height * 0.1,
-          );
-          ctx.bezierCurveTo(
-            width / 2 + width * 0.55,
-            height * 0.2,
-            width / 2 + width * 0.45,
-            height * 0.65,
-            width / 2,
-            height * 0.85,
-          );
-          ctx.closePath();
-          ctx.clip();
-
-          // Rose-gold gradient base
-          const grad = ctx.createRadialGradient(
-            width * 0.4,
-            height * 0.35,
-            10,
-            width / 2,
-            height / 2,
-            width * 0.55,
-          );
-          grad.addColorStop(0, "#f9c5cc");
-          grad.addColorStop(0.3, "#d88194");
-          grad.addColorStop(0.7, "#b75b70");
-          grad.addColorStop(1, "#812b40");
-          ctx.fillStyle = grad;
-          ctx.fillRect(0, 0, width, height);
-
-          // Shimmer glitter specks
-          for (let i = 0; i < 350; i++) {
-            const x = Math.random() * width;
-            const y = Math.random() * height;
-            const radius = Math.random() * 1.5;
-            ctx.beginPath();
-            ctx.arc(x, y, radius, 0, Math.PI * 2);
-            ctx.fillStyle =
-              Math.random() > 0.4
-                ? "rgba(255, 255, 255, 0.75)"
-                : "rgba(255, 220, 230, 0.5)";
-            ctx.fill();
+          if (revealContainer) {
+            revealContainer.addEventListener("click", function () {
+              if (!isRevealed) {
+                revealCover.style.opacity = "0";
+                revealCover.style.transform = "scale(0.85) rotate(-6deg)";
+                revealedContent.style.opacity = "1";
+                revealedContent.style.transform = "scale(1) rotate(0deg)";
+                revealedContent.style.pointerEvents = "auto";
+                isRevealed = true;
+              } else {
+                revealCover.style.opacity = "1";
+                revealCover.style.transform = "scale(1) rotate(0deg)";
+                revealedContent.style.opacity = "0";
+                revealedContent.style.transform = "scale(0.95)";
+                revealedContent.style.pointerEvents = "none";
+                isRevealed = false;
+              }
+            });
           }
 
-          ctx.restore();
-        }
+          // 2. Real-time Countdown Timer Logic
+          const targetDate = new Date(
+            "October 24, 2026 16:30:00 GMT+0100",
+          ).getTime();
 
-        drawGlitterHeart();
+          function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
 
-        let isDrawing = false;
+            if (difference > 0) {
+              const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+              const hours = Math.floor(
+                (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+              );
+              const minutes = Math.floor(
+                (difference % (1000 * 60 * 60)) / (1000 * 60),
+              );
+              const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        function scratch(e) {
-          if (!isDrawing) return;
-          const rect = canvas.getBoundingClientRect();
-          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-          const x = (clientX - rect.left) * (canvas.width / rect.width);
-          const y = (clientY - rect.top) * (canvas.height / rect.height);
+              const dEl = document.getElementById("countdownDays");
+              const hEl = document.getElementById("countdownHours");
+              const mEl = document.getElementById("countdownMinutes");
+              const sEl = document.getElementById("countdownSeconds");
 
-          ctx.globalCompositeOperation = "destination-out";
-          ctx.beginPath();
-          ctx.arc(x, y, 16, 0, Math.PI * 2);
-          ctx.fill();
-        }
+              if (dEl) dEl.innerText = days;
+              if (hEl) hEl.innerText = hours < 10 ? "0" + hours : hours;
+              if (mEl) mEl.innerText = minutes < 10 ? "0" + minutes : minutes;
+              if (sEl) sEl.innerText = seconds < 10 ? "0" + seconds : seconds;
+            }
+          }
+          setInterval(updateCountdown, 1000);
+          updateCountdown();
 
-        canvas.addEventListener("mousedown", (e) => {
-          isDrawing = true;
-          scratch(e);
-        });
-        window.addEventListener("mouseup", () => {
-          isDrawing = false;
-        });
-        canvas.addEventListener("mousemove", scratch);
-
-        canvas.addEventListener(
-          "touchstart",
-          (e) => {
-            isDrawing = true;
-            scratch(e);
-          },
-          { passive: false },
-        );
-        window.addEventListener("touchend", () => {
-          isDrawing = false;
-        });
-        canvas.addEventListener(
-          "touchmove",
-          (e) => {
+          // 3. Form Submission
+          function handleRSVPSubmit(e) {
             e.preventDefault();
-            scratch(e);
-          },
-          { passive: false },
-        );
-      });
-    </script>
-    <!-- END: InteractiveScratchCardScript -->
-    <!-- BEGIN: GeneralInteractivityScript -->
-    <!-- Countdown timer simulator, RSVP handler, audio feedback -->
-    <script data-purpose="page-interactivity">
-      document.addEventListener("DOMContentLoaded", () => {
-        // RSVP Send Message confirmation simulation
-        const sendBtn = document.getElementById("sendMessageBtn");
-        const alertMsg = document.getElementById("rsvpSuccessAlert");
-        if (sendBtn && alertMsg) {
-          sendBtn.addEventListener("click", () => {
-            sendBtn.innerText = "Sending...";
-            sendBtn.classList.add("opacity-70");
-            setTimeout(() => {
-              sendBtn.innerText = "Sent Successfully!";
-              sendBtn.classList.remove("opacity-70");
-              sendBtn.classList.add("bg-emerald-800");
-              alertMsg.classList.remove("hidden");
-            }, 600);
-          });
-        }
+            const form = document.getElementById("rsvpForm");
+            const msg = document.getElementById("rsvpSuccessMsg");
+            if (form && msg) {
+              form.classList.add("opacity-50", "pointer-events-none");
+              msg.classList.remove("hidden");
+            }
+          }
 
-        // Audio Toggle Simulation
-        const audioBtn = document.getElementById("audioToggleBtn");
-        let isPlaying = false;
-        if (audioBtn) {
-          audioBtn.addEventListener("click", () => {
-            isPlaying = !isPlaying;
-            audioBtn.classList.toggle("text-rose-600", isPlaying);
-            audioBtn.title = isPlaying ? "Music Playing" : "Music Paused";
-          });
-        }
+          // 4. Guestbook Blessing Injection
+          function postBlessing() {
+            const textInput = document.getElementById("guestBlessingInput");
+            const authorInput = document.getElementById("guestAuthorInput");
+            const list = document.getElementById("blessingsList");
 
-        // Live countdown seconds decrementer simulation
-        const secEl = document.getElementById("countSeconds");
-        if (secEl) {
-          let sec = 22;
-          setInterval(() => {
-            sec--;
-            if (sec < 0) sec = 59;
-            secEl.innerText = sec < 10 ? "0" + sec : sec;
-          }, 1000);
-        }
-      });
-    </script>
-    <!-- END: GeneralInteractivityScript -->
+            if (textInput && textInput.value.trim() !== "") {
+              const author =
+                authorInput && authorInput.value.trim() !== ""
+                  ? authorInput.value.trim()
+                  : "Honored Guest";
+              const newCard = document.createElement("div");
+              newCard.className =
+                "p-space-sm rounded-lg bg-secondary-container/40 shadow-sm transition-all duration-500 animate-fade-in";
+              newCard.innerHTML = `
+          <div class="flex items-center justify-between mb-space-3xs">
+            <span class="font-title-md text-title-md text-on-surface font-semibold text-[15px]">${author}</span>
+            <span class="font-label-caps text-label-caps text-primary">Just now</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant italic">&ldquo;${textInput.value.trim()}&rdquo;</p>
+        `;
+              list.insertBefore(newCard, list.firstChild);
+              textInput.value = "";
+              if (authorInput) authorInput.value = "";
+            }
+          }
+        </script>
+      </div>
+      <div class="fixed bottom-space-md right-space-md z-40 md:hidden">
+        <button
+          class="flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_8px_32px_-8px_rgba(45,37,34,0.12)] text-primary"
+          type="button"
+        >
+          <span class="material-symbols-outlined text-[22px]">music_note</span>
+        </button>
+      </div>
+    </main>
+    <footer class="w-full bg-surface-container-low">
+      <div
+        class="max-w-max-content-width mx-auto px-margin-mobile lg:px-margin-desktop py-space-2xl flex flex-col items-center text-center"
+      >
+        <div class="mb-space-sm">
+          <img
+            alt="A &amp; M Royal Wedding Monogram"
+            class="h-12 w-auto object-contain mx-auto"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1V3zIb2DYn2WQYKcRMGhS4ljlPHsT_w6_16NQhBkANB-NJwXnB1V2b2NhXgpUctlT8l_Z79Ztz3ngrUkzmOLrVQqHMjy7H9orlaFfR67W0yUCE3o30k7Q7zsyxQwhDl_xF1i8KFiOx7GloTNeyWFjg8oi4vwCf8TfrPSMlSEhPotWczWEWh1yVtnEqc_4pTCi34FzLAzf6N3xzGdzouDlmpX1zQZ_3nGdP5NTOMzWE9PJOkVgmbvNQ6E2M"
+          />
+        </div>
+        <h3 class="font-headline-md text-headline-md text-primary mb-space-2xs">
+          Aria &amp; Mateo
+        </h3>
+        <p
+          class="font-body-lg text-body-lg text-secondary italic mb-space-lg max-w-lg"
+        >
+          With heartfelt love from both families, celebrating the start of our
+          eternal chapter together.
+        </p>
+        <div
+          class="flex flex-wrap items-center justify-center gap-space-sm mb-space-xl"
+        >
+          <a
+            class="inline-flex items-center gap-space-2xs px-space-md py-space-2xs rounded-full bg-surface-container text-on-surface font-label-subtle text-label-subtle hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] text-primary"
+              >calendar_today</span
+            >Add to Google Calendar</a
+          ><a
+            class="inline-flex items-center gap-space-2xs px-space-md py-space-2xs rounded-full bg-surface-container text-on-surface font-label-subtle text-label-subtle hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px] text-primary"
+              >event</span
+            >Add to Apple Calendar</a
+          >
+        </div>
+        <div
+          class="w-full max-w-xs h-[1px] bg-gradient-to-r from-transparent via-outline-variant to-transparent mb-space-md"
+        ></div>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between w-full text-on-surface-variant font-label-caps text-label-caps uppercase"
+        >
+          <p class="">© 2025 Aria &amp; Mateo. All Rights Reserved.</p>
+          <p class="mt-space-3xs sm:mt-0">
+            Modern Ethereal Romance • Private Celebration
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

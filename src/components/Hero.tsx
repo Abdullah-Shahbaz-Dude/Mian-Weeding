@@ -342,6 +342,11 @@ export function Hero({ onVideoStarted }: HeroProps) {
         <h1 className="font-calligraphy text-primary text-7xl md:text-8xl lg:text-9xl leading-tight font-normal text-shadow-glow">
           {couple.groom}
         </h1>
+        <p
+          className={`${textClass} text-primary text-lg md:text-3xl leading-relaxed font-light mt-2`}
+        >
+          {t.sonOf} {couple.groomFather}
+        </p>
         <HeartDivider className="w-40 mb-8" />
         {videoStarted ? (
           <Suspense

@@ -17,6 +17,9 @@ const Countdown = lazy(() =>
 const Venue = lazy(() =>
   import("./components/Venue").then((module) => ({ default: module.Venue })),
 );
+const Contact = lazy(() =>
+  import("./components/Contact").then((module) => ({ default: module.Contact })),
+);
 const Footer = lazy(() =>
   import("./components/Footer").then((module) => ({ default: module.Footer })),
 );
@@ -117,6 +120,7 @@ export default function App() {
                 <HeartReveal />
                 <Countdown />
                 <Venue />
+                <Contact />
               </Suspense>
             ) : null}
           </div>

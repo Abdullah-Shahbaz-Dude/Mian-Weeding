@@ -3,6 +3,7 @@ import type { Blessing, NavItem, PaletteSwatch, TimelineEvent } from "../types";
 export const couple = {
   bride: "Fatima Kashif",
   groom: "Taimoor Asad",
+  groomFather: "Sheikh Asadullah",
   brideFull: "Fatima Kashif",
   groomFull: "Taimoor Asad",
   monogramAlt: "F & T Wedding Monogram",
@@ -64,6 +65,19 @@ export const venue = {
   shuttle:
     "Complimentary Mercedes-Benz Sprinter shuttles depart continuously every 45 minutes from Hotel Lungarno (Piazza dei Rossi, Florence) directly to the Villa courtyard.",
 } as const;
+
+export const contacts = [
+  {
+    name: "Mian Kashif Manzoor",
+    phone: "0301-4642300",
+    whatsapp: "https://wa.me/923014642300",
+  },
+  {
+    name: "Mian Asjad Faiz",
+    phone: "0300-9689325",
+    whatsapp: "https://wa.me/923009689325",
+  },
+] as const;
 
 export const timelineEvents: TimelineEvent[] = [
   {

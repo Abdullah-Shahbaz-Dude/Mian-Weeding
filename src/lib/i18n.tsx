@@ -37,7 +37,7 @@ const copy = {
     nikkah: "Nikkah",
     dinner: "Dinner",
     with: "with",
-    sonOf: "son of",
+    sonOf: "Son of",
     needAnything: "If you have any questions",
     whatsapp: "WhatsApp",
     loading: "Loading",
